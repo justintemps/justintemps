@@ -1,6 +1,6 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { ThemeProvider } from "styled-components"
+import React from "react";
+import PropTypes from "prop-types";
+import { ThemeProvider } from "styled-components";
 
 const theme = {
   colors: {
@@ -9,10 +9,10 @@ const theme = {
     arancione: "#F28F3B",
     panna: "#F2EFE5",
   },
-}
+};
 
 const Theme = ({ children }) => (
   <ThemeProvider theme={theme}>{children}</ThemeProvider>
-)
+);
 
-export default Theme
+export default Theme;

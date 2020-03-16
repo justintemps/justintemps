@@ -1,18 +1,15 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Headr = styled.header`
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: ${({ theme: { colors } }) => colors.mattone};
   border-bottom: ${({ theme: { colors } }) => `5px solid ${colors.arancione}`};
-  margin: 0 0 1.75rem;
-  padding: 1rem;
 
-  .inner-header {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: flex-end;
-    max-width: 1330px;
-    margin: 0 auto;
+  .logo {
+    grid-column: col-start / span 4;
   }
 
   h1 {
@@ -25,21 +22,22 @@ export const Headr = styled.header`
   }
 
   nav {
-    margin: 0;
+    grid-column: span 8;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
   }
 
   ul {
+    margin: 8px 0 0;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
     list-style: none;
-    margin: 0;
   }
 
   li {
-    margin: 0 20px;
+    margin: 0 0 0 20px;
   }
-`
+`;
