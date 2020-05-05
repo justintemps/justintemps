@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+const desktop = {
+  maxWidth: "1300px",
+  padding: "0 20px",
+};
+
 export const PageLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -16,7 +21,15 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(12, [col-start] 1fr);
   grid-gap: 0 20px;
-  max-width: 1300px;
+  max-width: ${desktop.maxWidth};
   width: 100%;
-  padding: 0 20px;
+  padding: ${desktop.padding};
+`;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  max-width: ${desktop.maxWidth};
+  padding: ${desktop.padding};
+  width: 100%;
 `;
