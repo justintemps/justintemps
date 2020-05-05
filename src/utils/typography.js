@@ -1,4 +1,4 @@
-import Typography from "typography"
+import Typography from "typography";
 
 const typography = new Typography({
   baseFontSize: "16px",
@@ -7,6 +7,16 @@ const typography = new Typography({
   headerFontFamily: ["Lobster", "serif"],
   headerWeight: 400,
   bodyFontFamily: ["Muli", "sans-serif"],
-})
+  googleFonts: [
+    {
+      name: "Lobster",
+      styles: ["400"],
+    },
+    {
+      name: "Muli",
+      styles: ["400"],
+    },
+  ],
+});
 
-export default typography
+export default typography;

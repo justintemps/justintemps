@@ -14,18 +14,10 @@ const Header = ({ siteTitle }) => (
       </div>
       <nav>
         <ul>
-          <li>
-            <Link>Projects</Link>
-          </li>
-          <li>
-            <Link>Writing</Link>
-          </li>
-          <li>
-            <Link>Uses</Link>
-          </li>
-          <li>
-            <Link>Contact</Link>
-          </li>
+          <li>Projects</li>
+          <li>Writing</li>
+          <li>Uses</li>
+          <li>Contact</li>
         </ul>
       </nav>
     </Grid>
