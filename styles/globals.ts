@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import { size } from ".";
+
+import { size, theme, Typography } from ".";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -12,4 +13,16 @@ export const GlobalStyle = createGlobalStyle`
   *:after {
     box-sizing: border-box;
   }
+
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    color: ${theme.colors.text};
+    margin: 0;
+    padding: 0;
+  }
+
+  ${Typography}
 `;
