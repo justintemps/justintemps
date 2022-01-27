@@ -12,6 +12,8 @@ export const GlobalStyle = createGlobalStyle`
   *:before,
   *:after {
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   html {
@@ -19,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    background-color: ${theme.colors.background};
     color: ${theme.colors.text};
     margin: 0;
     padding: 0;
