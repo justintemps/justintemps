@@ -7,6 +7,7 @@ export const theme = {
     background: cobalt,
     primary: bright_yellow,
     secondary: soft_yellow,
+    accent: white,
     text: white,
   },
 };

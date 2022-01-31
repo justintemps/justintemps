@@ -32,6 +32,8 @@ export const Aside = styled.div`
   position: relative;
 
   &:after {
+    pointer-events: none;
+    z-index: -1;
     position: absolute;
     top: 0;
     left: 0;
@@ -39,11 +41,11 @@ export const Aside = styled.div`
     width: 100%;
     content: "";
     background: ${(props) => `linear-gradient(
-    to bottom right,
-    transparent calc(50% - 3px),
-    ${props.theme.colors.primary} calc(50% - 3px),
-    ${props.theme.colors.primary} 50%,
-    transparent 50%
-  );`};
+      to bottom right,
+      transparent calc(50% - 3px),
+      ${props.theme.colors.primary} calc(50% - 3px),
+      ${props.theme.colors.primary} 50%,
+      transparent 50%
+    );`};
   }
 `;

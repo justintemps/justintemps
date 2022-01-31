@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import { Connecticon } from "../components/connecticon";
 import { Page, Container, Grid, Block, Aside } from "../components/layout";
 import { Nav } from "../components/nav";
 
@@ -21,7 +22,21 @@ const Home: NextPage = () => {
                 </Link>
               </p>
             </Block>
-            <Aside />
+            <Aside>
+              <Connecticon
+                icon="twitter"
+                href="https://www.twitter.com/justintemps"
+              />
+              <Connecticon
+                icon="github"
+                href="https://github.com/justintemps"
+              />
+              <Connecticon
+                icon="linkedin"
+                href="https://www.linkedin.com/in/justintemps/"
+              />
+              <Connecticon icon="email" href="/about" siteLink />
+            </Aside>
           </Grid>
         </Container>
       </main>
