@@ -1,38 +1,69 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { Container } from "../layout";
+import { Logo } from "../logo";
 
 const Navbar = styled.nav`
   width: 100%;
   border-bottom: 3px solid ${(props) => props.theme.colors.primary};
-  margin: 0 0 4rem;
 `;
 
 const NavItems = styled(Container)`
-  height: 130px;
+  height: 100%;
   display: flex;
   flex-flow: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 `;
 
-const Logo = styled.a`
-  font-weight: 700;
-  font-style: normal;
-  letter-spacing: normal;
-  color: ${(props) => props.theme.colors.primary};
+const SiteLinks = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0 1.5rem;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
 `;
 
-function Nav() {
+const Nav: React.FC = ({ children }) => {
   return (
     <Navbar>
       <NavItems>
-        <Link passHref href="/">
-          <Logo>@justintemps</Logo>
-        </Link>
+        <Logo />
+        <SiteLinks>
+          <li>
+            <Link passHref href="/about">
+              <a>about</a>
+            </Link>
+          </li>
+          <li>
+            <Link passHref href="/work">
+              <a>work</a>
+            </Link>
+          </li>
+          <li>
+            <Link passHref href="/notes">
+              <a>notes</a>
+            </Link>
+          </li>
+          <li>
+            <Link passHref href="/connect">
+              <a>connect</a>
+            </Link>
+          </li>
+        </SiteLinks>
       </NavItems>
     </Navbar>
   );
-}
+};
 
 export { Nav };

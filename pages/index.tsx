@@ -1,19 +1,18 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { Container, Grid } from "../components/layout";
+import { Page, Container, Grid, Block, Aside } from "../components/layout";
 import { Nav } from "../components/nav";
-import { Block } from "../components/block";
 
 const Home: NextPage = () => {
   return (
-    <>
+    <Page>
       <Nav />
-      <header>
+      <main>
         <Container>
           <Grid>
             <Block>
               <h1>Hi, I&apos;m Justin</h1>
-              <p>
+              <p className="large">
                 I’m a full-stack web developer based in Geneva, Switzerland. I
                 work for the International Labour Organization, a specialised
                 agency of the United Nations.
@@ -22,10 +21,11 @@ const Home: NextPage = () => {
                 </Link>
               </p>
             </Block>
+            <Aside />
           </Grid>
         </Container>
-      </header>
-    </>
+      </main>
+    </Page>
   );
 };
 

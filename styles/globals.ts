@@ -16,6 +16,12 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  html, body, body > div {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
   html {
     font-size: 16px;
   }
@@ -23,8 +29,11 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${theme.colors.background};
     color: ${theme.colors.text};
-    margin: 0;
-    padding: 0;
+  }
+
+  main {
+    height: 100%;
+    position: relative;
   }
 
   ${Typography}

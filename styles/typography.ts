@@ -22,6 +22,8 @@ export const Typography = css`
     color: ${theme.colors.primary};
     line-height: 1.08em;
     margin: 0;
+    position: relative;
+    left: -10px;
   }
 
   p {
@@ -29,6 +31,15 @@ export const Typography = css`
     color: ${theme.colors.text};
     font-size: ${fontSize[4]};
     line-height: normal;
+  }
+
+  /* Let's fix this with the Text component I like that idea */
+  p.large {
+    font-size: ${fontSize[2]};
+    line-height: 1.25em;
+    letter-spacing: -0px;
+    margin: 0.5em 0;
+    font-weight: 400;
   }
 
   a {
