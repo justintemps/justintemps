@@ -30,6 +30,11 @@ export const Block = styled.div`
 export const Aside = styled.div`
   height: 100%;
   position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 14.2rem;
 
   &:after {
     pointer-events: none;
@@ -47,5 +52,24 @@ export const Aside = styled.div`
       ${props.theme.colors.primary} 50%,
       transparent 50%
     );`};
+  }
+`;
+
+export const Diagonal = styled.div`
+  --offset: 30%;
+  --modifier: 38px;
+  position: relative;
+  margin: 11px 0;
+  &:first-child {
+    left: var(--offset);
+  }
+  &:nth-child(2) {
+    left: calc(var(--offset) - var(--modifier));
+  }
+  &:nth-child(3) {
+    left: calc(var(--offset) - var(--modifier) * 2);
+  }
+  &:nth-child(4) {
+    left: calc(var(--offset) - var(--modifier) * 3);
   }
 `;
