@@ -54,22 +54,3 @@ export const Aside = styled.div`
     );`};
   }
 `;
-
-export const Diagonal = styled.div`
-  --offset: 30%;
-  --modifier: 38px;
-  position: relative;
-  margin: 11px 0;
-  &:first-child {
-    left: var(--offset);
-  }
-  &:nth-child(2) {
-    left: calc(var(--offset) - var(--modifier));
-  }
-  &:nth-child(3) {
-    left: calc(var(--offset) - var(--modifier) * 2);
-  }
-  &:nth-child(4) {
-    left: calc(var(--offset) - var(--modifier) * 3);
-  }
-`;

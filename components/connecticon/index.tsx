@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React, { forwardRef, ForwardRefRenderFunction } from "react";
 import Email from "./icons/email.svg";
 import Github from "./icons/github.svg";
 import LinkedIn from "./icons/linkedin.svg";
@@ -29,26 +30,24 @@ interface ConnectBtnProps extends IconProps {
   siteLink?: boolean;
 }
 
-const Connecticon: React.FC<ConnectBtnProps> = ({
-  icon,
-  href,
-  siteLink = false,
-}) => {
+const ConnecticonComponent: ForwardRefRenderFunction<
+  HTMLAnchorElement,
+  ConnectBtnProps
+> = ({ icon, href, siteLink = false }, ref) => {
   if (siteLink) {
     return (
       <Link href={href} passHref>
-        <Button>
+        <Button ref={ref}>
           <Icon icon={icon} />
         </Button>
       </Link>
     );
   }
-
   return (
-    <Button href={href} target="_blank">
+    <Button href={href} target="_blank" ref={ref}>
       <Icon icon={icon} />
     </Button>
   );
 };
 
-export { Connecticon };
+export const Connecticon = forwardRef(ConnecticonComponent);

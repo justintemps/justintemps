@@ -65,7 +65,6 @@ const Diagonal: React.FC = ({ children }) => {
         const innerEnd = computedWidth - lastOffset;
         const innerWidth = innerEnd - innerStart;
         const splitWidth = innerWidth / (numElements - 1);
-
         updateDimensions({ innerStart, innerEnd, innerWidth, splitWidth });
       }
     }

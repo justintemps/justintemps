@@ -1,15 +1,18 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import styled from "styled-components";
 import { Connecticon } from "../components/connecticon";
-import {
-  Page,
-  Container,
-  Grid,
-  Block,
-  Aside,
-  Diagonal,
-} from "../components/layout";
+import { Diagonal } from "../components/diagonal";
+import { Page, Container, Grid, Block, Aside } from "../components/layout";
 import { Nav } from "../components/nav";
+
+const Connect = styled.div`
+  width: 50%;
+  height: 64%;
+  left: 3rem;
+  position: relative;
+  padding-top: 11px;
+`;
 
 const Home: NextPage = () => {
   return (
@@ -30,27 +33,24 @@ const Home: NextPage = () => {
               </p>
             </Block>
             <Aside>
-              <Diagonal>
-                <Connecticon
-                  icon="twitter"
-                  href="https://www.twitter.com/justintemps"
-                />
-              </Diagonal>
-              <Diagonal>
-                <Connecticon
-                  icon="github"
-                  href="https://github.com/justintemps"
-                />
-              </Diagonal>
-              <Diagonal>
-                <Connecticon
-                  icon="linkedin"
-                  href="https://www.linkedin.com/in/justintemps/"
-                />
-              </Diagonal>
-              <Diagonal>
-                <Connecticon icon="email" href="/about" siteLink />
-              </Diagonal>
+              <Connect>
+                <Diagonal>
+                  <Connecticon
+                    icon="twitter"
+                    href="https://www.twitter.com/justintemps"
+                  />
+                  <Connecticon
+                    icon="github"
+                    href="https://github.com/justintemps"
+                  />
+
+                  <Connecticon
+                    icon="linkedin"
+                    href="https://www.linkedin.com/in/justintemps/"
+                  />
+                  <Connecticon icon="email" href="/about" siteLink />
+                </Diagonal>
+              </Connect>
             </Aside>
           </Grid>
         </Container>
