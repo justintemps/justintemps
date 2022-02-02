@@ -1,5 +1,6 @@
-import React, { ReactNode, useState, useEffect, useRef } from "react";
+import React, { ReactNode, useState, useRef, useLayoutEffect } from "react";
 import styled from "styled-components";
+import { useSize } from "../../hooks";
 
 const Container = styled.div`
   display: flex;
@@ -30,6 +31,7 @@ interface Dimensions {
 const Diagonal: React.FC = ({ children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const childrenRef = useRef<any>({});
+  const containerSize = useSize(containerRef);
 
   const [dimensions, setDimensions] = useState<Dimensions>({
     computedWidth: 0,
@@ -51,16 +53,12 @@ const Diagonal: React.FC = ({ children }) => {
   // The total number of children
   const numElements = items.length;
 
-  useEffect(() => {
+  // Upate the position of our diagonal elements when the
+  // size of the container changes
+  useLayoutEffect(() => {
     if (typeof window !== "undefined") {
-      if (containerRef.current && childrenRef.current) {
-        const containerStyle = window.getComputedStyle(containerRef.current);
-
-        const computedWidth =
-          containerRef.current!.clientWidth -
-          parseFloat(containerStyle.paddingLeft) -
-          parseFloat(containerStyle.paddingRight);
-
+      if (containerSize && childrenRef.current) {
+        const computedWidth = containerSize.width;
         const firstOffset = childrenRef.current[0].clientWidth / 2;
         const lastOffset = childrenRef.current[numElements - 1].clientWidth / 2;
         const innerStart = firstOffset;
@@ -71,7 +69,7 @@ const Diagonal: React.FC = ({ children }) => {
         updateDimensions({ innerStart, innerEnd, innerWidth, splitWidth });
       }
     }
-  }, [numElements]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [numElements, containerSize]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Container ref={containerRef}>
@@ -79,9 +77,9 @@ const Diagonal: React.FC = ({ children }) => {
         const { splitWidth, lastOffset } = dimensions;
         if (React.isValidElement(child)) {
           const iMirror = numElements - i - 1;
-          const marginLeft = splitWidth * iMirror + lastOffset;
+          const translate = splitWidth * iMirror + lastOffset;
           return (
-            <DiagonalItem style={{ marginLeft }}>
+            <DiagonalItem style={{ transform: `translateX(${translate}px)` }}>
               {React.cloneElement(child, {
                 ref: (ref: any) => (childrenRef.current[i] = ref),
               })}
