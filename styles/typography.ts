@@ -5,7 +5,7 @@ export const headingFontFamily = `Montserrat, sans-serif`;
 
 export const bodyFontFamily = `"Crimson Text", serif`;
 
-export const fontSize = ["7.6rem", "5rem", "3.3333rem", "3rem", "1.5rem"];
+export const fontSize = ["7.4375rem", "5rem", "3.25rem", "3rem", "1.5rem"];
 
 export const Typography = css`
   h1,
@@ -19,11 +19,9 @@ export const Typography = css`
   h1 {
     font-weight: 700;
     font-size: ${fontSize[0]};
+    white-space: nowrap;
     color: ${theme.colors.primary};
-    line-height: 1.08em;
-    margin: 0;
-    position: relative;
-    left: -10px;
+    margin: 0 0 1rem -0.06em;
   }
 
   p {
@@ -35,11 +33,10 @@ export const Typography = css`
 
   /* Let's fix this with the Text component I like that idea */
   p.large {
-    font-size: ${fontSize[2]};
-    line-height: 1.25em;
-    letter-spacing: -0px;
-    margin: 0.5em 0;
     font-weight: 400;
+    letter-spacing: normal;
+    font-size: ${fontSize[2]};
+    margin: 0;
   }
 
   a {

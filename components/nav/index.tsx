@@ -20,13 +20,14 @@ const SiteLinks = styled.ul`
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
   margin: 0;
   padding: 0;
+  flex-basis: 33%;
 
   li {
     margin: 0;
-    padding: 0 1.5rem;
 
     &:last-child {
       padding-right: 0;

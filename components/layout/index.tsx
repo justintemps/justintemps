@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 export const Page = styled.div`
   display: grid;
-  grid-template-rows: 130px 1fr;
+  grid-template-rows: 100px 1fr;
+  grid-row-gap: 3rem;
   height: 100%;
   min-height: 100vh;
 `;
@@ -17,15 +18,13 @@ export const Container = styled.div`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: 70% 1fr;
+  grid-template-columns: 66% 1fr;
   grid-auto-rows: auto;
   width: 100%;
   height: inherit;
 `;
 
-export const Block = styled.div`
-  margin: 4rem 0 0;
-`;
+export const Block = styled.div``;
 
 export const Aside = styled.div`
   height: 100%;
@@ -40,9 +39,9 @@ export const Aside = styled.div`
     pointer-events: none;
     z-index: -1;
     position: absolute;
-    top: 0;
+    top: -3rem;
     left: 0;
-    height: calc(100% + 6px);
+    height: calc(100% + 3rem);
     width: 100%;
     content: "";
     background: ${(props) => `linear-gradient(
@@ -53,4 +52,12 @@ export const Aside = styled.div`
       transparent 50%
     );`};
   }
+`;
+
+export const ConnectBtns = styled.div`
+  width: 46%;
+  height: 295px;
+  left: 4rem;
+  position: relative;
+  top: 5px;
 `;

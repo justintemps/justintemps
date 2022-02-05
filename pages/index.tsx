@@ -1,18 +1,16 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import styled from "styled-components";
 import { Connecticon } from "../components/connecticon";
 import { Diagonal } from "../components/diagonal";
-import { Page, Container, Grid, Block, Aside } from "../components/layout";
+import {
+  Page,
+  Container,
+  Grid,
+  Block,
+  Aside,
+  ConnectBtns,
+} from "../components/layout";
 import { Nav } from "../components/nav";
-
-const Connect = styled.div`
-  width: 50%;
-  height: 64%;
-  left: 3rem;
-  position: relative;
-  padding-top: 11px;
-`;
 
 const Home: NextPage = () => {
   return (
@@ -22,18 +20,18 @@ const Home: NextPage = () => {
         <Container>
           <Grid>
             <Block>
-              <h1>Hi, I&apos;m Justin</h1>
-              <p className="large">
+              <h1 className="h1">Hi, I&apos;m Justin</h1>
+              <p className="large p-large">
                 I’m a full-stack web developer based in Geneva, Switzerland. I
                 work for the International Labour Organization, a specialised
                 agency of the United Nations.
                 <Link passHref href="/about">
-                  <a>Want to know more?</a>
+                  <a>Want the whole story?</a>
                 </Link>
               </p>
             </Block>
             <Aside>
-              <Connect>
+              <ConnectBtns>
                 <Diagonal>
                   <Connecticon
                     icon="twitter"
@@ -50,7 +48,7 @@ const Home: NextPage = () => {
                   />
                   <Connecticon icon="email" href="/about" siteLink />
                 </Diagonal>
-              </Connect>
+              </ConnectBtns>
             </Aside>
           </Grid>
         </Container>
