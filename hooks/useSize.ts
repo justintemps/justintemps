@@ -1,4 +1,4 @@
-import React, { DOMElement, RefObject } from "react";
+import React, { RefObject } from "react";
 import useResizeObserver from "@react-hook/resize-observer";
 
 const useSize = (target: RefObject<any>) => {
@@ -8,7 +8,6 @@ const useSize = (target: RefObject<any>) => {
     setSize(target.current.getBoundingClientRect());
   }, [target]);
 
-  // Where the magic happens
   useResizeObserver(target, (entry) => setSize(entry.contentRect));
   return size;
 };

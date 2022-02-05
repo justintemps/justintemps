@@ -1,14 +1,16 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { Connecticon } from "../components/connecticon";
-import { Diagonal } from "../components/diagonal";
+// Can probably get rid of this
+// import { Diagonal } from "../components/diagonal";
 import {
   Page,
   Container,
   Grid,
   Block,
   Aside,
-  ConnectBtns,
+  Tilted,
+  Divider,
 } from "../components/layout";
 import { Nav } from "../components/nav";
 
@@ -31,24 +33,23 @@ const Home: NextPage = () => {
               </p>
             </Block>
             <Aside>
-              <ConnectBtns>
-                <Diagonal>
-                  <Connecticon
-                    icon="twitter"
-                    href="https://www.twitter.com/justintemps"
-                  />
-                  <Connecticon
-                    icon="github"
-                    href="https://github.com/justintemps"
-                  />
+              <Divider />
+              <Tilted>
+                <Connecticon
+                  icon="twitter"
+                  href="https://www.twitter.com/justintemps"
+                />
+                <Connecticon
+                  icon="github"
+                  href="https://github.com/justintemps"
+                />
 
-                  <Connecticon
-                    icon="linkedin"
-                    href="https://www.linkedin.com/in/justintemps/"
-                  />
-                  <Connecticon icon="email" href="/about" siteLink />
-                </Diagonal>
-              </ConnectBtns>
+                <Connecticon
+                  icon="linkedin"
+                  href="https://www.linkedin.com/in/justintemps/"
+                />
+                <Connecticon icon="email" href="/about" siteLink />
+              </Tilted>
             </Aside>
           </Grid>
         </Container>

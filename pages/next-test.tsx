@@ -1,28 +1,50 @@
+import { group } from "console";
 import styled from "styled-components";
 import { Diagonal } from "../components/diagonal";
 
 const Container = styled.div`
-  border: 1px solid ${(props) => props.theme.colors.accent};
-  display: inline-block;
-  transform: rotate(10deg);
+  height: 840px;
+  min-height: 840px;
+  width: 408px;
+  // border: 1px solid yellow;
 `;
 
-const Circle = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: ${(props) => props.theme.colors.primary};
-  border-radius: 50%;
+const SVG = styled.svg`
+  height: 100%;
+  width: 100%;
 `;
+
+const Line = ({}) => {
+  const strokeWidth = 1;
+  const sides = 100;
+  const butt = strokeWidth / 2;
+  return (
+    <SVG
+      width="100%"
+      height="100%"
+      viewBox={`0 0 ${sides} ${sides}`}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <line
+        x1={butt}
+        y1={sides + 1}
+        x2={sides - butt}
+        y2="0"
+        stroke="white"
+        strokeWidth={strokeWidth}
+        strokeLinecap="square"
+      />
+    </SVG>
+  );
+};
 
 const Test = () => {
   return (
-    <div>
-      <Container>
-        <Circle />
-        <Circle />
-        <Circle />
-      </Container>
-    </div>
+    <Container>
+      <Line />
+    </Container>
   );
 };
 

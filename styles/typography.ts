@@ -5,7 +5,7 @@ export const headingFontFamily = `Montserrat, sans-serif`;
 
 export const bodyFontFamily = `"Crimson Text", serif`;
 
-export const fontSize = ["7.4375rem", "5rem", "3.25rem", "3rem", "1.5rem"];
+export const fontSize = ["7.4375rem", "5rem", "3.75rem", "3rem", "1.5rem"];
 
 export const Typography = css`
   h1,
@@ -19,6 +19,7 @@ export const Typography = css`
   h1 {
     font-weight: 700;
     font-size: ${fontSize[0]};
+    font-size: clamp(3rem, 4vw, ${fontSize[0]});
     white-space: nowrap;
     color: ${theme.colors.primary};
     margin: 0 0 1rem -0.06em;
