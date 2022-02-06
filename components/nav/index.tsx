@@ -2,10 +2,12 @@ import styled from "styled-components";
 import Link from "next/link";
 import { Container } from "../layout";
 import { Logo } from "../logo";
+import { fontSize, headingFontFamily } from "../../styles/typography";
 
 const Navbar = styled.nav`
   width: 100%;
   border-bottom: 3px solid ${(props) => props.theme.colors.primary};
+  font-size: ${fontSize.heading[4]};
 `;
 
 const NavItems = styled(Container)`
@@ -28,6 +30,7 @@ const SiteLinks = styled.ul`
 
   li {
     margin: 0;
+    font-family: ${headingFontFamily};
 
     &:last-child {
       padding-right: 0;

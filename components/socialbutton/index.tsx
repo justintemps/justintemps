@@ -30,7 +30,7 @@ interface ConnectBtnProps extends IconProps {
   siteLink?: boolean;
 }
 
-const ConnecticonComponent: ForwardRefRenderFunction<
+const SocialBtn: ForwardRefRenderFunction<
   HTMLAnchorElement,
   ConnectBtnProps
 > = ({ icon, href, siteLink = false }, ref) => {
@@ -50,4 +50,4 @@ const ConnecticonComponent: ForwardRefRenderFunction<
   );
 };
 
-export const Connecticon = forwardRef(ConnecticonComponent);
+export const SocialButton = forwardRef(SocialBtn);

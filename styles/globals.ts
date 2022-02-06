@@ -3,11 +3,6 @@ import { createGlobalStyle } from "styled-components";
 import { size, theme, Typography } from ".";
 
 export const GlobalStyle = createGlobalStyle`
-  :root {
-    --lg-max-width: ${size.xl};
-    --base-padding: 1rem;
-  }
-
   *,
   *:before,
   *:after {

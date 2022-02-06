@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import Clock from "../../public/clock.svg";
+import { headingFontFamily } from "../../styles/typography";
 
 const Anchor = styled.a`
   font-weight: 700;
@@ -11,6 +12,10 @@ const Anchor = styled.a`
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
+
+  span {
+    font-family: ${headingFontFamily};
+  }
 
   svg {
     margin: 0 5px 0 0;

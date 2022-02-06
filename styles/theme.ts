@@ -1,3 +1,4 @@
+import { size } from ".";
 import { colors } from "./colors";
 
 const { bright_yellow, white, soft_yellow, cobalt } = colors;
@@ -10,4 +11,5 @@ export const theme = {
     accent: white,
     text: white,
   },
+  size: size,
 };

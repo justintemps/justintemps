@@ -1,18 +1,9 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { Connecticon } from "../components/connecticon";
-// Can probably get rid of this
-// import { Diagonal } from "../components/diagonal";
-import {
-  Page,
-  Container,
-  Grid,
-  Block,
-  Aside,
-  Tilted,
-  Divider,
-} from "../components/layout";
+import { Container, Page } from "../components/layout";
 import { Nav } from "../components/nav";
+import { SocialButton } from "../components/socialbutton";
+import { Aside, Divider, Grid, Tilted } from "../templates/homepage";
 
 const Home: NextPage = () => {
   return (
@@ -21,9 +12,9 @@ const Home: NextPage = () => {
       <main>
         <Container>
           <Grid>
-            <Block>
-              <h1 className="h1">Hi, I&apos;m Justin</h1>
-              <p className="large p-large">
+            <div>
+              <h1>Hi, I&apos;m Justin</h1>
+              <p>
                 I’m a full-stack web developer based in Geneva, Switzerland. I
                 work for the International Labour Organization, a specialised
                 agency of the United Nations.
@@ -31,24 +22,24 @@ const Home: NextPage = () => {
                   <a>Want the whole story?</a>
                 </Link>
               </p>
-            </Block>
+            </div>
             <Aside>
               <Divider />
               <Tilted>
-                <Connecticon
+                <SocialButton
                   icon="twitter"
                   href="https://www.twitter.com/justintemps"
                 />
-                <Connecticon
+                <SocialButton
                   icon="github"
                   href="https://github.com/justintemps"
                 />
 
-                <Connecticon
+                <SocialButton
                   icon="linkedin"
                   href="https://www.linkedin.com/in/justintemps/"
                 />
-                <Connecticon icon="email" href="/about" siteLink />
+                <SocialButton icon="email" href="/about" siteLink />
               </Tilted>
             </Aside>
           </Grid>

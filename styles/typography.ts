@@ -5,7 +5,10 @@ export const headingFontFamily = `Montserrat, sans-serif`;
 
 export const bodyFontFamily = `"Crimson Text", serif`;
 
-export const fontSize = ["7.4375rem", "5rem", "3.75rem", "3rem", "1.5rem"];
+export const fontSize = {
+  heading: ["7.6rem", "5rem", "3.75rem", "2.5rem", "1.5rem"],
+  body: ["7rem", "3.3333rem", "3rem", "2.5rem", "2rem"],
+};
 
 export const Typography = css`
   h1,
@@ -16,27 +19,25 @@ export const Typography = css`
     font-family: ${headingFontFamily};
   }
 
+  p,
+  span,
+  div {
+    font-family: ${bodyFontFamily};
+  }
+
   h1 {
     font-weight: 700;
-    font-size: ${fontSize[0]};
-    font-size: clamp(3rem, 4vw, ${fontSize[0]});
+    font-size: ${fontSize.heading[0]};
     white-space: nowrap;
     color: ${theme.colors.primary};
     margin: 0 0 1rem -0.06em;
   }
 
   p {
-    font-family: ${bodyFontFamily};
     color: ${theme.colors.text};
-    font-size: ${fontSize[4]};
+    font-size: ${fontSize.body[1]};
     line-height: normal;
-  }
-
-  /* Let's fix this with the Text component I like that idea */
-  p.large {
-    font-weight: 400;
-    letter-spacing: normal;
-    font-size: ${fontSize[2]};
+    letter-spacing: 0px;
     margin: 0;
   }
 
@@ -47,10 +48,5 @@ export const Typography = css`
     &:hover {
       color: ${theme.colors.primary};
     }
-  }
-
-  nav {
-    font-size: ${fontSize[4]};
-    font-family: ${headingFontFamily};
   }
 `;
