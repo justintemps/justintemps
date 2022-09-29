@@ -1,13 +1,15 @@
-import styled from "styled-components";
 import Link from "next/link";
+import styled from "styled-components";
+import { fontSize, headingFontFamily } from "../../styles/typography";
 import { Container } from "../layout";
 import { Logo } from "../logo";
-import { fontSize, headingFontFamily } from "../../styles/typography";
+import { NavItem } from "../navItem";
 
 const Navbar = styled.nav`
   width: 100%;
   border-bottom: 3px solid ${(props) => props.theme.colors.primary};
   font-size: ${fontSize.heading[4]};
+  background-color: ${(props) => props.theme.colors.background_accent};
 `;
 
 const NavItems = styled(Container)`
@@ -46,22 +48,30 @@ const Nav: React.FC = ({ children }) => {
         <SiteLinks>
           <li>
             <Link passHref href="/about">
-              <a>about</a>
+              <a>
+                <NavItem>about</NavItem>
+              </a>
             </Link>
           </li>
           <li>
             <Link passHref href="/work">
-              <a>work</a>
+              <a>
+                <NavItem>work</NavItem>
+              </a>
             </Link>
           </li>
           <li>
             <Link passHref href="/notes">
-              <a>notes</a>
+              <a>
+                <NavItem>notes</NavItem>
+              </a>
             </Link>
           </li>
           <li>
             <Link passHref href="/connect">
-              <a>connect</a>
+              <a>
+                <NavItem>connect</NavItem>
+              </a>
             </Link>
           </li>
         </SiteLinks>

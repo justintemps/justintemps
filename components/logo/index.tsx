@@ -2,6 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import Clock from "../../public/clock.svg";
 import { headingFontFamily } from "../../styles/typography";
+import { NavItem } from "../navItem";
 
 const Anchor = styled.a`
   font-weight: 700;
@@ -29,7 +30,7 @@ const Logo = () => {
     <Link passHref href="/">
       <Anchor>
         <Clock />
-        <span>justintemps</span>
+        <NavItem selected={true}>justintemps</NavItem>
       </Anchor>
     </Link>
   );

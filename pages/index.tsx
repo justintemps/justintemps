@@ -19,7 +19,7 @@ const Home: NextPage = () => {
                 work for the International Labour Organization, a specialised
                 agency of the United Nations.
                 <Link passHref href="/about">
-                  <a>Want the whole story?</a>
+                  <a> Here’s a bit about me.</a>
                 </Link>
               </p>
             </div>

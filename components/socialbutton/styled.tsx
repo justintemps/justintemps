@@ -10,16 +10,16 @@ export const Button = styled.a`
   svg {
     width: inherit;
     height: inherit;
-
-    circle,
-    path {
-      transition: fill 250ms ease, stroke 250ms ease;
-    }
+    transition: fill 150ms ease-out, stroke 150ms ease-out,
+      filter 150ms ease-out;
   }
 
   &:hover,
   &:focus {
     svg {
+      filter: ${(props) =>
+        `drop-shadow(0px 0px 16px ${props.theme.colors.primary})`};
+
       [class*="foreground"] {
         fill: ${(props) => props.theme.colors.background};
         stroke: ${(props) => props.theme.colors.background};
