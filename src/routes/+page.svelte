@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>Just in time to blow your mind</h1>
+<p>My name’s Justin Smith. I’m a Digital Communication Officer at the International Labour Organization, a specialised agency of the United Nations.</p>
+
+<style lang="scss">
+  h1 {
+    font-size: to-rem(136px);
+    line-height: to-rem(148px);
+  }
+</style>
