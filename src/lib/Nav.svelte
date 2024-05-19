@@ -12,6 +12,11 @@
   const navItems = ["about", "work", "notes", "contact"];
 
   let path = $derived($page.url.pathname);
+
+  let mobileMenuOpen = $state(false);
+  const toggleMobileMenu = () => {
+    mobileMenuOpen = !mobileMenuOpen;
+  };
 </script>
 
 {#snippet navItem(item: NavItem)}
@@ -41,22 +46,19 @@
         {@render menuItems(navItems)}
       </li>
     </ul>
-    <button class="hamburger">burger</button>
+    <button class="hamburger" onclick={toggleMobileMenu}>burger</button>
   </div>
-  <div class="mobile-menu">
+  <div class={classnames("mobile-menu", { "mobile-menu-open": mobileMenuOpen })}>
     {@render menuItems(navItems)}
   </div>
 </nav>
 
 <style lang="scss">
-  nav {
-    background: var(--color--bg--accent);
-  }
-
   .top-menu {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--color--bg--accent);
     border-bottom: rem(8px) solid var(--color--brand);
     height: rem(84px);
     font-size: rem(20px);
@@ -135,10 +137,11 @@
       display: block;
     }
 
-    .mobile-menu {
+    .mobile-menu.mobile-menu-open {
       display: block;
       height: 100%;
       padding-block: rem(84px);
+      background-color: var(--color--bg--accent);
     }
 
     .nav-items {
