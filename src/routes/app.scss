@@ -1,34 +1,38 @@
+@import "../styles";
+
 /* -- SCSS Variables -- */
-$base-font-size: 16px;
+$base-font-size: rem(16px);
+$max-content-width: rem(1200px);
 
-/* -- Colors -- */
-
+/* -- CSS Variables -- */
 :root {
-  --brand-color: #ffc600;
-  --accent-color: #ffdd67;
-  --text-color: #f3f3f3;
-  --main-bg-clor: #193549;
-  --secondary-bg-color: #122736;
+  --font--display: "Montserrat", sans-serif;
+  --font--type: "Crimson Text", serif;
+  --color--brand: #ffc600;
+  --color--accent: #ffdd67;
+  --color--type: #f3f3f3;
+  --color--bg--main: #193549;
+  --color--bg--accent: #122736;
+  --size--content--max: #{$max-content-width};
 }
 
 /* -- CSS -- */
 
 body {
   font-size: $base-font-size;
-  background-color: var(--main-bg-clor);
+  background-color: var(--color--bg--main);
 }
 
 h1,
 h2,
 h3,
 h4,
-h5 {
-  font-family: "Montserrat", sans-serif;
-  color: var(--brand-color);
+h5,
+li {
+  font-family: var(--font--display);
 }
 
 p {
-  font-family: "Crimson Text", serif;
-  color: var(--text-color);
+  font-family: var(--font--type);
   font-size: to-rem(32px);
 }
