@@ -1,38 +1,11 @@
-# create-svelte
+# Hi, my name's Justin Smith
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+I'm a Digital Communication Officer at the International Labour Organization, a specialised labour organization.
+Welcome to my Github Profile!
 
-## Creating a project
+This is also the repo of my personal website, which is a WIP. I'll update this section with links and stuff once it's ready.
 
-If you're seeing this, you've probably already done this step. Congrats!
+In the meantime, feel free to reach out in any of the places where I hang out:
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- [LinkedIn](https://www.linkedin.com/in/justintemps/)
+- [Mastadon](https://fosstodon.org/@justintemps)
