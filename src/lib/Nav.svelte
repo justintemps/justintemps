@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Burger from "./Burger.svelte";
   import classnames from "classnames";
   import { page } from "$app/stores";
 
@@ -46,7 +47,7 @@
         {@render menuItems(navItems)}
       </li>
     </ul>
-    <button class="hamburger" onclick={toggleMobileMenu}>burger</button>
+    <Burger className="hamburger" onclick={toggleMobileMenu} open={mobileMenuOpen} />
   </div>
   <div class={classnames("mobile-menu", { "mobile-menu-open": mobileMenuOpen })}>
     {@render menuItems(navItems)}
@@ -77,6 +78,7 @@
 
   li {
     color: var(--color--accent);
+    font-size: rem(20px);
   }
 
   li.home {
@@ -126,8 +128,6 @@
     }
 
     .home {
-      font-size: rem(20px);
-
       a {
         text-decoration: none;
       }
@@ -148,13 +148,10 @@
       flex-direction: column;
     }
 
-    li {
+    li:not(.home) {
+      padding-inline-start: 0;
       padding-block: rem(28px);
       font-size: rem(32px);
-    }
-
-    li:not(:first-child) {
-      padding-inline-start: 0;
     }
   }
 </style>
