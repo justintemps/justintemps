@@ -10,9 +10,9 @@
   let { open, className, onclick }: BurgerProps = $props();
 </script>
 
-<button {onclick}>
+<button class={className} {onclick}>
   <svg
-    class={classnames(className, { open, closed: !open })}
+    class={classnames({ open, closed: !open })}
     viewBox="0 0 100 80"
     xmlns="http://www.w3.org/2000/svg"
     style="width: 100%; height: 100%;"

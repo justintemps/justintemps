@@ -1,0 +1,5 @@
+@mixin nav-item-selected-decoration {
+  text-decoration: underline;
+  text-underline-offset: rem(8px);
+  text-decoration-thickness: rem(4px);
+}

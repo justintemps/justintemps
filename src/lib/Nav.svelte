@@ -1,5 +1,6 @@
 <script lang="ts">
   import Burger from "./Burger.svelte";
+  import Logo from "./Logo.svelte";
   import classnames from "classnames";
   import { page } from "$app/stores";
 
@@ -21,7 +22,7 @@
 </script>
 
 {#snippet navItem(item: NavItem)}
-  <li class={classnames(item.className, { selected: path === item.href })}>
+  <li class={classnames({ selected: path === item.href })}>
     <a aria-label={item.label} href={item.href}>{item.name}</a>
   </li>
 {/snippet}
@@ -37,24 +38,23 @@
 <nav>
   <div class="top-menu">
     <ul>
-      {@render navItem({
-        href: "/",
-        name: "justintemps",
-        label: "home",
-        className: "home"
-      })}
+      <Logo selected={path === "/"} />
       <li class="desktop-menu">
         {@render menuItems(navItems)}
       </li>
     </ul>
     <Burger className="hamburger" onclick={toggleMobileMenu} open={mobileMenuOpen} />
   </div>
-  <div class={classnames("mobile-menu", { "mobile-menu-open": mobileMenuOpen })}>
+  <div class={classnames("mobile-menu", { open: mobileMenuOpen })}>
     {@render menuItems(navItems)}
   </div>
 </nav>
 
 <style lang="scss">
+  nav {
+    height: 100vh;
+  }
+
   .top-menu {
     display: flex;
     justify-content: center;
@@ -76,26 +76,35 @@
     max-width: var(--size--content--max);
   }
 
-  li {
-    color: var(--color--accent);
-    font-size: rem(20px);
+  :global(.hamburger) {
+    display: block;
   }
 
-  li.home {
-    flex: 1 1 auto;
+  .mobile-menu {
+    display: none;
 
-    &:before {
-      content: "@";
-      color: inherit;
+    &.open {
+      display: block;
+      height: 100%;
+      padding-block: rem(84px);
+      background-color: var(--color--bg--accent);
     }
   }
 
-  li:not(:first-child) {
-    padding-inline-start: rem(48px);
+  .nav-items {
+    flex-flow: column;
   }
 
-  li:hover {
-    color: var(--color--brand);
+  li {
+    color: var(--color--accent);
+    padding-inline-start: 0;
+    padding-block: rem(28px);
+    font-size: rem(32px);
+
+    &.selected {
+      color: var(--color--brand);
+      @include nav-item-selected-decoration;
+    }
   }
 
   a {
@@ -103,55 +112,33 @@
     text-decoration: none;
   }
 
-  .selected {
-    color: var(--color--brand);
-
-    a {
-      text-decoration: underline;
-      text-underline-offset: rem(8px);
-      text-decoration-thickness: rem(4px);
-    }
-  }
-
-  .hamburger,
-  .mobile-menu {
+  .desktop-menu {
     display: none;
   }
 
-  @media (max-width: 768px) {
-    nav {
-      height: 100vh;
-    }
-
-    .desktop-menu {
+  @media (min-width: 786px) {
+    :global(.hamburger),
+    .mobile-menu,
+    .mobile-menu.open {
       display: none;
     }
 
-    .home {
-      a {
-        text-decoration: none;
-      }
-    }
-
-    .hamburger {
+    .desktop-menu {
       display: block;
-    }
-
-    .mobile-menu.mobile-menu-open {
-      display: block;
-      height: 100%;
-      padding-block: rem(84px);
-      background-color: var(--color--bg--accent);
     }
 
     .nav-items {
-      flex-direction: column;
+      display: flex;
+      flex-flow: row nowrap;
+      gap: rem(48px);
     }
 
-    li:not(.home) {
-      padding-inline-start: 0;
-      padding-block: rem(28px);
-      font-size: rem(32px);
+    li {
+      font-size: rem(20px);
+
+      &:hover {
+        color: var(--color--brand);
+      }
     }
   }
 </style>
