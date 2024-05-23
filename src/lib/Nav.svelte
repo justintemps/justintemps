@@ -92,12 +92,19 @@
   }
 
   .mobile-menu {
-    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    background: var(--color--bg--accent);
+    transition: all ease-in-out var(--transition--duration--slow);
   }
 
   .mobile-menu-open {
     .mobile-menu {
-      display: block;
+      opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -127,8 +134,12 @@
   }
 
   .content {
+    transition: all ease-in-out var(--transition--duration--slow);
+    opacity: 1;
+    visibility: visible;
     &.hidden {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
   }
 

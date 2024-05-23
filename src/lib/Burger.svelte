@@ -111,7 +111,7 @@
 
   g {
     path {
-      animation-duration: 300ms;
+      animation-duration: var(--transition--duration--slow);
       animation-timing-function: ease;
       animation-fill-mode: forwards;
       transform-box: view-box;

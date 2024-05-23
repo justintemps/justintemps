@@ -16,6 +16,8 @@ $column-width: rem(800px);
   --color--bg--accent: #122736;
   --size--content--max: #{$max-content-width};
   --size--column: #{$column-width};
+  --transition--duration--slow: 300ms;
+  --transition--duration--fast: 150ms;
 }
 
 /* -- CSS -- */
