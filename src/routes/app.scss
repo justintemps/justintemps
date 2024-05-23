@@ -3,6 +3,7 @@
 /* -- SCSS Variables -- */
 $base-font-size: rem(16px);
 $max-content-width: rem(1200px);
+$column-width: rem(800px);
 
 /* -- CSS Variables -- */
 :root {
@@ -14,6 +15,7 @@ $max-content-width: rem(1200px);
   --color--bg--main: #193549;
   --color--bg--accent: #122736;
   --size--content--max: #{$max-content-width};
+  --size--column: #{$column-width};
 }
 
 /* -- CSS -- */

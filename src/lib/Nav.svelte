@@ -4,6 +4,10 @@
   import classnames from "classnames";
   import { page } from "$app/stores";
 
+  interface Props {
+    children: any;
+  }
+
   type NavItem = {
     href: string;
     name: string;
@@ -12,6 +16,8 @@
   };
 
   const navItems = ["about", "work", "notes", "contact"];
+
+  const { children }: Props = $props();
 
   let path = $derived($page.url.pathname);
 
@@ -35,26 +41,31 @@
   </ul>
 {/snippet}
 
-<nav>
-  <div class="top-menu">
-    <ul>
-      <Logo selected={path === "/"} />
-      <li class="desktop-menu">
+<div>
+  <header>
+    <nav class={classnames({ ["mobile-menu-open"]: mobileMenuOpen })}>
+      <div class="top-menu">
+        <ul>
+          <Logo selected={path === "/"} />
+          <li class="desktop-menu">
+            {@render menuItems(navItems)}
+          </li>
+        </ul>
+        <Burger className="hamburger" onclick={toggleMobileMenu} open={mobileMenuOpen} />
+      </div>
+      <div class="mobile-menu">
         {@render menuItems(navItems)}
-      </li>
-    </ul>
-    <Burger className="hamburger" onclick={toggleMobileMenu} open={mobileMenuOpen} />
+      </div>
+    </nav>
+  </header>
+  <div class={classnames("content", { hidden: mobileMenuOpen })}>
+    {#if children}
+      {@render children()}
+    {/if}
   </div>
-  <div class={classnames("mobile-menu", { open: mobileMenuOpen })}>
-    {@render menuItems(navItems)}
-  </div>
-</nav>
+</div>
 
 <style lang="scss">
-  nav {
-    height: 100vh;
-  }
-
   .top-menu {
     display: flex;
     justify-content: center;
@@ -82,12 +93,11 @@
 
   .mobile-menu {
     display: none;
+  }
 
-    &.open {
+  .mobile-menu-open {
+    .mobile-menu {
       display: block;
-      height: 100%;
-      padding-block: rem(84px);
-      background-color: var(--color--bg--accent);
     }
   }
 
@@ -116,7 +126,17 @@
     display: none;
   }
 
+  .content {
+    &.hidden {
+      display: none;
+    }
+  }
+
   @media (min-width: 786px) {
+    nav {
+      height: initial;
+    }
+
     :global(.hamburger),
     .mobile-menu,
     .mobile-menu.open {
@@ -125,6 +145,10 @@
 
     .desktop-menu {
       display: block;
+    }
+
+    .mobile-menu {
+      display: none !important;
     }
 
     .nav-items {
