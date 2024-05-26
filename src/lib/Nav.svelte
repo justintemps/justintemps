@@ -49,7 +49,7 @@
   </ul>
 {/snippet}
 
-<div>
+<div class="container">
   <header>
     <nav class={classnames({ ["mobile-menu-open"]: mobileMenuOpen })}>
       <div class="top-menu">
@@ -79,15 +79,25 @@
 </div>
 
 <style lang="scss">
+  .container {
+    display: grid;
+    grid-template-rows: rem(84px) auto;
+    min-height: 100vh;
+  }
+
+  nav {
+    height: 100%;
+  }
+
   .top-menu {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--color--bg--accent);
-    border-bottom: rem(8px) solid var(--color--brand);
-    height: rem(84px);
+    border-bottom: rem(4px) solid var(--color--brand);
     font-size: rem(20px);
     padding-inline: rem(20px);
+    height: 100%;
   }
 
   ul {
@@ -157,8 +167,8 @@
   }
 
   @media (min-width: 786px) {
-    nav {
-      height: initial;
+    .top-menu {
+      border-bottom: rem(8px) solid var(--color--brand);
     }
 
     :global(.hamburger),

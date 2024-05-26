@@ -3,17 +3,29 @@
   import "@fontsource/montserrat/600.css";
   import "./app.scss";
   import Nav from "$lib/Nav.svelte";
+  import Footer from "$lib/Footer.svelte";
 </script>
 
 <Nav>
-  <main>
-    <div>
-      <slot />
-    </div>
-  </main>
+  <div class="layout">
+    <main>
+      <div class="wrapper">
+        <slot />
+      </div>
+    </main>
+    <Footer />
+  </div>
 </Nav>
 
 <style lang="scss">
+  .layout {
+    display: grid;
+    grid-template-rows: 1fr rem(84px);
+    grid-template-columns: 1fr;
+    width: 100%;
+    height: 100%;
+  }
+
   main {
     display: flex;
     justify-content: center;
@@ -22,7 +34,7 @@
     padding-block: rem(84px);
   }
 
-  div {
+  .wrapper {
     width: 100%;
     max-width: var(--size--content--max);
     display: flex;
