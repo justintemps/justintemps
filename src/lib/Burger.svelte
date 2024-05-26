@@ -5,12 +5,19 @@
     open: boolean;
     onclick: () => void;
     className?: string;
+    controlsId: string;
   }
 
-  let { open, className, onclick }: BurgerProps = $props();
+  let { open, className, onclick, controlsId }: BurgerProps = $props();
 </script>
 
-<button class={className} {onclick}>
+<button
+  aria-label="Toggle mobile menu"
+  aria-expanded={open}
+  aria-controls={controlsId}
+  class={className}
+  {onclick}
+>
   <svg
     class={classnames({ open, closed: !open })}
     viewBox="0 0 100 80"

@@ -13,6 +13,7 @@
     name: string;
     label?: string;
     className?: string;
+    onclick?: () => void;
   };
 
   const navItems = ["about", "work", "notes", "contact"];
@@ -21,22 +22,29 @@
 
   let path = $derived($page.url.pathname);
 
+  const mobileMenuId = "mobile-menu";
+
   let mobileMenuOpen = $state(false);
-  const toggleMobileMenu = () => {
+
+  function handleMobItemClick() {
+    mobileMenuOpen = false;
+  }
+
+  function toggleMobileMenu() {
     mobileMenuOpen = !mobileMenuOpen;
-  };
+  }
 </script>
 
 {#snippet navItem(item: NavItem)}
   <li class={classnames({ selected: path === item.href })}>
-    <a aria-label={item.label} href={item.href}>{item.name}</a>
+    <a aria-label={item.label} href={item.href} onclick={item.onclick}>{item.name}</a>
   </li>
 {/snippet}
 
 {#snippet menuItems(navItems: string[])}
   <ul class="nav-items">
     {#each navItems as item}
-      {@render navItem({ href: `/${item}`, name: item })}
+      {@render navItem({ href: `/${item}`, name: item, onclick: handleMobItemClick })}
     {/each}
   </ul>
 {/snippet}
@@ -46,14 +54,19 @@
     <nav class={classnames({ ["mobile-menu-open"]: mobileMenuOpen })}>
       <div class="top-menu">
         <ul>
-          <Logo selected={path === "/"} />
+          <Logo selected={path === "/"} onclick={handleMobItemClick} />
           <li class="desktop-menu">
             {@render menuItems(navItems)}
           </li>
         </ul>
-        <Burger className="hamburger" onclick={toggleMobileMenu} open={mobileMenuOpen} />
+        <Burger
+          className="hamburger"
+          onclick={toggleMobileMenu}
+          open={mobileMenuOpen}
+          controlsId={mobileMenuId}
+        />
       </div>
-      <div class="mobile-menu">
+      <div class="mobile-menu" id={mobileMenuId}>
         {@render menuItems(navItems)}
       </div>
     </nav>

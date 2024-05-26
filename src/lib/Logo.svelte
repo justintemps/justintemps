@@ -3,9 +3,10 @@
 
   interface Props {
     selected?: Boolean;
+    onclick?: () => void;
   }
 
-  let { selected }: Props = $props();
+  let { selected, onclick }: Props = $props();
 </script>
 
 <li>
@@ -23,7 +24,8 @@
       <path d="M10.8916 5.5V10.5" />
       <path d="M10.5618 10.5497L7.55464 10.5497" />
     </svg>
-    <a aria-label="home" href="/">justintemps</a>
+
+    <a aria-label="home" href="/" {onclick}>justintemps</a>
   </span>
 </li>
 
