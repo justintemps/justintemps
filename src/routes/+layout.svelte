@@ -20,7 +20,7 @@
 <style lang="scss">
   .layout {
     display: grid;
-    grid-template-rows: 1fr rem(84px);
+    grid-template-rows: 1fr auto;
     grid-template-columns: 1fr;
     width: 100%;
     height: 100%;
