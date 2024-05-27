@@ -166,7 +166,7 @@
     }
   }
 
-  @media (min-width: 786px) {
+  @include breakpoint(lg) {
     .top-menu {
       border-bottom: rem(8px) solid var(--color--brand);
     }

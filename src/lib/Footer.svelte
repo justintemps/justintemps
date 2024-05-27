@@ -47,7 +47,7 @@
     font-size: rem(16px);
   }
 
-  @media (min-width: 786px) {
+  @include breakpoint(lg) {
     footer {
       gap: rem(80px);
       padding-block: rem(60px);

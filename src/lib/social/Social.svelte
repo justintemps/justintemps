@@ -43,7 +43,7 @@
   <li>
     <a href={url} title={name} {target}>
       <Icon />
-      <span class="sr-only">{name}</span>
+      <span class="screen-reader-only">{name}</span>
     </a>
   </li>
 {/snippet}

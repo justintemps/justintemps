@@ -57,7 +57,7 @@
     stroke-linecap: "round";
   }
 
-  @media (min-width: 768px) {
+  @include breakpoint(lg) {
     .home {
       @include color-stroke(var(--color--accent));
 
