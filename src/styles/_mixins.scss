@@ -6,15 +6,15 @@ $desktop-breakpoint: 1024px;
 // Mixin for min-size breakpoints
 @mixin breakpoint($size) {
   @if $size == sm {
-    @media (min-width: #{$mobile-breakpoint}) {
+    @media (min-width: $breakpoint-sm) {
       @content;
     }
   } @else if $size == md {
-    @media (min-width: #{$tablet-breakpoint}) {
+    @media (min-width: $breakpoint-md) {
       @content;
     }
   } @else if $size == lg {
-    @media (min-width: #{$desktop-breakpoint}) {
+    @media (min-width: $breakpoint-lg) {
       @content;
     }
   } @else {

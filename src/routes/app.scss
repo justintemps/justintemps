@@ -1,10 +1,5 @@
 @import "../styles";
 
-/* -- SCSS Variables -- */
-$base-font-size: rem(16px);
-$max-content-width: rem(1200px);
-$column-width: rem(800px);
-
 /* -- CSS Variables -- */
 :root {
   --font--display: "Montserrat", sans-serif;
@@ -14,10 +9,13 @@ $column-width: rem(800px);
   --color--type: #f3f3f3;
   --color--bg--main: #193549;
   --color--bg--accent: #122736;
-  --size--content--max: #{$max-content-width};
-  --size--column: #{$column-width};
+  --size--content--max: #{rem($max-content-width)};
+  --size--column: #{rem($column-width)};
   --transition--duration--slow: 250ms;
   --transition--duration--fast: 150ms;
+  --breakpoint-sm: #{$breakpoint-sm};
+  --breakpoint-md: #{$breakpoint-md};
+  --breakpoint-lg: #{$breakpoint-lg};
 }
 
 /* -- CSS -- */
