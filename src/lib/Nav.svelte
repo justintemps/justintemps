@@ -3,6 +3,7 @@
   import Logo from "./Logo.svelte";
   import classnames from "classnames";
   import { page } from "$app/stores";
+  import { isDesktop } from "../stores/isDesktop";
 
   interface Props {
     children: any;
@@ -19,12 +20,17 @@
   const navItems = ["about", "work", "notes", "contact"];
 
   const { children }: Props = $props();
-
   let path = $derived($page.url.pathname);
 
   const mobileMenuId = "mobile-menu";
-
   let mobileMenuOpen = $state(false);
+
+  // Close the mobile menu if we switch back to desktop
+  $effect(() => {
+    if ($isDesktop) {
+      mobileMenuOpen = false;
+    }
+  });
 
   function handleMobItemClick() {
     mobileMenuOpen = false;
