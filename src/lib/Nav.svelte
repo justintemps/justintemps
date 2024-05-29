@@ -1,6 +1,7 @@
 <script lang="ts">
-  import Burger from "./Burger.svelte";
-  import Logo from "./Logo.svelte";
+  import Burger from "./burger.svelte";
+  import Logo from "./logo.svelte";
+  import Connect from "./connect/connect.svelte";
   import classnames from "classnames";
   import { page } from "$app/stores";
   import { isDesktop } from "../stores/isDesktop";
@@ -55,9 +56,9 @@
   </ul>
 {/snippet}
 
-<div class="container">
+<div class={classnames("container", { ["mobile-menu-open"]: mobileMenuOpen })}>
   <header>
-    <nav class={classnames({ ["mobile-menu-open"]: mobileMenuOpen })}>
+    <nav>
       <div class="top-menu">
         <ul>
           <Logo selected={path === "/"} onclick={handleMobItemClick} />
@@ -73,7 +74,10 @@
         />
       </div>
       <div class="mobile-menu" id={mobileMenuId}>
-        {@render menuItems(navItems)}
+        <div class="mobile-menu--contents">
+          {@render menuItems(navItems)}
+          <Connect heading="Let's connect" />
+        </div>
       </div>
     </nav>
   </header>
@@ -86,8 +90,10 @@
 
 <style lang="scss">
   .container {
+    --header-height: #{rem(84px)};
+
     display: grid;
-    grid-template-rows: rem(84px) auto;
+    grid-template-rows: var(--header-height) auto;
     min-height: 100vh;
   }
 
@@ -121,13 +127,25 @@
   }
 
   .mobile-menu {
-    position: absolute;
+    position: fixed;
+    height: calc(100% - var(--header-height));
     width: 100%;
-    height: 100%;
     visibility: hidden;
     opacity: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     background: var(--color--bg--accent);
     transition: all ease-in-out var(--transition--duration--slow);
+
+    &--contents {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: rem(84px);
+      gap: rem(118px);
+    }
   }
 
   .mobile-menu-open {
@@ -139,12 +157,12 @@
 
   .nav-items {
     flex-flow: column;
+    gap: rem(56px);
   }
 
   li {
     color: var(--color--accent);
     padding-inline-start: 0;
-    padding-block: rem(28px);
     font-size: rem(32px);
 
     &.selected {

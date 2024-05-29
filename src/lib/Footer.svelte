@@ -1,13 +1,12 @@
 <script lang="ts">
-  import Social from "./social/Social.svelte";
+  import Connect from "./connect/connect.svelte";
 
   let year = new Date().getFullYear();
 </script>
 
 <footer>
-  <div class="footer-social">
-    <p class="footer-social--cta">Let's connect if you want</p>
-    <Social />
+  <div class="footer--connect">
+    <Connect heading="Let's connect if you want" />
   </div>
   <p class="copyright">Justin E. Smith © {year}</p>
 </footer>
@@ -25,20 +24,8 @@
     padding-block: rem(32px);
   }
 
-  .footer-social {
+  .footer--connect {
     display: none;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-
-    &--cta {
-      width: 100%;
-      text-align: center;
-      padding-bottom: rem(20px);
-      margin-bottom: rem(20px);
-      border-bottom: rem(4px) solid var(--color--brand);
-      font-size: rem(20px);
-    }
   }
 
   p {
@@ -49,8 +36,14 @@
 
   @include breakpoint(lg) {
     footer {
-      gap: rem(80px);
+      gap: rem(60px);
       padding-block: rem(60px);
+    }
+
+    .footer--connect {
+      display: flex;
+      width: 100%;
+      max-width: rem(400px);
     }
 
     .footer-social {

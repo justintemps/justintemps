@@ -1,9 +1,9 @@
 <script lang="ts">
   import type { ComponentType, SvelteComponent } from "svelte";
-  import Mail from "$lib/social/mail.svelte";
-  import LinkedIn from "$lib/social/linkedin.svelte";
-  import Mastadon from "$lib/social/mastadon.svelte";
-  import Github from "$lib/social/github.svelte";
+  import Mail from "$lib/connect/mail.svelte";
+  import LinkedIn from "$lib/connect/linkedin.svelte";
+  import Mastadon from "$lib/connect/mastadon.svelte";
+  import Github from "$lib/connect/github.svelte";
 
   interface SocialLink {
     name: string;
@@ -70,6 +70,8 @@
   }
 
   :global(.social-icon) {
+    height: rem(40px);
+    width: rem(40px);
     :global(path) {
       transition: fill ease-in-out var(--transition--duration--fast);
       fill: var(--color--accent);
