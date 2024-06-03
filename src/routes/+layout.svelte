@@ -30,7 +30,6 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-inline: rem(20px);
     padding-block: rem(36px);
   }
 

@@ -102,13 +102,13 @@
   }
 
   .top-menu {
+    @include edge-padding;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--color--bg--accent);
     border-bottom: rem(4px) solid var(--color--brand);
     font-size: rem(20px);
-    padding-inline: rem(20px);
     height: 100%;
   }
 

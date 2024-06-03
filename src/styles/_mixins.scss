@@ -28,3 +28,7 @@ $desktop-breakpoint: 1024px;
   text-underline-offset: rem(8px);
   text-decoration-thickness: rem(4px);
 }
+
+@mixin edge-padding {
+  padding-inline: $edge-padding;
+}
