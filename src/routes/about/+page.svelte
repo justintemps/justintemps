@@ -13,6 +13,6 @@
 
   h1 {
     color: var(--color--brand);
-    font-size: rem(96px);
+    font-size: rem(36px);
   }
 </style>

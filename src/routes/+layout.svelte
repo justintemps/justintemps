@@ -29,9 +29,9 @@
   main {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding-inline: rem(20px);
-    padding-block: rem(84px);
+    padding-block: rem(36px);
   }
 
   .wrapper {
