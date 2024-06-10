@@ -11,6 +11,7 @@
   --color--bg--accent: #122736;
   --size--content--max: #{rem($max-content-width)};
   --size--column: #{rem($column-width)};
+  --size--edge--padding: #{rem($edge-padding)};
   --transition--duration--slow: 250ms;
   --transition--duration--fast: 150ms;
   --breakpoint-sm: #{$breakpoint-sm};
@@ -30,14 +31,42 @@ h2,
 h3,
 h4,
 h5,
-li {
+li,
+figcaption {
   font-family: var(--font--display);
+}
+
+h1 {
+  font-size: rem(36px);
+  color: var(--color--brand);
 }
 
 p {
   font-family: var(--font--type);
-  font-size: to-rem(32px);
+  font-size: rem(16px);
   color: var(--color--type);
+}
+
+figure {
+  display: flex;
+  flex-flow: column;
+  gap: 12px;
+}
+
+figcaption {
+  color: var(--color--type);
+  font-size: rem(14px);
+  padding-inline: var(--size--edge--padding);
+}
+
+@include breakpoint(md) {
+  h1 {
+    font-size: rem(96px);
+  }
+
+  figcaption {
+    padding-inline: 0;
+  }
 }
 
 // Utility class to hide labels so they'll only be perceived by screenreaders

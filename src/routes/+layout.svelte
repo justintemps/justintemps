@@ -40,4 +40,10 @@
     justify-content: center;
     align-items: center;
   }
+
+  @include breakpoint(md) {
+    main {
+      padding-block: rem(84px);
+    }
+  }
 </style>

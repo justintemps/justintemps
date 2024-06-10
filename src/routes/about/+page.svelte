@@ -1,33 +1,42 @@
-<script>
-  import selfie from "$lib/assets/selfie.jpg";
+<script lang="ts">
+  import content from "./content.md";
 </script>
 
-<div class="container">
-  <h1>A bit about me</h1>
-  <figure>
-    <img alt="Me holding a gavel in front of an ILO logo banner" src={selfie} />
-    <figcaption>Bringing down the hammer of social justice</figcaption>
-  </figure>
-</div>
+<article>
+  <svelte:component this={content} />
+</article>
 
 <style lang="scss">
-  .container {
+  article {
     width: 100%;
     max-width: var(--size--column);
     display: flex;
     flex-flow: column;
     gap: rem(36px);
-  }
 
-  h1 {
-    color: var(--color--brand);
-    font-size: rem(36px);
-    padding-inline: 20px;
+    :global(h1) {
+      padding-inline: var(--size--edge--padding);
+    }
+
+    :global(section) {
+      display: flex;
+      flex-direction: column;
+      gap: rem(24px);
+      padding-inline: var(--size--edge--padding);
+    }
+
+    :global(p) {
+      font-size: rem(24px);
+    }
   }
 
   @include breakpoint(md) {
-    h1 {
-      padding-inline: 0;
+    article {
+      :global(h1),
+      :global(p) {
+        padding-inline: 0;
+        font-size: rem(28px);
+      }
     }
   }
 </style>

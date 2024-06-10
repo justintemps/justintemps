@@ -4,7 +4,7 @@
   import Connect from "./connect/connect.svelte";
   import classnames from "classnames";
   import { page } from "$app/stores";
-  import { isDesktop } from "../stores/isDesktop";
+  import { isDesktop } from "$lib/stores/isDesktop";
 
   interface Props {
     children: any;
@@ -149,6 +149,9 @@
   }
 
   .mobile-menu-open {
+    overflow: hidden;
+    height: 100vh;
+
     .mobile-menu {
       opacity: 1;
       visibility: visible;
