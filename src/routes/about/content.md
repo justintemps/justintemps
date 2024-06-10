@@ -1,6 +1,6 @@
 <script>
   import { onDestroy } from 'svelte';
-  import { timeStore } from "$lib/stores/timeStore.ts";
+  import { timeStore } from "$lib/stores/ageStore.ts";
 
   let age;
 
