@@ -26,16 +26,16 @@
     }
 
     :global(p) {
-      font-size: rem(24px);
+      font-size: rem(28px);
     }
   }
 
   @include breakpoint(md) {
     article {
+      gap: rem(64px);
       :global(h1),
-      :global(p) {
+      :global(section) {
         padding-inline: 0;
-        font-size: rem(28px);
       }
     }
   }

@@ -4,11 +4,9 @@
 
   let age;
 
-  // Subscribe to the timeStore
   const unsubscribe = timeStore.subscribe((value) => {
     age = value;
   });
-
 
   onDestroy(() => {
     unsubscribe();
@@ -19,7 +17,7 @@
 
 <figure>
   <img alt="Me holding a gavel in front of an ILO logo banner" src="/selfie.jpg" />
-  <figcaption>Here I am, bringing down the hammer of social justice.</figcaption>
+  <figcaption>Bringing down the hammer of social justice.</figcaption>
 </figure>
 
 <section>
@@ -30,7 +28,7 @@ I work at the International Labour Organization (ILO) where I manage digital pro
 
 I used to work on the content side, but these days I’m mostly technical, writing code and managing developers on projects like ILO Live, which is like Hulu for social development.
 
-🛠️ Here are some things I’ve worked on
+🛠️ [Here is some work I've done](./work)
 
 I love JavaScript and have lots of experience working with Node.js and React. This website, however, is built with Svelte.
 
@@ -38,7 +36,7 @@ I’m also pretty good with Python, which I’m using to learn more about Machin
 
 Sometimes, after I solve a tough problem, I’ll write down my solution so I don’t forget.
 
-✍️ You can read my writing here
+✍️ [You can read my writing here](./notes)
 
 I live in Geneva, Switzerland which is great, but my heart’s in Italy where I used to live and still spend a lot of time.
 
@@ -48,7 +46,7 @@ I’m married to a wonderful woman and we have two boys who are both diehard fan
 
 Need to get in touch?
 
-📩 Shoot me a line
+📩 [Shoot me a line](./contact)
 
 And remember...
 

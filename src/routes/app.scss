@@ -55,8 +55,12 @@ figure {
 
 figcaption {
   color: var(--color--type);
-  font-size: rem(14px);
+  font-size: rem(18px);
   padding-inline: var(--size--edge--padding);
+}
+
+a {
+  color: var(--color--accent);
 }
 
 @include breakpoint(md) {
