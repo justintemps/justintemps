@@ -61,11 +61,17 @@ figcaption {
 
 a {
   color: var(--color--accent);
+  transition: color var(--transition--duration--fast) ease-in;
+
+  &:hover {
+    color: var(--color--brand);
+  }
 }
 
 @include breakpoint(md) {
   h1 {
     font-size: rem(96px);
+    line-height: rem(96px);
   }
 
   figcaption {
