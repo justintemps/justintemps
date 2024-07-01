@@ -1,5 +1,5 @@
 <script lang="ts">
-  import content from "./content.md";
+  import content from "$lib/content/pages/about.md";
 </script>
 
 <article>
