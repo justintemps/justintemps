@@ -1,9 +1,9 @@
 <script lang="ts">
   import type { ComponentType, SvelteComponent } from "svelte";
-  import Mail from "$lib/connect/mail.svelte";
-  import LinkedIn from "$lib/connect/linkedin.svelte";
-  import Mastadon from "$lib/connect/mastadon.svelte";
-  import Github from "$lib/connect/github.svelte";
+  import Mail from "$lib/components/connect/mail.svelte";
+  import LinkedIn from "$lib/components/connect/linkedin.svelte";
+  import Mastadon from "$lib/components/connect/mastadon.svelte";
+  import Github from "$lib/components/connect/github.svelte";
 
   interface SocialLink {
     name: string;

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Burger from "./burger.svelte";
-  import Logo from "./logo.svelte";
+  import Burger from "./Burger.svelte";
+  import Logo from "./Logo.svelte";
   import Connect from "./connect/connect.svelte";
   import classnames from "classnames";
   import { page } from "$app/stores";

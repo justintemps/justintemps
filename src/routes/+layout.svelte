@@ -2,8 +2,8 @@
   import "@fontsource/montserrat/400.css";
   import "@fontsource/montserrat/600.css";
   import "./app.scss";
-  import Nav from "$lib/nav.svelte";
-  import Footer from "$lib/footer.svelte";
+  import Nav from "$lib/components/Nav.svelte";
+  import Footer from "$lib/components/Footer.svelte";
 </script>
 
 <Nav>
