@@ -1,67 +1,74 @@
 <script lang="ts">
   import * as THREE from "three";
   import content from "$lib/content/pages/home.md";
+  import { onMount } from "svelte";
 
   $: innerWidth = 0;
   $: innerHeight = 0;
 
-  // Create the scene
-  const scene = new THREE.Scene();
+  let camera: THREE.PerspectiveCamera;
+  let renderer: THREE.WebGLRenderer;
+  let cloudParticles: THREE.Mesh<THREE.PlaneGeometry, THREE.MeshLambertMaterial>[] = [];
+  let flash: THREE.SpotLight;
+  let scene: THREE.Scene;
+  let cloudsElement: HTMLDivElement;
 
-  // Create Camera and position
-  const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 1, 1000);
-  camera.position.z = 1;
-  camera.rotation.x = 1.16;
-  camera.rotation.y = -0.12;
-  camera.rotation.z = 0.27;
+  onMount(() => {
+    // Create the scene
+    scene = new THREE.Scene();
 
-  // Add ambient light
-  const ambient = new THREE.AmbientLight(0x555555);
-  scene.add(ambient);
+    // Create Camera and position
+    camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 1, 1000);
+    camera.position.z = 1;
+    camera.rotation.x = 1.16;
+    camera.rotation.y = -0.12;
+    camera.rotation.z = 0.27;
 
-  // Add directional light
-  const directionalLight = new THREE.DirectionalLight(0xffeedd);
-  directionalLight.position.set(0, 0, 1);
-  scene.add(directionalLight);
+    // Add ambient light
+    const ambient = new THREE.AmbientLight(0x555555);
+    scene.add(ambient);
 
-  // Add lightning
-  const flash = new THREE.SpotLight(0xffdd67, 30, 500, 1.7);
-  flash.position.set(200, 300, 100);
-  scene.add(flash);
+    // Add directional light
+    const directionalLight = new THREE.DirectionalLight(0xffeedd);
+    directionalLight.position.set(0, 0, 1);
+    scene.add(directionalLight);
 
-  // Add the renderer with fog
-  const renderer = new THREE.WebGLRenderer();
-  scene.fog = new THREE.FogExp2(0x193549, 0.002);
-  renderer.setClearColor(scene.fog.color);
-  renderer.setSize(window.innerWidth, window.innerHeight);
+    // Add lightning
+    flash = new THREE.SpotLight(0xffdd67, 30, 500, 1.7);
+    flash.position.set(200, 300, 100);
+    scene.add(flash);
 
-  // Add the renderer to the dom
-  document.body.appendChild(renderer.domElement);
+    // Add the renderer with fog
+    renderer = new THREE.WebGLRenderer();
+    scene.fog = new THREE.FogExp2(0x193549, 0.002);
+    renderer.setClearColor(scene.fog.color);
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
-  // Load the clouds
-  const cloudParticles: any = [];
+    // Add the renderer to the dom
+    cloudsElement.appendChild(renderer.domElement);
 
-  const loader = new THREE.TextureLoader();
+    const loader = new THREE.TextureLoader();
 
-  loader.load("./smoke-1.png", function (texture: any) {
-    const cloudGeo = new THREE.PlaneGeometry(500, 500);
-    const cloudMaterial = new THREE.MeshLambertMaterial({
-      map: texture,
-      transparent: true
+    loader.load("./smoke-1.png", function (texture: any) {
+      const cloudGeo = new THREE.PlaneGeometry(500, 500);
+      const cloudMaterial = new THREE.MeshLambertMaterial({
+        map: texture,
+        transparent: true
+      });
+      for (let p = 0; p < 35; p++) {
+        const cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
+        cloud.castShadow = true;
+        cloud.position.set(Math.random() * 800 - 400, 500, Math.random() * 500 - 450);
+        cloud.rotation.x = 1.18;
+        cloud.rotation.y = -0.12;
+        cloud.rotation.z = Math.random() * 360;
+        cloud.material.opacity = 0.6;
+        cloudParticles.push(cloud);
+        scene.add(cloud);
+      }
+
+      animate();
     });
-    for (let p = 0; p < 35; p++) {
-      const cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
-      cloud.castShadow = true;
-      cloud.position.set(Math.random() * 800 - 400, 500, Math.random() * 500 - 450);
-      cloud.rotation.x = 1.18;
-      cloud.rotation.y = -0.12;
-      cloud.rotation.z = Math.random() * 360;
-      cloud.material.opacity = 0.6;
-      cloudParticles.push(cloud);
-      scene.add(cloud);
-    }
-
-    animate();
   });
 
   function handleResize() {
@@ -90,11 +97,21 @@
 <svelte:window onresize={handleResize} bind:innerHeight bind:innerWidth />
 
 <article>
+  <div class="clouds" bind:this={cloudsElement}></div>
   <h1>Justin time to blow your mind</h1>
   <svelte:component this={content} />
 </article>
 
 <style lang="scss">
+  .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }
+
   h1 {
     filter: drop-shadow(14px 13px 11px rgba(0, 0, 0, 0.5));
     font-weight: bold;
