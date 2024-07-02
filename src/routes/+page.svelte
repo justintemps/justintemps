@@ -1,31 +1,10 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { tweened } from "svelte/motion";
-  import { cubicOut } from "svelte/easing";
   import content from "$lib/content/pages/home.md";
-
-  const offset = tweened(0, {
-    duration: 400,
-    easing: cubicOut
-  });
-
-  function handleScroll() {
-    $offset += 250;
-  }
-
-  console.log($offset);
-
-  onMount(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
 </script>
 
 <article>
   <h1>Justin time to blow your mind</h1>
-  <div style="transform: translateY({$offset})">
-    <svelte:component this={content} />
-  </div>
+  <svelte:component this={content} />
 </article>
 
 <style lang="scss">
@@ -36,8 +15,8 @@
     line-height: rem(148px);
     max-width: calc(var(--size--content--max) - 200px);
   }
-  article,
-  div {
+
+  article {
     width: 100%;
     display: flex;
     flex-flow: column;
