@@ -19,6 +19,13 @@
     z-index: -1;
   }
 
+  h1 {
+    filter: drop-shadow(14px 13px 11px rgba(0, 0, 0, 0.5));
+    font-weight: bold;
+    font-size: rem(56px);
+    line-height: rem(68px);
+  }
+
   article {
     width: 100%;
     display: flex;
@@ -35,14 +42,38 @@
       justify-content: center;
       align-items: center;
     }
-  }
 
-  h1 {
-    filter: drop-shadow(14px 13px 11px rgba(0, 0, 0, 0.5));
-    font-weight: bold;
-    font-size: rem(56px);
-    line-height: rem(68px);
-    max-width: calc(var(--size--content--max) - 200px);
+    :global(.hp--intro--img) {
+      width: rem(200px);
+      position: absolute;
+      top: -28%;
+    }
+
+    :global(.hp--intro) {
+      border: rem(4px) solid var(--color--brand);
+      border-top: none;
+      padding: rem(166px) 13% rem(76px);
+      margin-top: rem(80px);
+
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 4px;
+        background-color: var(--color--brand);
+      }
+
+      &:before {
+        left: 0;
+        width: calc(50% - (#{rem(100px)} + 5%));
+      }
+
+      &:after {
+        right: 0;
+        width: calc(50% - (#{rem(100px)} + 5%));
+      }
+    }
   }
 
   @include breakpoint("md") {
@@ -72,35 +103,23 @@
         font-family: var(--font--type);
       }
 
+      :global(.hp--intro--img) {
+        width: rem(300px);
+      }
+
       :global(.hp--intro) {
-        border: rem(4px) solid var(--color--brand);
-        border-top: none;
         padding: rem(166px) 13% rem(76px);
         margin-top: rem(130px);
 
-        &:before,
-        &:after {
-          content: "";
-          position: absolute;
-          top: 0;
-          height: 4px;
-          background-color: var(--color--brand);
-        }
-
         &:before {
           left: 0;
-          width: 34%;
+          width: calc(50% - (#{rem(150px)} + 5%));
         }
 
         &:after {
           right: 0;
-          width: 34%;
+          width: calc(50% - (#{rem(150px)} + 5%));
         }
-      }
-
-      :global(.hp--intro--img) {
-        position: absolute;
-        top: -28%;
       }
 
       :global(ul) {
