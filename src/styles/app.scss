@@ -42,6 +42,7 @@ figcaption {
 
 h1 {
   font-size: rem(36px);
+  letter-spacing: -1px;
   color: var(--color--brand);
 }
 
@@ -81,6 +82,7 @@ a {
   h1 {
     font-size: rem(96px);
     line-height: rem(96px);
+    letter-spacing: -3px;
   }
 
   figcaption {
