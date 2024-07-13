@@ -26,7 +26,7 @@ My name’s Justin Smith. I’m {age} old.
 
 I work at the International Labour Organization (ILO) where I manage digital projects for the Department of Communications.
 
-I used to work on the content side, but these days I’m mostly technical, writing code and managing developers on projects like ILO Live, which is like Hulu for social development.
+I used to work on the content side, but these days I’m mostly technical, writing code and managing developers on projects like ILO Live, which is like Hulu for social dialogue.
 
 🛠️ [Here is some work I've done](./work)
 

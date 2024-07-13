@@ -1,6 +1,6 @@
 <script lang="ts">
   import * as THREE from "three";
-  import content from "$lib/content/pages/home.md";
+  import content, { metadata } from "$lib/content/pages/home.md";
   import { onMount } from "svelte";
 
   $: innerWidth = 0;
@@ -92,13 +92,15 @@
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
   }
+
+  console.log(metadata);
 </script>
 
 <svelte:window onresize={handleResize} bind:innerHeight bind:innerWidth />
 
 <article>
   <div class="clouds" bind:this={cloudsElement}></div>
-  <h1>Justin time to blow your mind</h1>
+  <h1>{metadata.title}</h1>
   <svelte:component this={content} />
 </article>
 
