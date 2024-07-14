@@ -4,7 +4,7 @@
 </script>
 
 <article>
-  <!-- <Clouds /> -->
+  <Clouds />
   <h1>{metadata.title}</h1>
   <svelte:component this={content} />
 </article>
@@ -29,9 +29,7 @@
   article {
     width: 100%;
     display: flex;
-    flex-flow: column;
-    justify-self: center;
-    align-items: center;
+    flex-direction: column;
     gap: rem(44px);
     padding: 0 var(--size--edge--padding);
 
@@ -43,7 +41,7 @@
 
     :global(.hp--intro) {
       display: flex;
-      flex-flow: column;
+      flex-direction: column;
       position: relative;
       justify-content: center;
       align-items: center;
@@ -107,21 +105,16 @@
 
     article {
       gap: rem(84px);
-      align-items: flex-start;
 
       :global(h2) {
-        filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
-        font-weight: bold;
         font-size: rem(80px);
         line-height: rem(80px);
-        text-align: center;
       }
 
       :global(p),
       :global(li) {
         font-size: rem(40px);
         line-height: rem(52px);
-        text-align: center;
         padding: rem(20px);
       }
 
@@ -130,7 +123,7 @@
       }
 
       :global(.hp--intro) {
-        padding: rem(166px) 13% rem(76px);
+        padding: rem(226px) 13% rem(76px);
         margin-top: rem(130px);
 
         &:before {
@@ -148,17 +141,11 @@
         margin: rem(56px) 0;
       }
 
-      :global(li) {
-        list-style: none;
-      }
-
-      :global(.hp--list) {
-        :global(p) {
-          font-size: rem(28px);
-          line-height: rem(40px);
-          padding: 0;
-          letter-spacing: var(--font--type--letter-spacing);
-        }
+      :global(.hp--list) :global(p) {
+        font-size: rem(28px);
+        line-height: rem(40px);
+        padding: 0;
+        letter-spacing: var(--font--type--letter-spacing);
       }
     }
   }
