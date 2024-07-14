@@ -4,7 +4,7 @@
 </script>
 
 <article>
-  <Clouds />
+  <!-- <Clouds /> -->
   <h1>{metadata.title}</h1>
   <svelte:component this={content} />
 </article>
@@ -35,24 +35,21 @@
     gap: rem(44px);
     padding: 0 var(--size--edge--padding);
 
+    :global(.hp--intro--img) {
+      width: rem(200px);
+      position: absolute;
+      top: rem(-100px);
+    }
+
     :global(.hp--intro) {
       display: flex;
       flex-flow: column;
       position: relative;
       justify-content: center;
       align-items: center;
-    }
-
-    :global(.hp--intro--img) {
-      width: rem(200px);
-      position: absolute;
-      top: -28%;
-    }
-
-    :global(.hp--intro) {
       border: rem(4px) solid var(--color--brand);
       border-top: none;
-      padding: rem(166px) 13% rem(76px);
+      padding: rem(128px) rem(20px) rem(44px);
       margin-top: rem(80px);
 
       &:before,
@@ -74,6 +71,31 @@
         width: calc(50% - (#{rem(100px)} + 5%));
       }
     }
+
+    :global(h2) {
+      filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+      font-weight: bold;
+      font-size: rem(48px);
+      line-height: rem(48px);
+      text-align: center;
+    }
+
+    :global(p),
+    :global(li) {
+      font-size: rem(24px);
+      line-height: rem(36px);
+      text-align: center;
+      font-family: var(--font--type);
+    }
+
+    :global(ul) {
+      margin: rem(40px) 0;
+    }
+
+    :global(li) {
+      list-style: none;
+      padding: rem(4px) 0;
+    }
   }
 
   @include breakpoint("md") {
@@ -85,6 +107,7 @@
 
     article {
       gap: rem(84px);
+      align-items: flex-start;
 
       :global(h2) {
         filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
@@ -100,7 +123,6 @@
         line-height: rem(52px);
         text-align: center;
         padding: rem(20px);
-        font-family: var(--font--type);
       }
 
       :global(.hp--intro--img) {
