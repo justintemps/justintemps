@@ -2,6 +2,7 @@
 @import "./functions";
 @import "./mixins";
 @import "./reset";
+@import "./utils";
 
 /* -- CSS Variables -- */
 :root {
@@ -14,7 +15,8 @@
   --color--bg--main: #193549;
   --color--bg--accent: #122736;
   --size--content--max: #{rem($max-content-width)};
-  --size--column: #{rem($column-width)};
+  --size--column--lg: #{rem($column-width-lg)};
+  --size--column--sm: #{rem($column-width-sm)};
   --size--edge--padding: #{rem($edge-padding)};
   --transition--duration--slow: 250ms;
   --transition--duration--fast: 150ms;
@@ -44,6 +46,7 @@ h1 {
   font-size: rem(36px);
   letter-spacing: -1px;
   color: var(--color--brand);
+  padding-inline: var(--size--edge--padding);
 }
 
 h2 {
@@ -83,24 +86,10 @@ a {
     font-size: rem(96px);
     line-height: rem(96px);
     letter-spacing: -3px;
+    padding-inline: 0;
   }
 
   figcaption {
     padding-inline: 0;
   }
-}
-
-// Utility class to hide labels so they'll only be perceived by screenreaders
-.screen-reader-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important;
-  height: 1px !important;
-  overflow: hidden !important;
-  margin: -1px !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important;
 }

@@ -3,7 +3,7 @@
   import Clouds from "$lib/components/Clouds.svelte";
 </script>
 
-<article>
+<article class="article--large">
   <Clouds />
   <h1>{metadata.title}</h1>
   <svelte:component this={content} />
@@ -22,17 +22,11 @@
   h1 {
     filter: drop-shadow(14px 13px 11px rgba(0, 0, 0, 0.5));
     font-weight: bold;
-    font-size: rem(56px);
-    line-height: rem(68px);
+    font-size: rem(72px);
+    line-height: rem(84px);
   }
 
   article {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: rem(44px);
-    padding: 0 var(--size--edge--padding);
-
     :global(.hp--intro--img) {
       width: rem(200px);
       position: absolute;
@@ -104,17 +98,18 @@
     }
 
     article {
-      gap: rem(84px);
-
       :global(h2) {
         font-size: rem(80px);
         line-height: rem(80px);
       }
 
-      :global(p),
-      :global(li) {
+      :global(li),
+      :global(p) {
         font-size: rem(40px);
         line-height: rem(52px);
+      }
+
+      :global(li) {
         padding: rem(20px);
       }
 

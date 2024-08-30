@@ -41,6 +41,31 @@
     align-items: center;
   }
 
+  :global(article) {
+    width: 100%;
+    max-width: var(--size--column--lg);
+    display: flex;
+    flex-flow: column;
+    gap: rem(36px);
+  }
+
+  :global(article.article--large) {
+    max-width: 100%;
+    padding: 0 var(--size--edge--padding);
+    gap: rem(60px);
+
+    @include breakpoint("md") {
+      gap: rem(84px);
+    }
+  }
+
+  :global(section) {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24px);
+    padding-inline: var(--size--edge--padding);
+  }
+
   @include breakpoint(md) {
     main {
       padding-block: rem(84px);

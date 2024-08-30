@@ -21,8 +21,9 @@ specialised agency of the United Nations.
 - 🤙 [Get in touch](./contact)
 - 🔌 [Or read this shameless plug](./about)
 
-And that's it.
-
-That's all there is to do here.
+<div>
+<p>And that's it.</p>
+<p>That's all there is to do here.</p>
+</div>
 
 </section>
