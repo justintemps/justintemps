@@ -1,7 +1,7 @@
 // src/timeStore.ts
 import { writable } from "svelte/store";
 
-interface Age {
+interface Time {
   years: number;
   months: number;
   weeks: number;
@@ -12,10 +12,10 @@ interface Age {
 }
 
 function createTimeStore() {
-  const birthDate = new Date(1980, 5, 27, 0, 25, 0); // Month is 0-indexed, so June is 5
-  const { subscribe, set } = writable<string>(getCurrentAgeSentence());
+  const birthDate = new Date(2014, 0, 6, 9, 0, 0); // Month is 0-indexed, so June is 5
+  const { subscribe, set } = writable<string>(getCurrentTimeSentence());
 
-  function getCurrentAge(): Age {
+  function getCurrentTime(): Time {
     const now = new Date();
     let years = now.getFullYear() - birthDate.getFullYear();
     let months = now.getMonth() - birthDate.getMonth();
@@ -57,7 +57,7 @@ function createTimeStore() {
     };
   }
 
-  function formatAge(age: Age): string {
+  function formatTime(age: Time): string {
     const units = [
       { value: age.years, unit: "year" },
       { value: age.months, unit: "month" },
@@ -82,12 +82,12 @@ function createTimeStore() {
       .trim();
   }
 
-  function getCurrentAgeSentence(): string {
-    return formatAge(getCurrentAge());
+  function getCurrentTimeSentence(): string {
+    return formatTime(getCurrentTime());
   }
 
   function updateTime() {
-    set(getCurrentAgeSentence());
+    set(getCurrentTimeSentence());
   }
 
   const interval = setInterval(updateTime, 1000);
