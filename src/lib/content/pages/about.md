@@ -2,10 +2,10 @@
   import { onDestroy } from 'svelte';
   import { timeStore } from "$lib/stores/ageStore.ts";
 
-  let age;
+  let timeAtILO;
 
   const unsubscribe = timeStore.subscribe((value) => {
-    age = value;
+    timeAtILO = value;
   });
 
   onDestroy(() => {
@@ -13,7 +13,7 @@
   });
 </script>
 
-# About me
+# A bit about me
 
 <figure>
   <img alt="Me holding a gavel in front of an ILO logo banner" src="/selfie.jpg" />
@@ -22,19 +22,19 @@
 
 <section>
 
-My name’s Justin Smith. I’m {age} old.
+My name is Justin Smith and I work at the International Labour Organization (ILO), a specialised agency of the United Nations.
 
-I work at the International Labour Organization (ILO) where I manage digital projects for the Department of Communications.
+I manage digital projects for the Department of Communications, where I've been working happily for {timeAtILO}.
 
-I used to work on the content side, but these days I’m mostly technical, writing code and managing developers on projects like ILO Live, which is like Hulu for social development.
+I used to work on the content side, but these days I'm mostly technical, writing code and managing developers on projects like ILO Live, which is like Hulu for social dialogue.
 
 🛠️ [Here is some work I've done](./work)
 
 I love JavaScript and have lots of experience working with Node.js and React. This website, however, is built with Svelte.
 
-I’m also pretty good with Python, which I’m using to learn more about Machine Learning and Artificial Intelligence.
+I'm also pretty good with Python, which I'm using to work on some new Artificial Intelligence projects that I'm really excited about.
 
-Sometimes, after I solve a tough problem, I’ll write down my solution so I don’t forget.
+Sometimes, after I solve a hard problem or have a revelation, I'll write about it so I don't forget.
 
 ✍️ [You can read my writing here](./notes)
 
@@ -42,7 +42,7 @@ I live in Geneva, Switzerland which is great, but my heart’s in Italy where I 
 
 In addition to English, I speak fluent Italian and French. I can also understand PHP, but it’s not my forte. Did I mention I’m from Texas?
 
-I’m married to a wonderful woman and we have two boys who are both diehard fans of AS Roma, like me.
+I’m married to a wonderful woman and we have two boys who are both die-hard AS Roma fans like me.
 
 Need to get in touch?
 
