@@ -38,6 +38,7 @@ h3,
 h4,
 h5,
 li,
+label,
 figcaption {
   font-family: var(--font--display);
 }
@@ -50,14 +51,28 @@ h1 {
 }
 
 h2 {
-  color: var(--color--brand);
+  color: var(--color--type);
+  font-weight: normal;
 }
 
-p {
+p,
+input,
+textarea {
   font-family: var(--font--type);
-  font-size: rem(16px);
+  font-size: rem(20px);
   color: var(--color--type);
   letter-spacing: var(--font--type--letter-spacing);
+}
+
+label {
+  color: var(--color--brand);
+  font-size: rem(20px);
+  font-weight: normal;
+}
+
+input,
+textarea {
+  color: var(--color--bg--main);
 }
 
 figure {

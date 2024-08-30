@@ -46,7 +46,7 @@
     max-width: var(--size--column--lg);
     display: flex;
     flex-flow: column;
-    gap: rem(36px);
+    gap: rem(40px);
   }
 
   :global(article.article--large) {
@@ -69,6 +69,10 @@
   @include breakpoint(md) {
     main {
       padding-block: rem(84px);
+    }
+
+    :global(article) {
+      gap: rem(64px);
     }
   }
 </style>

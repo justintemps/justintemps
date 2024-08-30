@@ -15,7 +15,6 @@
 
   @include breakpoint(md) {
     article {
-      gap: rem(64px);
       :global(h1),
       :global(section) {
         padding-inline: 0;
