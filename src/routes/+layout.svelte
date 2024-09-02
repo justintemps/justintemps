@@ -1,6 +1,8 @@
 <script>
   import "@fontsource/montserrat/400.css";
   import "@fontsource/montserrat/600.css";
+  import "@fontsource/crimson-text/400.css";
+  import "@fontsource/crimson-text/600.css";
   import "../styles/app.scss";
   import Nav from "$lib/components/Nav.svelte";
   import Footer from "$lib/components/Footer.svelte";

@@ -19,7 +19,7 @@
   --size--column--sm: #{rem($column-width-sm)};
   --size--edge--padding: #{rem($edge-padding)};
   --transition--duration--slow: 250ms;
-  --transition--duration--fast: 150ms;
+  --transition--duration--fast: 50ms;
   --breakpoint-sm: #{$breakpoint-sm};
   --breakpoint-md: #{$breakpoint-md};
   --breakpoint-lg: #{$breakpoint-lg};
@@ -38,6 +38,7 @@ h3,
 h4,
 h5,
 li,
+button,
 label,
 figcaption {
   font-family: var(--font--display);
@@ -64,6 +65,13 @@ textarea {
   letter-spacing: var(--font--type--letter-spacing);
 }
 
+input,
+textarea {
+  &:focus {
+    outline: var(--color--brand) 4px dotted;
+  }
+}
+
 label {
   color: var(--color--brand);
   font-size: rem(20px);
@@ -73,6 +81,7 @@ label {
 input,
 textarea {
   color: var(--color--bg--main);
+  font-size: rem(24px);
 }
 
 figure {

@@ -1,3 +1,7 @@
+<script lang="ts">
+  import Button from "$lib/components/Button.svelte";
+</script>
+
 <article>
   <div>
     <h1>Get in touch</h1>
@@ -18,7 +22,7 @@
       Your message
       <textarea required></textarea>
     </label>
-    <button type="submit">Submit</button>
+    <Button type="submit" label="Submit" name="submit" />
   </form>
 </article>
 
