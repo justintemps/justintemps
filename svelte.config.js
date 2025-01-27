@@ -1,5 +1,5 @@
 import adapter from "@sveltejs/adapter-auto";
-import preprocess from "svelte-preprocess";
+import { sveltePreprocess } from "svelte-preprocess";
 
 import { mdsvex } from "mdsvex";
 
@@ -14,7 +14,7 @@ const config = {
   // Consult https://kit.svelte.dev/docs/integrations#preprocessors
   // for more information about preprocessors
   preprocess: [
-    preprocess({
+    sveltePreprocess({
       scss: {
         prependData: `@use 'src/styles/' as *;`
       }
