@@ -1,4 +1,4 @@
-export type Categories = "sveltekit" | "svelte";
+export type Categories = string;
 
 export type Post = {
   title: string;
@@ -7,4 +7,6 @@ export type Post = {
   published: boolean;
   summary: string;
   content: string;
+  body: string;
+  categories: Categories[];
 };

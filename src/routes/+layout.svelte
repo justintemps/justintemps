@@ -1,9 +1,9 @@
 <script>
   import "@fontsource/montserrat/400.css";
+  import "@fontsource/montserrat/500.css";
   import "@fontsource/montserrat/600.css";
   import "@fontsource/crimson-text/400.css";
   import "@fontsource/crimson-text/600.css";
-  import "../styles/app.scss";
   import Nav from "$lib/components/Nav.svelte";
   import Footer from "$lib/components/Footer.svelte";
 </script>
@@ -19,7 +19,16 @@
   </div>
 </Nav>
 
-<style lang="scss">
+<style global lang="scss">
+  :global {
+    @import "../styles/app.scss";
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
   .layout {
     display: grid;
     grid-template-rows: 1fr auto;
