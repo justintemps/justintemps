@@ -22,8 +22,6 @@
 
   const { children }: Props = $props();
 
-  let path = page.url.pathname;
-
   const mobileMenuId = "mobile-menu";
   let mobileMenuOpen = $state(false);
 
@@ -44,7 +42,7 @@
 </script>
 
 {#snippet navItem(item: NavItem)}
-  <li class={classnames({ selected: path === item.href })}>
+  <li class={classnames({ selected: page.url.pathname === item.href })}>
     <a aria-label={item.label} href={item.href} onclick={item.onclick}>{item.name}</a>
   </li>
 {/snippet}
@@ -62,7 +60,7 @@
     <nav>
       <div class="top-menu">
         <ul>
-          <Logo selected={path === "/"} onclick={handleMobItemClick} />
+          <Logo selected={page.url.pathname === "/"} onclick={handleMobItemClick} />
           <li class="desktop-menu">
             {@render menuItems(navItems)}
           </li>
@@ -92,6 +90,7 @@
 <style lang="scss">
   @use "$styles/mixins" as *;
   @use "$styles/functions" as *;
+
   .container {
     --header-height: #{px-to-rem(84px)};
 
@@ -105,7 +104,7 @@
   }
 
   .top-menu {
-    @include edge-padding;
+    padding-inline: var(--size--edge--padding);
     display: flex;
     justify-content: center;
     align-items: center;

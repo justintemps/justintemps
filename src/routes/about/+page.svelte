@@ -3,24 +3,17 @@
 </script>
 
 <article>
+  <section>
+    <h1>A bit about me</h1>
+  </section>
   <svelte:component this={content} />
 </article>
 
 <style lang="scss">
-  @use "$styles/mixins" as *;
   @use "$styles/functions" as *;
   article {
     :global(p) {
       font-size: px-to-rem(28px);
-    }
-  }
-
-  @include breakpoint(md) {
-    article {
-      :global(h1),
-      :global(section) {
-        padding-inline: 0;
-      }
     }
   }
 </style>

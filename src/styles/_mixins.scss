@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "functions" as *;
 
 @mixin breakpoint($size) {
   @if $size == sm {
@@ -13,6 +14,10 @@
     @media (min-width: $breakpoint-lg) {
       @content;
     }
+  } @else if $size == xl {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
   } @else {
     @warn "Unknown size '#{$size}'. Please use 'sm', 'md', or 'lg'.";
   }
@@ -25,5 +30,9 @@
 }
 
 @mixin edge-padding {
-  padding-inline: $edge-padding;
+  padding-inline: var(--size--edge--padding);
+
+  @include breakpoint(xl) {
+    padding-inline: 0;
+  }
 }

@@ -13,8 +13,6 @@
   });
 </script>
 
-# A bit about me
-
 <figure>
   <img alt="Me holding a gavel in front of an ILO logo banner" src="/selfie.jpg" />
   <figcaption>Bringing down the hammer of social justice.</figcaption>

@@ -23,9 +23,7 @@
 <style lang="scss">
   @use "$styles/mixins" as *;
   @use "$styles/functions" as *;
-  body {
-    background-color: red !important;
-  }
+
   .layout {
     display: grid;
     grid-template-rows: 1fr auto;
@@ -47,31 +45,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  :global(article) {
-    width: 100%;
-    max-width: var(--size--column--lg);
-    display: flex;
-    flex-flow: column;
-    gap: px-to-rem(40px);
-  }
-
-  :global(article.article--large) {
-    max-width: 100%;
-    padding: 0 var(--size--edge--padding);
-    gap: px-to-rem(60px);
-
-    @include breakpoint("md") {
-      gap: px-to-rem(84px);
-    }
-  }
-
-  :global(section) {
-    display: flex;
-    flex-direction: column;
-    gap: px-to-rem(24px);
-    padding-inline: var(--size--edge--padding);
   }
 
   @include breakpoint(md) {

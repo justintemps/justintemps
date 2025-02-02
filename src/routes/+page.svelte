@@ -3,7 +3,7 @@
   import Clouds from "$lib/components/Clouds.svelte";
 </script>
 
-<article class="article--large">
+<article>
   <Clouds />
   <h1>{metadata.title}</h1>
   <svelte:component this={content} />
@@ -12,6 +12,7 @@
 <style lang="scss">
   @use "$styles/mixins" as *;
   @use "$styles/functions" as *;
+
   .clouds {
     position: absolute;
     top: 0;
@@ -29,6 +30,14 @@
   }
 
   article {
+    max-width: 100%;
+    gap: px-to-rem(60px);
+    @include edge-padding;
+
+    @include breakpoint("md") {
+      gap: px-to-rem(84px);
+    }
+
     :global(.hp--intro--img) {
       width: px-to-rem(200px);
       position: absolute;

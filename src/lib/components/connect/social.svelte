@@ -60,6 +60,7 @@
 </ul>
 
 <style lang="scss">
+  @use "$styles/functions" as *;
   ul {
     display: flex;
     flex-flow: row nowrap;

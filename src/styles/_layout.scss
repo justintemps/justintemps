@@ -1,0 +1,21 @@
+@use "mixins" as *;
+@use "functions" as *;
+
+article {
+  width: 100%;
+  max-width: var(--size--column--lg);
+  display: flex;
+  flex-flow: column;
+  gap: 2.5rem;
+
+  @include breakpoint(md) {
+    gap: 4rem;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  @include edge-padding;
+}

@@ -1,0 +1,75 @@
+@use "mixins" as *;
+@use "functions" as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+li,
+button,
+label,
+figcaption {
+  font-family: var(--font--display);
+}
+
+h1 {
+  font-size: px-to-rem(36px);
+  letter-spacing: -1px;
+  color: var(--color--brand);
+}
+
+h2,
+.subtitle {
+  font-size: px-to-rem(24px);
+  color: var(--color--type);
+}
+
+.subtitle {
+  font-family: var(--font--display);
+}
+
+p {
+  font-family: var(--font--type);
+  font-size: px-to-rem(20px);
+  color: var(--color--type);
+  letter-spacing: var(--font--type--letter-spacing);
+}
+
+input,
+textarea {
+  color: var(--color--bg--main);
+  font-size: px-to-rem(24px);
+  &:focus {
+    outline: var(--color--brand) 4px dotted;
+  }
+}
+
+label {
+  color: var(--color--brand);
+  font-size: px-to-rem(20px);
+  font-weight: normal;
+}
+
+figcaption {
+  color: var(--color--type);
+  font-size: px-to-rem(18px);
+  padding-inline: var(--size--edge--padding);
+}
+
+a {
+  color: var(--color--accent);
+  transition: color var(--transition--duration--fast) ease-in;
+
+  &:hover {
+    color: var(--color--brand);
+  }
+}
+
+@include breakpoint(md) {
+  h1 {
+    font-size: px-to-rem(96px);
+    line-height: px-to-rem(96px);
+    letter-spacing: -3px;
+  }
+}

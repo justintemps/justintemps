@@ -3,35 +3,33 @@
 </script>
 
 <article>
-  <div>
+  <section>
     <h1>Get in touch</h1>
-    <h2>
+    <p class="subtitle">
       Fill out the form to shoot me an email. I’ll get back to you as soon as I can.
-    </h2>
-  </div>
-  <form>
-    <label>
-      Your name
-      <input type="text" required />
-    </label>
-    <label>
-      Your email address
-      <input type="text" required />
-    </label>
-    <label>
-      Your message
-      <textarea required></textarea>
-    </label>
-    <Button type="submit" label="Submit" name="submit" />
-  </form>
+    </p>
+  </section>
+  <section>
+    <form>
+      <label>
+        Your name
+        <input type="text" required />
+      </label>
+      <label>
+        Your email address
+        <input type="text" required />
+      </label>
+      <label>
+        Your message
+        <textarea required></textarea>
+      </label>
+      <Button type="submit" label="Submit" name="submit" />
+    </form>
+  </section>
 </article>
 
 <style lang="scss">
-  @use "$styles/mixins" as *;
   @use "$styles/functions" as *;
-  h1 {
-    margin-bottom: px-to-rem(24px);
-  }
   form {
     gap: 40px;
   }
