@@ -12,6 +12,8 @@
 </footer>
 
 <style lang="scss">
+  @use "$styles/mixins" as *;
+  @use "$styles/functions" as *;
   footer {
     height: 100%;
     width: 100%;
@@ -20,8 +22,8 @@
     align-items: center;
     justify-content: center;
     background: var(--color--bg--accent);
-    border-top: rem(4px) solid var(--color--brand);
-    padding-block: rem(32px);
+    border-top: px-to-rem(4px) solid var(--color--brand);
+    padding-block: px-to-rem(32px);
   }
 
   .footer--connect {
@@ -31,19 +33,19 @@
   p {
     color: var(--color--brand);
     font-family: var(--font--display);
-    font-size: rem(16px);
+    font-size: px-to-rem(16px);
   }
 
   @include breakpoint(lg) {
     footer {
-      gap: rem(60px);
-      padding-block: rem(60px);
+      gap: px-to-rem(60px);
+      padding-block: px-to-rem(60px);
     }
 
     .footer--connect {
       display: flex;
       width: 100%;
-      max-width: rem(400px);
+      max-width: px-to-rem(400px);
     }
 
     .footer-social {

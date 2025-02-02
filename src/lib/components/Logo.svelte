@@ -30,6 +30,9 @@
 </li>
 
 <style lang="scss">
+  @use "$styles/mixins" as *;
+  @use "$styles/functions" as *;
+
   @mixin color-stroke($color) {
     stroke: $color;
     color: $color;
@@ -41,7 +44,7 @@
     align-items: center;
     justify-content: flex-start;
     flex: 1 1 auto;
-    gap: rem(6px);
+    gap: px-to-rem(6px);
     @include color-stroke(var(--color--brand));
   }
 

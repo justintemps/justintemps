@@ -30,16 +30,18 @@
 </article>
 
 <style lang="scss">
+  @use "$styles/mixins" as *;
+  @use "$styles/functions" as *;
   p {
     font-family: var(--font--display);
-    font-size: rem(20px);
+    font-size: px-to-rem(20px);
   }
 
   span {
     color: var(--color--brand);
     &:after {
       content: "|";
-      padding-inline: rem(8px);
+      padding-inline: px-to-rem(8px);
     }
   }
 
@@ -48,13 +50,13 @@
     padding: 0;
     display: flex;
     flex-flow: column;
-    gap: rem(52px);
+    gap: px-to-rem(52px);
   }
 
   li {
     display: flex;
     flex-flow: column;
-    gap: rem(16px);
+    gap: px-to-rem(16px);
   }
 
   a {
@@ -66,8 +68,8 @@
     }
 
     h2 {
-      font-size: rem(36px);
-      line-height: rem(48px);
+      font-size: px-to-rem(36px);
+      line-height: px-to-rem(48px);
       letter-spacing: -2.5%;
       font-weight: 500;
     }

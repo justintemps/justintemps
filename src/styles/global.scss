@@ -1,8 +1,8 @@
-@import "./variables";
-@import "./functions";
-@import "./mixins";
-@import "./reset";
-@import "./utils";
+@use "reset" as *;
+@use "utils" as *;
+@use "variables" as *;
+@use "mixins" as *;
+@use "functions" as *;
 
 /* -- CSS Variables -- */
 :root {
@@ -14,10 +14,10 @@
   --color--type: #f3f3f3;
   --color--bg--main: #193549;
   --color--bg--accent: #122736;
-  --size--content--max: #{rem($max-content-width)};
-  --size--column--lg: #{rem($column-width-lg)};
-  --size--column--sm: #{rem($column-width-sm)};
-  --size--edge--padding: #{rem($edge-padding)};
+  --size--content--max: #{px-to-rem($max-content-width)};
+  --size--column--lg: #{px-to-rem($column-width-lg)};
+  --size--column--sm: #{px-to-rem($column-width-sm)};
+  --size--edge--padding: #{px-to-rem($edge-padding)};
   --transition--duration--slow: 250ms;
   --transition--duration--fast: 50ms;
   --breakpoint-sm: #{$breakpoint-sm};
@@ -45,7 +45,7 @@ figcaption {
 }
 
 h1 {
-  font-size: rem(36px);
+  font-size: px-to-rem(36px);
   letter-spacing: -1px;
   color: var(--color--brand);
   padding-inline: var(--size--edge--padding);
@@ -60,7 +60,7 @@ p,
 input,
 textarea {
   font-family: var(--font--type);
-  font-size: rem(20px);
+  font-size: px-to-rem(20px);
   color: var(--color--type);
   letter-spacing: var(--font--type--letter-spacing);
 }
@@ -74,14 +74,14 @@ textarea {
 
 label {
   color: var(--color--brand);
-  font-size: rem(20px);
+  font-size: px-to-rem(20px);
   font-weight: normal;
 }
 
 input,
 textarea {
   color: var(--color--bg--main);
-  font-size: rem(24px);
+  font-size: px-to-rem(24px);
 }
 
 figure {
@@ -92,7 +92,7 @@ figure {
 
 figcaption {
   color: var(--color--type);
-  font-size: rem(18px);
+  font-size: px-to-rem(18px);
   padding-inline: var(--size--edge--padding);
 }
 
@@ -107,8 +107,8 @@ a {
 
 @include breakpoint(md) {
   h1 {
-    font-size: rem(96px);
-    line-height: rem(96px);
+    font-size: px-to-rem(96px);
+    line-height: px-to-rem(96px);
     letter-spacing: -3px;
     padding-inline: 0;
   }

@@ -7,9 +7,11 @@
 </article>
 
 <style lang="scss">
+  @use "$styles/mixins" as *;
+  @use "$styles/functions" as *;
   article {
     :global(p) {
-      font-size: rem(28px);
+      font-size: px-to-rem(28px);
     }
   }
 

@@ -1,9 +1,10 @@
-<script>
+<script lang="ts">
   import "@fontsource/montserrat/400.css";
   import "@fontsource/montserrat/500.css";
   import "@fontsource/montserrat/600.css";
   import "@fontsource/crimson-text/400.css";
   import "@fontsource/crimson-text/600.css";
+  import "$styles/global.scss";
   import Nav from "$lib/components/Nav.svelte";
   import Footer from "$lib/components/Footer.svelte";
 </script>
@@ -19,16 +20,12 @@
   </div>
 </Nav>
 
-<style global lang="scss">
-  :global {
-    @import "../styles/app.scss";
-
-    * {
-      margin: 0;
-      padding: 0;
-    }
+<style lang="scss">
+  @use "$styles/mixins" as *;
+  @use "$styles/functions" as *;
+  body {
+    background-color: red !important;
   }
-
   .layout {
     display: grid;
     grid-template-rows: 1fr auto;
@@ -41,7 +38,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-block: rem(36px);
+    padding-block: px-to-rem(36px);
   }
 
   .wrapper {
@@ -57,33 +54,33 @@
     max-width: var(--size--column--lg);
     display: flex;
     flex-flow: column;
-    gap: rem(40px);
+    gap: px-to-rem(40px);
   }
 
   :global(article.article--large) {
     max-width: 100%;
     padding: 0 var(--size--edge--padding);
-    gap: rem(60px);
+    gap: px-to-rem(60px);
 
     @include breakpoint("md") {
-      gap: rem(84px);
+      gap: px-to-rem(84px);
     }
   }
 
   :global(section) {
     display: flex;
     flex-direction: column;
-    gap: rem(24px);
+    gap: px-to-rem(24px);
     padding-inline: var(--size--edge--padding);
   }
 
   @include breakpoint(md) {
     main {
-      padding-block: rem(84px);
+      padding-block: px-to-rem(84px);
     }
 
     :global(article) {
-      gap: rem(64px);
+      gap: px-to-rem(64px);
     }
   }
 </style>

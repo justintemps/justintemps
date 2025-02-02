@@ -3,7 +3,7 @@
   import Logo from "./Logo.svelte";
   import Connect from "./connect/connect.svelte";
   import classnames from "classnames";
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { isDesktop } from "$lib/stores/isDesktop";
 
   interface Props {
@@ -21,7 +21,8 @@
   const navItems = ["about", "work", "notes", "contact"];
 
   const { children }: Props = $props();
-  let path = $derived($page.url.pathname);
+
+  let path = page.url.pathname;
 
   const mobileMenuId = "mobile-menu";
   let mobileMenuOpen = $state(false);
@@ -89,8 +90,10 @@
 </div>
 
 <style lang="scss">
+  @use "$styles/mixins" as *;
+  @use "$styles/functions" as *;
   .container {
-    --header-height: #{rem(84px)};
+    --header-height: #{px-to-rem(84px)};
 
     display: grid;
     grid-template-rows: var(--header-height) auto;
@@ -107,8 +110,8 @@
     justify-content: center;
     align-items: center;
     background-color: var(--color--bg--accent);
-    border-bottom: rem(4px) solid var(--color--brand);
-    font-size: rem(20px);
+    border-bottom: px-to-rem(4px) solid var(--color--brand);
+    font-size: px-to-rem(20px);
     height: 100%;
   }
 
@@ -143,8 +146,8 @@
       flex-flow: column;
       align-items: center;
       justify-content: space-between;
-      padding-top: rem(84px);
-      gap: rem(118px);
+      padding-top: px-to-rem(84px);
+      gap: px-to-rem(118px);
     }
   }
 
@@ -160,13 +163,13 @@
 
   .nav-items {
     flex-flow: column;
-    gap: rem(56px);
+    gap: px-to-rem(56px);
   }
 
   li {
     color: var(--color--accent);
     padding-inline-start: 0;
-    font-size: rem(32px);
+    font-size: px-to-rem(32px);
 
     &.selected {
       color: var(--color--brand);
@@ -195,7 +198,7 @@
 
   @include breakpoint(lg) {
     .top-menu {
-      border-bottom: rem(8px) solid var(--color--brand);
+      border-bottom: px-to-rem(8px) solid var(--color--brand);
     }
 
     :global(.hamburger),
@@ -215,11 +218,11 @@
     .nav-items {
       display: flex;
       flex-flow: row nowrap;
-      gap: rem(48px);
+      gap: px-to-rem(48px);
     }
 
     li {
-      font-size: rem(20px);
+      font-size: px-to-rem(20px);
 
       &:hover {
         color: var(--color--brand);

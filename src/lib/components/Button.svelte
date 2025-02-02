@@ -15,9 +15,9 @@
     background-color: var(--color--background);
     color: var(--color--accent);
     border: var(--color--accent) 1px solid;
-    padding: rem(12px) rem(16px);
+    padding: px-to-rem(12px) px-to-rem(16px);
     cursor: pointer;
-    font-size: rem(20px);
+    font-size: px-to-rem(20px);
     transition: all ease-in-out 150ms;
     width: fit-content;
   }

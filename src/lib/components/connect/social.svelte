@@ -66,12 +66,12 @@
     justify-content: center;
     align-items: center;
     list-style: none;
-    gap: rem(40px);
+    gap: px-to-rem(40px);
   }
 
   :global(.social-icon) {
-    height: rem(40px);
-    width: rem(40px);
+    height: px-to-rem(40px);
+    width: px-to-rem(40px);
     :global(path) {
       transition: fill ease-in-out var(--transition--duration--fast);
       fill: var(--color--accent);

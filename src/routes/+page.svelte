@@ -10,6 +10,8 @@
 </article>
 
 <style lang="scss">
+  @use "$styles/mixins" as *;
+  @use "$styles/functions" as *;
   .clouds {
     position: absolute;
     top: 0;
@@ -22,15 +24,15 @@
   h1 {
     filter: drop-shadow(14px 13px 11px rgba(0, 0, 0, 0.5));
     font-weight: bold;
-    font-size: rem(72px);
-    line-height: rem(84px);
+    font-size: px-to-rem(72px);
+    line-height: px-to-rem(84px);
   }
 
   article {
     :global(.hp--intro--img) {
-      width: rem(200px);
+      width: px-to-rem(200px);
       position: absolute;
-      top: rem(-100px);
+      top: px-to-rem(-100px);
     }
 
     :global(.hp--intro) {
@@ -39,10 +41,10 @@
       position: relative;
       justify-content: center;
       align-items: center;
-      border: rem(4px) solid var(--color--brand);
+      border: px-to-rem(4px) solid var(--color--brand);
       border-top: none;
-      padding: rem(128px) rem(20px) rem(44px);
-      margin-top: rem(80px);
+      padding: px-to-rem(128px) px-to-rem(20px) px-to-rem(44px);
+      margin-top: px-to-rem(80px);
 
       &:before,
       &:after {
@@ -55,90 +57,90 @@
 
       &:before {
         left: 0;
-        width: calc(50% - (#{rem(100px)} + 5%));
+        width: calc(50% - (#{px-to-rem(100px)} + 5%));
       }
 
       &:after {
         right: 0;
-        width: calc(50% - (#{rem(100px)} + 5%));
+        width: calc(50% - (#{px-to-rem(100px)} + 5%));
       }
     }
 
     :global(h2) {
       filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
       font-weight: bold;
-      font-size: rem(48px);
-      line-height: rem(48px);
+      font-size: px-to-rem(48px);
+      line-height: px-to-rem(48px);
       text-align: center;
     }
 
     :global(p),
     :global(li) {
-      font-size: rem(24px);
-      line-height: rem(36px);
+      font-size: px-to-rem(24px);
+      line-height: px-to-rem(36px);
       text-align: center;
       font-family: var(--font--type);
     }
 
     :global(ul) {
-      margin: rem(40px) 0;
+      margin: px-to-rem(40px) 0;
     }
 
     :global(li) {
       list-style: none;
-      padding: rem(4px) 0;
+      padding: px-to-rem(4px) 0;
     }
   }
 
   @include breakpoint("md") {
     h1 {
-      font-size: rem(136px);
-      line-height: rem(148px);
+      font-size: px-to-rem(136px);
+      line-height: px-to-rem(148px);
       max-width: calc(var(--size--content--max) - 200px);
     }
 
     article {
       :global(h2) {
-        font-size: rem(80px);
-        line-height: rem(80px);
+        font-size: px-to-rem(80px);
+        line-height: px-to-rem(80px);
       }
 
       :global(li),
       :global(p) {
-        font-size: rem(40px);
-        line-height: rem(52px);
+        font-size: px-to-rem(40px);
+        line-height: px-to-rem(52px);
       }
 
       :global(li) {
-        padding: rem(20px);
+        padding: px-to-rem(20px);
       }
 
       :global(.hp--intro--img) {
-        width: rem(300px);
+        width: px-to-rem(300px);
       }
 
       :global(.hp--intro) {
-        padding: rem(226px) 13% rem(76px);
-        margin-top: rem(130px);
+        padding: px-to-rem(226px) 13% px-to-rem(76px);
+        margin-top: px-to-rem(130px);
 
         &:before {
           left: 0;
-          width: calc(50% - (#{rem(150px)} + 5%));
+          width: calc(50% - (#{px-to-rem(150px)} + 5%));
         }
 
         &:after {
           right: 0;
-          width: calc(50% - (#{rem(150px)} + 5%));
+          width: calc(50% - (#{px-to-rem(150px)} + 5%));
         }
       }
 
       :global(ul) {
-        margin: rem(56px) 0;
+        margin: px-to-rem(56px) 0;
       }
 
       :global(.hp--list) :global(p) {
-        font-size: rem(28px);
-        line-height: rem(40px);
+        font-size: px-to-rem(28px);
+        line-height: px-to-rem(40px);
         padding: 0;
         letter-spacing: var(--font--type--letter-spacing);
       }

@@ -14,6 +14,8 @@
 </div>
 
 <style lang="scss">
+  @use "$styles/mixins" as *;
+  @use "$styles/functions" as *;
   .connect {
     display: flex;
     flex-flow: column;
@@ -24,10 +26,10 @@
     &--heading {
       width: 100%;
       text-align: center;
-      padding-bottom: rem(20px);
-      margin-bottom: rem(20px);
-      border-bottom: rem(4px) solid var(--color--brand);
-      font-size: rem(24px);
+      padding-bottom: px-to-rem(20px);
+      margin-bottom: px-to-rem(20px);
+      border-bottom: px-to-rem(4px) solid var(--color--brand);
+      font-size: px-to-rem(24px);
       font-family: var(--font--display);
       color: var(--color--brand);
     }
@@ -35,7 +37,7 @@
 
   @include breakpoint(lg) {
     .connect--heading {
-      font-size: rem(20px);
+      font-size: px-to-rem(20px);
     }
   }
 </style>

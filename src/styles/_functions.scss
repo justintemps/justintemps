@@ -1,7 +1,6 @@
-/* -- Mixins -- */
 @use "sass:math";
 
-@function rem($value) {
+@function px-to-rem($value) {
   $remValue: math.div($value, 16px) + rem;
   @return $remValue;
 }

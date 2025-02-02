@@ -1,9 +1,5 @@
-// Define breakpoints for mobile, tablet, and desktop
-$mobile-breakpoint: 480px;
-$tablet-breakpoint: 768px;
-$desktop-breakpoint: 1024px;
+@use "variables" as *;
 
-// Mixin for min-size breakpoints
 @mixin breakpoint($size) {
   @if $size == sm {
     @media (min-width: $breakpoint-sm) {
@@ -22,11 +18,10 @@ $desktop-breakpoint: 1024px;
   }
 }
 
-// Mixin for thick underline text decoration
 @mixin nav-item-selected-decoration {
   text-decoration: underline;
-  text-underline-offset: rem(8px);
-  text-decoration-thickness: rem(4px);
+  text-underline-offset: px-to-rem(8px);
+  text-decoration-thickness: px-to-rem(4px);
 }
 
 @mixin edge-padding {

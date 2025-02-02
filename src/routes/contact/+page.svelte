@@ -27,8 +27,10 @@
 </article>
 
 <style lang="scss">
+  @use "$styles/mixins" as *;
+  @use "$styles/functions" as *;
   h1 {
-    margin-bottom: rem(24px);
+    margin-bottom: px-to-rem(24px);
   }
   form {
     gap: 40px;
@@ -41,11 +43,11 @@
 
   input,
   textarea {
-    padding: rem(12px) rem(8px);
-    margin: rem(12px) 0 0 0;
+    padding: px-to-rem(12px) px-to-rem(8px);
+    margin: px-to-rem(12px) 0 0 0;
   }
 
   textarea {
-    min-height: rem(248px);
+    min-height: px-to-rem(248px);
   }
 </style>
