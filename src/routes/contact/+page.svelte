@@ -23,7 +23,7 @@
         Your message
         <textarea required></textarea>
       </label>
-      <Button type="submit" label="Submit" name="submit" />
+      <Button size="large" type="submit" label="Submit" name="submit" />
     </form>
   </section>
 </article>

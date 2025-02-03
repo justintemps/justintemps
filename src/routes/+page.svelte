@@ -13,15 +13,6 @@
   @use "$styles/mixins" as *;
   @use "$styles/functions" as *;
 
-  .clouds {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-  }
-
   h1 {
     filter: drop-shadow(14px 13px 11px rgba(0, 0, 0, 0.5));
     font-weight: bold;
