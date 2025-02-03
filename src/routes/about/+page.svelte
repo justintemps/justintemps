@@ -5,16 +5,6 @@
 <article>
   <section>
     <h1>A bit about me</h1>
-    <p class="subtitle">Just some shameless self-promotion</p>
   </section>
   <svelte:component this={content} />
 </article>
-
-<style lang="scss">
-  @use "$styles/functions" as *;
-  article {
-    :global(p) {
-      font-size: px-to-rem(28px);
-    }
-  }
-</style>

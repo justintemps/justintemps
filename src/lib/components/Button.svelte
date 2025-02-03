@@ -25,8 +25,8 @@
   .button {
     &--size {
       &__small {
-        font-size: px-to-rem(16px);
-        padding: px-to-rem(8px) px-to-rem(12px);
+        font-size: px-to-rem(14px);
+        padding: px-to-rem(8px) px-to-rem(10px);
       }
 
       &__large {

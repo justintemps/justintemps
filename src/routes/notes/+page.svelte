@@ -17,21 +17,20 @@
 <article>
   <section>
     <h1>Notes to myself</h1>
-    <p class="subtitle">Things I wrote down so I don't forget.</p>
   </section>
   <section>
     <ul class="posts">
       {#each data.posts as post}
         <li>
           <article class="post">
-            <a href={`notes/${post.slug}`}>
+            <a href={`note/${post.slug}`}>
               <h2>{post.title}</h2>
             </a>
             <p><span>Last Update</span>{formatDate(post.date)}</p>
             {#if post.categories.length > 0}
               <div class="categories">
                 {#each post.categories as category}
-                  <Button label={category} type="button" name={category} />
+                  <Button size="small" label={category} type="button" name={category} />
                 {/each}
               </div>
             {/if}
@@ -53,7 +52,7 @@
 
     p {
       font-family: var(--font--display);
-      font-size: px-to-rem(20px);
+      font-size: px-to-rem(16px);
     }
   }
 
@@ -84,13 +83,6 @@
 
     &:hover {
       color: var(--color--accent);
-    }
-
-    h2 {
-      font-size: px-to-rem(36px);
-      line-height: px-to-rem(48px);
-      letter-spacing: -2.5%;
-      font-weight: 500;
     }
   }
 

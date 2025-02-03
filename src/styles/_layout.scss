@@ -16,6 +16,12 @@ article {
 section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   @include edge-padding;
+}
+
+@include breakpoint(md) {
+  section {
+    gap: 1.5rem;
+  }
 }

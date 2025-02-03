@@ -14,14 +14,14 @@ figcaption {
 }
 
 h1 {
-  font-size: px-to-rem(36px);
+  font-size: px-to-rem(40px);
   letter-spacing: -1px;
   color: var(--color--brand);
 }
 
 h2,
 .subtitle {
-  font-size: px-to-rem(24px);
+  font-size: 24px;
   color: var(--color--type);
 }
 
@@ -31,9 +31,10 @@ h2,
 
 p {
   font-family: var(--font--type);
-  font-size: px-to-rem(20px);
+  font-size: px-to-rem(22px);
   color: var(--color--type);
-  letter-spacing: var(--font--type--letter-spacing);
+  font-weight: 400;
+  // letter-spacing: var(--font--type--letter-spacing);
 }
 
 input,
@@ -53,7 +54,7 @@ label {
 
 figcaption {
   color: var(--color--type);
-  font-size: px-to-rem(18px);
+  font-size: px-to-rem(14px);
   padding-inline: var(--size--edge--padding);
 
   @include breakpoint(md) {
@@ -75,5 +76,20 @@ a {
     font-size: px-to-rem(96px);
     line-height: px-to-rem(96px);
     letter-spacing: -3px;
+  }
+
+  h2,
+  .subtitle {
+    font-size: px-to-rem(36px);
+    letter-spacing: var(--font--type--letter-spacing);
+  }
+
+  p {
+    font-size: px-to-rem(28px);
+  }
+
+  figcaption {
+    font-size: px-to-rem(18px);
+    padding-inline: 0;
   }
 }
