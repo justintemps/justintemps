@@ -1,7 +1,8 @@
 <script lang="ts">
   import type { Post } from "$lib/types";
   import Button from "$lib/components/Button.svelte";
-  import { formatDate } from "$lib/utilities/formatDate";
+  import LastUpdate from "$lib/components/LastUpdate.svelte";
+  import Categories from "../../lib/components/Categories.svelte";
 
   interface Data {
     posts: Post[];
@@ -26,14 +27,8 @@
             <a href={`note/${post.slug}`}>
               <h2>{post.title}</h2>
             </a>
-            <p><span>Last Update</span>{formatDate(post.date)}</p>
-            {#if post.categories.length > 0}
-              <div class="categories">
-                {#each post.categories as category}
-                  <Button size="small" label={category} type="button" name={category} />
-                {/each}
-              </div>
-            {/if}
+            <LastUpdate date={post.date} />
+            <Categories categories={post.categories} />
           </article>
         </li>
       {/each}
@@ -49,24 +44,6 @@
     display: flex;
     flex-flow: column;
     gap: px-to-rem(16px);
-
-    p {
-      font-family: var(--font--display);
-      font-size: px-to-rem(16px);
-    }
-  }
-
-  .categories {
-    display: flex;
-    gap: px-to-rem(16px);
-  }
-
-  span {
-    color: var(--color--brand);
-    &:after {
-      content: "|";
-      padding-inline: px-to-rem(8px);
-    }
   }
 
   ul {
