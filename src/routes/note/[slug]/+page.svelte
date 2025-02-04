@@ -1,7 +1,11 @@
 <script lang="ts">
-  import { formatDate } from "$lib/utilities/formatDate.js";
-
   let { data } = $props();
+  const { title } = data.meta;
+
+  let Component = data.content;
 </script>
 
-<code><pre>{JSON.stringify(data, null, 4)}</pre></code>
+<article>
+  <h1>{title}</h1>
+  <Component />
+</article>
