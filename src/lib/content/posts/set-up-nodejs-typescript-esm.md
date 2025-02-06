@@ -15,3 +15,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas elementum tort
 Aliquam gravida semper egestas. Cras vehicula velit ut lorem molestie auctor. Donec euismod nulla eu nisl efficitur interdum. Integer efficitur eros varius, malesuada eros vitae, luctus sapien. Proin id eros at nisi ornare sagittis. In rhoncus nisl vel ipsum elementum, id condimentum mi porta. Cras eleifend turpis sit amet magna gravida efficitur. Nunc vitae magna vel massa tempor mollis.
 
 Suspendisse sit amet ipsum at massa molestie tincidunt. Pellentesque lobortis laoreet sodales. Suspendisse dolor velit, commodo eget eleifend eu, bibendum ut mi. Nunc at est non diam vehicula maximus. Cras a mauris at nibh lacinia faucibus.
+
+```ts
+function hello(name: string) {
+  return `Hello, ${name}!`;
+}
+
+console.log(hello("Justin"));
+```

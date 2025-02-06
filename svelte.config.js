@@ -1,10 +1,24 @@
-import { mdsvex } from "mdsvex";
+import { mdsvex, escapeSvelte } from "mdsvex";
 import adapter from "@sveltejs/adapter-auto";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
+import { createHighlighter } from "shiki";
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
-  extensions: [".md", ".svx"]
+  extensions: [".md", ".svx"],
+  highlight: {
+    highlighter: async (code, lang = "text") => {
+      const highlighter = await createHighlighter({
+        themes: ["poimandres"],
+        langs: ["javascript", "typescript", "python", "bash"]
+      });
+      await highlighter.loadLanguage("javascript", "typescript");
+      const html = escapeSvelte(
+        highlighter.codeToHtml(code, { lang, theme: "poimandres" })
+      );
+      return `{@html \`${html}\` }`;
+    }
+  }
 };
 
 /** @type {import('@sveltejs/kit').Config} */
