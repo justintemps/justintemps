@@ -2,6 +2,7 @@ import { mdsvex, escapeSvelte } from "mdsvex";
 import adapter from "@sveltejs/adapter-auto";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { createHighlighter } from "shiki";
+import { theme } from "./src/code-highlighting.js";
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
@@ -9,13 +10,11 @@ const mdsvexOptions = {
   highlight: {
     highlighter: async (code, lang = "text") => {
       const highlighter = await createHighlighter({
-        themes: ["poimandres"],
+        themes: [theme],
         langs: ["javascript", "typescript", "python", "bash"]
       });
       await highlighter.loadLanguage("javascript", "typescript");
-      const html = escapeSvelte(
-        highlighter.codeToHtml(code, { lang, theme: "poimandres" })
-      );
+      const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme }));
       return `{@html \`${html}\` }`;
     }
   }
