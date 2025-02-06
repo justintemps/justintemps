@@ -2,7 +2,7 @@ import { mdsvex, escapeSvelte } from "mdsvex";
 import adapter from "@sveltejs/adapter-auto";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { createHighlighter } from "shiki";
-import { theme } from "./src/code-highlighting.js";
+import { theme } from "./src/syntax-highlight.js";
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
