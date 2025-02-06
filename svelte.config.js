@@ -14,7 +14,9 @@ const mdsvexOptions = {
         langs: ["javascript", "typescript", "python", "bash"]
       });
       await highlighter.loadLanguage("javascript", "typescript");
-      const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme }));
+      const html = escapeSvelte(
+        highlighter.codeToHtml(code, { lang, theme })
+      );
       return `{@html \`${html}\` }`;
     }
   }

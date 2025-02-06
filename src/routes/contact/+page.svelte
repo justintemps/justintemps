@@ -6,7 +6,8 @@
   <hrgroup>
     <h1>Get in touch</h1>
     <p class="subtitle">
-      Fill out the form to shoot me an email. I’ll get back to you as soon as I can.
+      Fill out the form to shoot me an email. I’ll get back to you as soon
+      as I can.
     </p>
   </hrgroup>
   <section>

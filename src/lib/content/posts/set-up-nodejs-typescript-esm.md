@@ -17,9 +17,22 @@ Aliquam gravida semper egestas. Cras vehicula velit ut lorem molestie auctor. Do
 Suspendisse sit amet ipsum at massa molestie tincidunt. Pellentesque lobortis laoreet sodales. Suspendisse dolor velit, commodo eget eleifend eu, bibendum ut mi. Nunc at est non diam vehicula maximus. Cras a mauris at nibh lacinia faucibus.
 
 ```ts
-function hello(name: string) {
-  return `Hello, ${name}!`;
-}
+/** @type {import('mdsvex').MdsvexOptions} */
+const mdsvexOptions = {
+  extensions: [".md", ".svx"],
+  highlight: {
+    highlighter: async (code, lang = "text") => {
+      const highlighter = await createHighlighter({
+        themes: [theme],
+        langs: ["javascript", "typescript", "python", "bash"]
+      });
+      await highlighter.loadLanguage("javascript", "typescript");
+      const html = highlighter.codeToHtml(code, { lang, theme });
 
-console.log(hello("Justin"));
+      // This escapes the html
+      const escapedHtml = escapeSvelte(escapedHtml);
+      return `{@html \`${escapedHtml}\` }`;
+    }
+  }
+};
 ```

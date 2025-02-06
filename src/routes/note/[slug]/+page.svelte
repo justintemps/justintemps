@@ -38,9 +38,5 @@
         line-height: normal;
       }
     }
-
-    :global(pre) {
-      padding: 24px;
-    }
   }
 </style>

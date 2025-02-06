@@ -37,5 +37,16 @@ body {
 figure {
   display: flex;
   flex-flow: column;
-  gap: 12px;
+  gap: px-to-rem(12px);
+}
+
+pre {
+  padding: px-to-rem(24px);
+}
+
+code {
+  display: flex;
+  flex-flow: column;
+  gap: px-to-rem(8px);
+  font-size: 16px;
 }

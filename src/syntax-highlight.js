@@ -295,7 +295,11 @@ export const theme = {
       }
     },
     {
-      scope: ["meta.jsx.children", "meta.jsx.children.js", "meta.jsx.children.tsx"],
+      scope: [
+        "meta.jsx.children",
+        "meta.jsx.children.js",
+        "meta.jsx.children.tsx"
+      ],
       settings: {
         foreground: "#FFFFFF"
       }
@@ -450,7 +454,8 @@ export const theme = {
       }
     },
     {
-      scope: "punctuation.definition.string.begin, punctuation.definition.string.end",
+      scope:
+        "punctuation.definition.string.begin, punctuation.definition.string.end",
       settings: {
         foreground: "#92FC79"
       }
@@ -480,7 +485,8 @@ export const theme = {
       }
     },
     {
-      scope: "source.js storage.type.function, source.ts storage.type.function",
+      scope:
+        "source.js storage.type.function, source.ts storage.type.function",
       settings: {
         foreground: "#FB94FF"
       }
@@ -519,7 +525,10 @@ export const theme = {
       }
     },
     {
-      scope: ["source.json string", "source.json punctuation.definition.string"],
+      scope: [
+        "source.json string",
+        "source.json punctuation.definition.string"
+      ],
       settings: {
         foreground: "#E1EFFF"
       }
@@ -603,7 +612,10 @@ export const theme = {
       }
     },
     {
-      scope: ["markup.underline.link.markdown", "markup.underline.link.image.markdown"],
+      scope: [
+        "markup.underline.link.markdown",
+        "markup.underline.link.image.markdown"
+      ],
       settings: {
         foreground: "#9EFFFF"
       }
