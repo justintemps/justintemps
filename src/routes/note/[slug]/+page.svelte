@@ -9,14 +9,12 @@
 </script>
 
 <article>
-  <section>
-    <hrgroup>
-      <h1>{title}</h1>
-      <p>{description}</p>
-    </hrgroup>
+  <hrgroup>
+    <h1>{title}</h1>
+    <p>{description}</p>
     <LastUpdate {date} />
     <Categories {categories} />
-  </section>
+  </hrgroup>
   <section>
     <Component />
   </section>

@@ -1,0 +1,36 @@
+{
+  "title": "Work I've done",
+  "description": "A collection of projects I've worked on",
+  "projects": [
+    {
+      "title": "ILO Live",
+      "description": "I’m the product owner and technical lead of the ILO’s livestream video platform, hosting around 200 official meetings and events every year, including the International Labour Conference.",
+      "url": "https://live.ilo.org"
+    },
+    {
+      "title": "Project 2",
+      "description": "Another project I worked on",
+      "url": "https://example.com"
+    },
+    {
+      "title": "Project 3",
+      "description": "Another project I worked on",
+      "url": "https://example.com"
+    },
+    {
+      "title": "Project 4",
+      "description": "Another project I worked on",
+      "url": "https://example.com"
+    },
+    {
+      "title": "Project 3",
+      "description": "Another project I worked on",
+      "url": "https://example.com"
+    },
+    {
+      "title": "Project 4",
+      "description": "Another project I worked on",
+      "url": "https://example.com"
+    }
+  ]
+}
