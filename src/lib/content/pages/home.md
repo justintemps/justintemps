@@ -4,7 +4,7 @@ title: Justin time to blow your mind
 
 <section class="hp--intro">
 
-<img class="hp--intro--img" src="/profile.png" alt="Me wearing a blue baseball cap sipping an espresso" />
+<img class="hp--intro--img" src="/images/profile.png" alt="Me wearing a blue baseball cap sipping an espresso" />
 
 My name is Justin Smith.
 I’m a Digital Communication Officer at the International Labour Organization, a

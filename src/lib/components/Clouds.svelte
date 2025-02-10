@@ -7,7 +7,10 @@
 
   let camera: THREE.PerspectiveCamera;
   let renderer: THREE.WebGLRenderer;
-  let cloudParticles: THREE.Mesh<THREE.PlaneGeometry, THREE.MeshLambertMaterial>[] = [];
+  let cloudParticles: THREE.Mesh<
+    THREE.PlaneGeometry,
+    THREE.MeshLambertMaterial
+  >[] = [];
   let flash: THREE.SpotLight;
   let scene: THREE.Scene;
   let cloudsElement: HTMLDivElement;
@@ -17,7 +20,12 @@
     scene = new THREE.Scene();
 
     // Create Camera and position
-    camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 1, 1000);
+    camera = new THREE.PerspectiveCamera(
+      60,
+      innerWidth / innerHeight,
+      1,
+      1000
+    );
     camera.position.z = 1;
     camera.rotation.x = 1.16;
     camera.rotation.y = -0.12;
@@ -48,7 +56,7 @@
 
     const loader = new THREE.TextureLoader();
 
-    loader.load("./smoke-1.png", function (texture: any) {
+    loader.load("./images/smoke-1.png", function (texture: any) {
       const cloudGeo = new THREE.PlaneGeometry(500, 500);
       const cloudMaterial = new THREE.MeshLambertMaterial({
         map: texture,
@@ -57,7 +65,11 @@
       for (let p = 0; p < 35; p++) {
         const cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
         cloud.castShadow = true;
-        cloud.position.set(Math.random() * 800 - 400, 500, Math.random() * 500 - 450);
+        cloud.position.set(
+          Math.random() * 800 - 400,
+          500,
+          Math.random() * 500 - 450
+        );
         cloud.rotation.x = 1.18;
         cloud.rotation.y = -0.12;
         cloud.rotation.z = Math.random() * 360;
@@ -83,7 +95,11 @@
 
     if (Math.random() > 0.95 || flash.power > 100) {
       if (flash.power < 100) {
-        flash.position.set(Math.random() * 400, 300 + Math.random() * 200, 100);
+        flash.position.set(
+          Math.random() * 400,
+          300 + Math.random() * 200,
+          100
+        );
       }
       flash.power = 50 + Math.random() * 500;
     }

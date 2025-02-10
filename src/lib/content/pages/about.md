@@ -14,7 +14,7 @@
 </script>
 
 <figure>
-  <img alt="Me holding a gavel in front of an ILO logo banner" src="/selfie.jpg" />
+  <img alt="Me holding a gavel in front of an ILO logo banner" src="/images/selfie.jpg" />
   <figcaption>Bringing down the hammer of social justice.</figcaption>
 </figure>
 
