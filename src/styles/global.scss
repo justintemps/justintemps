@@ -16,6 +16,8 @@
   --color--type: #f3f3f3;
   --color--bg--main: #193549;
   --color--bg--accent: #122736;
+  --color--shadow: rgba(0, 0, 0, 0.5);
+  --color--shadow--accent: #ffc800cc;
   --size--content--max: #{px-to-rem($max-content-width)};
   --size--column--lg: #{px-to-rem($column-width-lg)};
   --size--column--sm: #{px-to-rem($column-width-sm)};
