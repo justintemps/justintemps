@@ -12,15 +12,10 @@
       {#each work.projects as project}
         <li>
           <article class="project">
-            <h2>{project.title}</h2>
             <img src={project.image} alt={project.title} />
-            <div class="description">
+            <div>
+              <h2>{project.title}</h2>
               <p>{project.description}</p>
-              <Button
-                size="large"
-                name="Visit the project"
-                label="Check it out"
-              />
             </div>
           </article>
         </li>
@@ -32,6 +27,13 @@
 <style lang="scss">
   @use "$styles/functions" as *;
 
+  article.work {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
   hrgroup {
     max-width: var(--size--column--lg);
   }
@@ -40,44 +42,55 @@
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: px-to-rem(60px);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: px-to-rem(56px);
   }
 
-  .project {
+  article.project {
     display: grid;
-    border: px-to-rem(4px) solid var(--color--brand);
-    padding: px-to-rem(24px);
-    grid-template-columns: 40% 1fr;
-    grid-template-rows: auto auto;
+    gap: 0;
+    height: 100%;
+    background-color: var(--color--bg--accent);
+    padding-bottom: px-to-rem(24px);
+    border: px-to-rem(2px) solid var(--color--type);
+    grid-template-columns: 25px 1fr 25px;
+    grid-template-rows: minmax(auto, 230px) auto;
     grid-template-areas:
-      "title title"
-      "image description";
-    text-decoration: none;
-    gap: px-to-rem(24px);
+      "image image image"
+      ". content .";
+
+    div {
+      grid-area: content;
+    }
+
+    img {
+      grid-area: image;
+      overflow: hidden;
+    }
   }
 
   h2 {
-    grid-area: title;
-    padding-block: px-to-rem(10px);
     position: relative;
-  }
-
-  img {
-    grid-area: image;
+    font-size: px-to-rem(24px);
+    grid-area: title;
+    color: var(--color--brand);
+    padding: px-to-rem(24px) 0;
   }
 
   .description {
-    grid-area: description;
     display: flex;
     flex-direction: column;
     gap: px-to-rem(24px);
     justify-content: space-between;
+    grid-area: description;
   }
 
   p {
     font-family: var(--font-display);
-    font-size: px-to-rem(20px);
+    font-size: px-to-rem(18px);
+    line-height: px-to-rem(28px);
+    letter-spacing: initial;
   }
 
   :global(button) {

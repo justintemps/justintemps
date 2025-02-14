@@ -1,28 +1,28 @@
 {
-  "title": "Things I helped to make",
-  "description": "A collection of projects I've worked on",
+  "title": "Work I've done",
+  "description": "Projects I've built and led.",
   "projects": [
     {
       "title": "ILO Live",
-      "description": "The livestream event platform of the International Labour Organization, hosting around 200 official meetings and events every year, including the annual International Labour Conference.",
+      "description": "The ILO’s livestream platform, hosting 200+ official events yearly, including the International Labour Conference.",
       "image": "/images/ilo-live-screen.jpg",
       "url": "https://live.ilo.org"
     },
     {
       "title": "ILO Design System",
-      "description": "The official Design System of the International Labour Organization, a collection of reusable components, patterns and guidelines for building websites and web applications. Available for both Drupal and React.",
+      "description": "The ILO’s official Design System—reusable components and guidelines for Drupal and React.",
       "image": "/images/design-system-screen.jpg",
       "url": "https://brand.ilo.org/designsystem"
     },
     {
       "title": "ILO Voices",
-      "description": "A digital storytelling platform about working people and their lives. Also home of the 'Future of Work' podcast.",
+      "description": "A digital storytelling platform on work and life, featuring the 'Future of Work' podcast.",
       "image": "/images/ilo-voices-screen.jpg",
       "url": "https://voices.ilo.org"
     },
     {
       "title": "ILO Centenary Website",
-      "description": "An interactive journey through the past, present and future of the International Labour Organization, built to commemorate the organization's 100th anniversary in 2019.",
+      "description": "An interactive look at the ILO’s past, present, and future, celebrating its 100th anniversary.",
       "image": "/images/ilo-100-screen.jpg",
       "url": "https://webapps.ilo.org/100"
     }
