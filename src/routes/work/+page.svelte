@@ -4,10 +4,9 @@
 </script>
 
 <article>
-  <hrgroup>
+  <hgroup>
     <h1>{work.title}</h1>
-    <p>{work.description}</p>
-  </hrgroup>
+  </hgroup>
   <section>
     <ul>
       {#each work.projects as project}
@@ -29,7 +28,7 @@
     align-items: center;
   }
 
-  hrgroup {
+  hgroup {
     max-width: var(--size--column--lg);
   }
 

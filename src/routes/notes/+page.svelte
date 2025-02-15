@@ -16,9 +16,9 @@
 </script>
 
 <article>
-  <section>
+  <hgroup>
     <h1>Notes to myself</h1>
-  </section>
+  </hgroup>
   <section>
     <ul class="posts">
       {#each data.posts as post}

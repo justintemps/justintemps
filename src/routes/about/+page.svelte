@@ -3,8 +3,8 @@
 </script>
 
 <article>
-  <section>
+  <hgroup>
     <h1>A bit about me</h1>
-  </section>
+  </hgroup>
   <svelte:component this={content} />
 </article>

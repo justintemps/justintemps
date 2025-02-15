@@ -9,12 +9,12 @@
 </script>
 
 <article>
-  <hrgroup>
+  <hgroup>
     <h1>{title}</h1>
     <p>{description}</p>
     <LastUpdate {date} />
     <Categories {categories} />
-  </hrgroup>
+  </hgroup>
   <section>
     <Component />
   </section>
@@ -23,7 +23,7 @@
 <style lang="scss">
   @use "$styles/functions" as *;
   article {
-    hrgroup {
+    hgroup {
       h1 {
         font-size: px-to-rem(60px);
         line-height: normal;
