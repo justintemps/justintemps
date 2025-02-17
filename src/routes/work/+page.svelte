@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Card from "$lib/components/Card.svelte";
+  import Card from "$lib/components/WorkCard.svelte";
   import type { WorkSample } from "../../lib/types";
 
   interface Data {

@@ -1,8 +1,6 @@
 <script lang="ts">
   import type { Post } from "$lib/types";
-  import Button from "$lib/components/Button.svelte";
-  import LastUpdate from "$lib/components/LastUpdate.svelte";
-  import Categories from "../../lib/components/Categories.svelte";
+  import Card from "$lib/components/NoteCard.svelte";
 
   interface Data {
     posts: Post[];
@@ -20,17 +18,9 @@
     <h1>Notes to myself</h1>
   </hgroup>
   <section>
-    <ul class="posts">
+    <ul>
       {#each data.posts as post}
-        <li>
-          <article class="post">
-            <a href={`note/${post.slug}`}>
-              <h2>{post.title}</h2>
-            </a>
-            <LastUpdate date={post.date} />
-            <Categories categories={post.categories} />
-          </article>
-        </li>
+        <li><Card {...post} /></li>
       {/each}
     </ul>
   </section>

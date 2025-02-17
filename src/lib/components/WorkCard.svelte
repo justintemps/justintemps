@@ -9,21 +9,28 @@
   const { image, title, description, url }: Props = $props();
 </script>
 
-<a href={url} target="_blank" rel="noopener noreferrer">
-  <img src={image} alt={title} />
-  <div>
-    <h2>{title}</h2>
-    <p>{description}</p>
-  </div>
-</a>
+<article>
+  <a href={url} target="_blank" rel="noopener noreferrer">
+    <img src={image} alt={title} />
+    <div>
+      <h2>{title}</h2>
+      <p>{description}</p>
+    </div>
+  </a>
+</article>
 
 <style lang="scss">
   @use "$styles/functions" as *;
 
+  article,
   a {
-    display: inline-block;
     height: 100%;
     width: 100%;
+  }
+
+  a {
+    display: inline-block;
+
     background-color: var(--color--bg--accent);
     border: px-to-rem(2px) solid var(--color--bg--accent);
     box-shadow: 8px 8px 12px var(--color--shadow);

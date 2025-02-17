@@ -19,6 +19,11 @@ async function getWork() {
     }
   }
 
+  work = work.sort(
+    (first, second) =>
+      new Date(second.date).getTime() - new Date(first.date).getTime()
+  );
+
   return work;
 }
 

@@ -16,4 +16,5 @@ export type WorkSample = {
   description: string;
   image: string;
   url: string;
+  date: string;
 };
