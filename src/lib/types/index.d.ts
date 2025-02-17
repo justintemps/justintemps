@@ -10,3 +10,10 @@ export type Post = {
   body: string;
   categories: Categories[];
 };
+
+export type WorkSample = {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+};

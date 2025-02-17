@@ -1,17 +1,27 @@
 <script lang="ts">
-  import work from "$lib/content/pages/work.json";
   import Card from "$lib/components/Card.svelte";
+  import type { WorkSample } from "../../lib/types";
+
+  interface Data {
+    work: WorkSample[];
+  }
+
+  interface Props {
+    data: Data;
+  }
+
+  let { data }: Props = $props();
 </script>
 
 <article>
   <hgroup>
-    <h1>{work.title}</h1>
+    <h1>Work I've done</h1>
   </hgroup>
   <section>
     <ul>
-      {#each work.projects as project}
+      {#each data.work as sample}
         <li>
-          <Card {...project} />
+          <Card {...sample} />
         </li>
       {/each}
     </ul>
