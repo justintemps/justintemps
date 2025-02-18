@@ -16,6 +16,10 @@
 <article>
   <hgroup>
     <h1>Work I've done</h1>
+    <p>
+      Projects I've worked on, things I've built, and stuff I've made—mostly
+      together brilliant teams of people smarter than me.
+    </p>
   </hgroup>
   <section>
     <ul>

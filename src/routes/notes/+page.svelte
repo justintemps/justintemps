@@ -16,6 +16,7 @@
 <article>
   <hgroup>
     <h1>Notes to myself</h1>
+    <p>Things I wrote down so I wouldn't forget</p>
   </hgroup>
   <section>
     <ul>

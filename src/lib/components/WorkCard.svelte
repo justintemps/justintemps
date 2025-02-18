@@ -30,7 +30,6 @@
 
   a {
     display: inline-block;
-
     background-color: var(--color--bg--accent);
     border: px-to-rem(2px) solid var(--color--bg--accent);
     box-shadow: 8px 8px 12px var(--color--shadow);
