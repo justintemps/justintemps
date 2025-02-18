@@ -1,11 +1,14 @@
 <script lang="ts">
   import content, { metadata } from "$lib/content/pages/home.md";
   import Clouds from "$lib/components/Clouds.svelte";
+  import SEO from "$lib/components/SEO.svelte";
 </script>
+
+<SEO {...metadata} />
 
 <article>
   <Clouds />
-  <h1>{metadata.title}</h1>
+  <h1>Justin time to blow your mind</h1>
   <svelte:component this={content} />
 </article>
 

@@ -1,3 +1,8 @@
+---
+title: A bit about me
+description: Non-essential background information about the person who built this website.
+---
+
 <script>
   import { onDestroy } from 'svelte';
   import { timeStore } from "$lib/stores/ageStore.ts";
@@ -11,7 +16,17 @@
   onDestroy(() => {
     unsubscribe();
   });
+
+  console.log({title, description})
 </script>
+
+<hgroup>
+
+# { title }
+
+{ description }
+
+</hgroup>
 
 <figure>
   <img alt="Me holding a gavel in front of an ILO logo banner" src="/images/selfie.jpg" />

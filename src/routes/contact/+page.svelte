@@ -1,14 +1,15 @@
 <script lang="ts">
   import Button from "$lib/components/Button.svelte";
+  import SEO from "$lib/components/SEO.svelte";
+  import { metadata } from "$lib/content/pages/contact.md";
 </script>
+
+<SEO {...metadata} />
 
 <article>
   <hgroup>
-    <h1>Get in touch</h1>
-    <p>
-      Fill out the form to shoot me an email. I promise to get back to you as
-      soon as I can.
-    </p>
+    <h1>{metadata.title}</h1>
+    <p>{metadata.description}</p>
   </hgroup>
   <section>
     <form>

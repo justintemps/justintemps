@@ -12,17 +12,21 @@
 <li>
   <span class={classnames("home", "nav-item", { selected })}>
     <svg
-      width="21"
-      height="21"
-      viewBox="0 0 21 21"
-      fill="none"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M19.6491 10.5C19.6491 15.3315 15.7288 19.25 10.8907 19.25C6.05265 19.25 2.13239 15.3315 2.13239 10.5C2.13239 5.66849 6.05265 1.75 10.8907 1.75C15.7288 1.75 19.6491 5.66849 19.6491 10.5Z"
+        d="M13 11.4854V5.33334H11V12.5146L15.3077 15.5915L16.4701 13.9641L13 11.4854Z"
+        stroke-width="0.5"
       />
-      <path d="M10.8916 5.5V10.5" />
-      <path d="M10.5618 10.5497L7.55464 10.5497" />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M22 12C22 17.5229 17.5228 22 12 22C6.47715 22 2 17.5229 2 12C2 6.47717 6.47715 2.00002 12 2.00002C17.5228 2.00002 22 6.47717 22 12ZM20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58174 7.58172 4.00002 12 4.00002C16.4183 4.00002 20 7.58174 20 12Z"
+        stroke-width="0.5"
+      />
     </svg>
 
     <a aria-label="home" href="/" {onclick}>justintemps</a>
@@ -35,6 +39,7 @@
 
   @mixin color-stroke($color) {
     stroke: $color;
+    fill: $color;
     color: $color;
   }
 
@@ -45,19 +50,22 @@
     justify-content: flex-start;
     flex: 1 1 auto;
     gap: px-to-rem(6px);
-    @include color-stroke(var(--color--brand));
+    @include color-stroke(var(--color--accent));
+
+    &.selected {
+      @include color-stroke(var(--color--brand));
+    }
+
+    path {
+      stroke: inherit;
+      fill: inherit;
+    }
   }
 
   a {
     color: inherit;
     text-decoration: none;
     font-weight: 600;
-  }
-
-  path {
-    stroke: inherit;
-    stroke-width: 2.25;
-    stroke-linecap: "round";
   }
 
   @include breakpoint(lg) {

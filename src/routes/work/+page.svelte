@@ -1,5 +1,7 @@
 <script lang="ts">
   import Card from "$lib/components/WorkCard.svelte";
+  import SEO from "$lib/components/SEO.svelte";
+  import { metadata } from "$lib/content/pages/work.md";
   import type { WorkSample } from "../../lib/types";
 
   interface Data {
@@ -13,12 +15,13 @@
   let { data }: Props = $props();
 </script>
 
+<SEO {...metadata} />
+
 <article>
   <hgroup>
-    <h1>Work I've done</h1>
+    <h1>{metadata.title}</h1>
     <p>
-      Projects I've worked on, things I've built, and stuff I've made—mostly
-      together brilliant teams of people smarter than me.
+      {metadata.description}
     </p>
   </hgroup>
   <section>

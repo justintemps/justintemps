@@ -1,18 +1,25 @@
 <script lang="ts">
-  import type { ComponentType, SvelteComponent } from "svelte";
+  import type { SvelteComponent } from "svelte";
   import Mail from "$lib/components/connect/mail.svelte";
   import LinkedIn from "$lib/components/connect/linkedin.svelte";
   import Mastadon from "$lib/components/connect/mastadon.svelte";
   import Github from "$lib/components/connect/github.svelte";
+  import Bluesky from "$lib/components/connect/bluesky.svelte";
 
   interface SocialLink {
     name: string;
     url: string;
     target?: string;
-    Icon: ComponentType<SvelteComponent<any>>;
+    Icon: SvelteComponent<any>;
   }
 
   const socialLinks: SocialLink[] = [
+    {
+      name: "Bluesky",
+      url: "https://bsky.app/profile/justintemps.dev",
+      target: "__blank",
+      Icon: Bluesky
+    },
     {
       name: "Mastadon",
       url: "https://fosstodon.org/@justintemps",

@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { Post } from "$lib/types";
   import Card from "$lib/components/NoteCard.svelte";
+  import SEO from "$lib/components/SEO.svelte";
+  import { metadata } from "$lib/content/pages/notes.md";
 
   interface Data {
     posts: Post[];
@@ -13,10 +15,12 @@
   let { data }: Props = $props();
 </script>
 
+<SEO {...metadata} />
+
 <article>
   <hgroup>
-    <h1>Notes to myself</h1>
-    <p>Things I wrote down so I wouldn't forget</p>
+    <h1>{metadata.title}</h1>
+    <p>{metadata.description}</p>
   </hgroup>
   <section>
     <ul>
@@ -43,19 +47,5 @@
     display: flex;
     flex-flow: column;
     gap: px-to-rem(52px);
-  }
-
-  a {
-    color: var(--color--type);
-    text-decoration: none;
-
-    &:hover {
-      color: var(--color--accent);
-    }
-  }
-
-  h2 {
-    color: inherit;
-    transition: inherit;
   }
 </style>
