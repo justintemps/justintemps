@@ -2,9 +2,16 @@
   import Button from "$lib/components/Button.svelte";
   import SEO from "$lib/components/SEO.svelte";
   import { metadata } from "$lib/content/pages/contact.md";
+  import type { PageProps } from "./$types";
+
+  let { data, form }: PageProps = $props();
 </script>
 
 <SEO {...metadata} />
+
+{#if form?.success}
+  <p>Your message has been sent!</p>
+{/if}
 
 <article>
   <hgroup>
@@ -12,18 +19,18 @@
     <p>{metadata.description}</p>
   </hgroup>
   <section>
-    <form>
+    <form method="POST" action="/contact">
       <label>
         Your name
-        <input type="text" required />
+        <input type="text" name="name" required />
       </label>
       <label>
         Your email address
-        <input type="text" required />
+        <input type="email" name="email" required />
       </label>
       <label>
         Your message
-        <textarea required></textarea>
+        <textarea name="message" required></textarea>
       </label>
       <Button size="large" type="submit" label="Submit" name="submit" />
     </form>

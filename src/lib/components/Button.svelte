@@ -14,7 +14,7 @@
 <style lang="scss">
   @use "$styles/functions" as *;
   button {
-    background-color: var(--color--background);
+    background-color: var(--color--bg--accent);
     color: var(--color--accent);
     border: var(--color--accent) 1px solid;
     cursor: pointer;
@@ -38,6 +38,6 @@
 
   button:hover {
     background-color: var(--color--brand);
-    color: var(--color--background);
+    color: var(--color--bg--accent);
   }
 </style>
