@@ -43,14 +43,20 @@
 
 {#snippet navItem(item: NavItem)}
   <li class={classnames({ selected: page.url.pathname === item.href })}>
-    <a aria-label={item.label} href={item.href} onclick={item.onclick}>{item.name}</a>
+    <a aria-label={item.label} href={item.href} onclick={item.onclick}
+      >{item.name}</a
+    >
   </li>
 {/snippet}
 
 {#snippet menuItems(navItems: string[])}
   <ul class="nav-items">
     {#each navItems as item}
-      {@render navItem({ href: `/${item}`, name: item, onclick: handleMobItemClick })}
+      {@render navItem({
+        href: `/${item}`,
+        name: item,
+        onclick: handleMobItemClick
+      })}
     {/each}
   </ul>
 {/snippet}
@@ -60,7 +66,10 @@
     <nav>
       <div class="top-menu">
         <ul>
-          <Logo selected={page.url.pathname === "/"} onclick={handleMobItemClick} />
+          <Logo
+            selected={page.url.pathname === "/"}
+            onclick={handleMobItemClick}
+          />
           <li class="desktop-menu">
             {@render menuItems(navItems)}
           </li>
@@ -141,12 +150,14 @@
     transition: all ease-in-out var(--transition--duration--slow);
 
     &--contents {
+      --gap: clamp(#{px-to-rem(40px)}, 10vb, #{px-to-rem(118px)});
       display: flex;
       flex-flow: column;
       align-items: center;
       justify-content: space-between;
-      padding-top: px-to-rem(84px);
-      gap: px-to-rem(118px);
+      padding-top: var(--gap);
+      gap: var(--gap);
+      padding-inline: var(--size--edge--padding);
     }
   }
 
@@ -168,7 +179,8 @@
   li {
     color: var(--color--accent);
     padding-inline-start: 0;
-    font-size: px-to-rem(32px);
+    // font-size: px-to-rem(32px);
+    font-size: clamp(#{px-to-rem(20px)}, 8vi, #{px-to-rem(32px)});
 
     &.selected {
       color: var(--color--brand);

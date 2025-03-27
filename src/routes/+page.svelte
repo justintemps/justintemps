@@ -35,7 +35,7 @@
     :global(.hp--intro--img) {
       width: px-to-rem(200px);
       position: absolute;
-      top: px-to-rem(-100px);
+      top: px-to-rem(-128px);
     }
 
     :global(.hp--intro) {
@@ -123,7 +123,7 @@
       }
 
       :global(.hp--intro) {
-        padding: px-to-rem(226px) 13% px-to-rem(76px);
+        padding: px-to-rem(200px) 13% px-to-rem(76px);
         margin-top: px-to-rem(130px);
 
         &:before {

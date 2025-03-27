@@ -14,7 +14,7 @@
 <style lang="scss">
   @use "$styles/functions" as *;
   button {
-    background-color: var(--color--bg--accent);
+    background-color: transparent;
     color: var(--color--accent);
     border: var(--color--accent) 1px solid;
     cursor: pointer;
