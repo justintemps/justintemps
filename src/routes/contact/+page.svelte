@@ -4,6 +4,7 @@
   import { metadata } from "$lib/content/pages/contact.md";
   import type { PageProps } from "./$types";
   import { enhance } from "$app/forms";
+  import Altcha from "$lib/components/Altcha.svelte";
 
   let { form }: PageProps = $props();
 </script>
@@ -49,6 +50,7 @@
           Your message
           <textarea name="message" required></textarea>
         </label>
+        <Altcha />
         <Button size="large" type="submit" label="Submit" name="submit" />
       </form>
     </section>
