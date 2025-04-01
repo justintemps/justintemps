@@ -6,6 +6,7 @@ description: Non-essential background information about the person who built thi
 <script>
   import { onDestroy } from 'svelte';
   import { timeStore } from "$lib/stores/ageStore.ts";
+  import selfie from "$lib/assets/images/selfie.jpg?enhanced";
 
   let timeAtILO;
 
@@ -17,7 +18,6 @@ description: Non-essential background information about the person who built thi
     unsubscribe();
   });
 
-  console.log({title, description})
 </script>
 
 <hgroup>
@@ -29,7 +29,7 @@ description: Non-essential background information about the person who built thi
 </hgroup>
 
 <figure>
-  <img alt="Me holding a gavel in front of an ILO logo banner" src="/images/selfie.jpg" />
+  <enhanced:img alt="Me holding a gavel in front of an ILO logo banner" src={selfie} />
   <figcaption>Bringing down the hammer of social justice.</figcaption>
 </figure>
 

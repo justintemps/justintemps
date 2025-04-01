@@ -9,6 +9,7 @@
 <article>
   <Clouds />
   <h1>Justin time to blow your mind</h1>
+
   <svelte:component this={content} />
 </article>
 

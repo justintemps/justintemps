@@ -4,9 +4,13 @@ subtitle: Digital Communications
 description: The website of Justin Smith, Web Developer, AI practitioner and Digital Communication Officer at the International Labour Organization.
 ---
 
+<script>
+  import profile from "$lib/assets/images/profile.png";
+</script>
+
 <section class="hp--intro">
 
-<img class="hp--intro--img" src="/images/profile.png" alt="Me wearing a blue baseball cap sipping an espresso" />
+<img class="hp--intro--img" src={profile} alt="Me wearing a blue baseball cap sipping an espresso" />
 
 My name is Justin Smith.
 I’m a Digital Communication Officer at the International Labour Organization, a

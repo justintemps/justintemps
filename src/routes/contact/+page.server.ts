@@ -24,6 +24,7 @@ export const actions = {
     });
 
     if (error) {
+      console.error(data, error);
       return fail(500, { error: "Failed to send message" });
     }
 
