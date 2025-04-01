@@ -1,6 +1,6 @@
 ---
 title: A bit about me
-description: Non-essential background information about the person who built this website.
+description: Everything you never asked to know about the guy who built this website.
 ---
 
 <script>
