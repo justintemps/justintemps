@@ -3,15 +3,12 @@
   import SEO from "$lib/components/SEO.svelte";
   import { metadata } from "$lib/content/pages/contact.md";
   import type { PageProps } from "./$types";
+  import { enhance } from "$app/forms";
 
-  let { data, form }: PageProps = $props();
+  let { form }: PageProps = $props();
 </script>
 
 <SEO {...metadata} />
-
-{#if form?.success}
-  <p>Your message has been sent!</p>
-{/if}
 
 <article>
   <hgroup>
@@ -19,7 +16,7 @@
     <p>{metadata.description}</p>
   </hgroup>
   <section>
-    <form method="POST" action="/contact">
+    <form method="POST" action="/contact" use:enhance>
       <label>
         Your name
         <input type="text" name="name" required />

@@ -10,7 +10,7 @@
     name: string;
     url: string;
     target?: string;
-    Icon: SvelteComponent<any>;
+    Icon: any; // Using any here as a temporary fix for the type mismatch
   }
 
   const socialLinks: SocialLink[] = [
@@ -18,6 +18,7 @@
       name: "Bluesky",
       url: "https://bsky.app/profile/justintemps.dev",
       target: "__blank",
+
       Icon: Bluesky
     },
     {
