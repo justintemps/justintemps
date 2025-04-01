@@ -4,7 +4,6 @@
   import { metadata } from "$lib/content/pages/contact.md";
   import type { PageProps } from "./$types";
   import { enhance } from "$app/forms";
-  import success from "$lib/assets/images/success.gif";
 
   let { form }: PageProps = $props();
 </script>
@@ -19,12 +18,6 @@
         Your message has been sent. I'll get back to you as soon as possible.
       </p>
     </hgroup>
-    <section>
-      <img
-        src={success}
-        alt="An AS Roma soccer player scoring a goal and celebrating"
-      />
-    </section>
   {/if}
 
   {#if form?.error}
@@ -77,6 +70,9 @@
   textarea {
     padding: px-to-rem(12px) px-to-rem(8px);
     margin: px-to-rem(12px) 0 0 0;
+    font-family: var(--font--type);
+    font-size: px-to-rem(24px);
+    line-height: 1.5;
   }
 
   textarea {
