@@ -51,9 +51,5 @@
     main {
       padding-block: px-to-rem(84px);
     }
-
-    :global(article) {
-      gap: px-to-rem(64px);
-    }
   }
 </style>

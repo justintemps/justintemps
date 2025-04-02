@@ -1,5 +1,4 @@
 import { error } from "@sveltejs/kit";
-import { render } from "svelte/server";
 
 export async function load({ params }) {
   try {

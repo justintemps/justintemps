@@ -1,4 +1,6 @@
 <script lang="ts">
+  const VITE_DOMAIN = import.meta.env.VITE_DOMAIN;
+
   interface Props {
     title: string;
     subtitle?: string;
@@ -7,6 +9,13 @@
   }
 
   let { title, description, url, subtitle = "Justin Smith" }: Props = $props();
+
+  function formatUrl(url: string) {
+    if (url === "/") return `${VITE_DOMAIN}`;
+    return `${VITE_DOMAIN}${url}`;
+  }
+
+  const canonical = formatUrl(url);
 </script>
 
 <svelte:head>
@@ -17,5 +26,6 @@
   <meta property="og:image" content="/images/og-image.jpg" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content={subtitle} />
-  <meta property="og:url" content={url} />
+  <meta property="og:url" content={canonical} />
+  <link rel="canonical" href={canonical} />
 </svelte:head>

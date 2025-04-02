@@ -26,6 +26,7 @@
 <style lang="scss">
   @use "$styles/functions" as *;
   article {
+    gap: 2rem;
     hgroup {
       h1 {
         font-size: px-to-rem(60px);
