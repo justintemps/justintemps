@@ -3,6 +3,7 @@
   import Card from "$lib/components/NoteCard.svelte";
   import SEO from "$lib/components/SEO.svelte";
   import { metadata } from "$lib/content/pages/notes.md";
+  import { page } from "$app/state";
 
   interface Data {
     posts: Post[];
@@ -13,9 +14,11 @@
   }
 
   let { data }: Props = $props();
+
+  const { title, description } = metadata;
 </script>
 
-<SEO {...metadata} />
+<SEO {title} {description} url={page.url.pathname} />
 
 <article>
   <hgroup>

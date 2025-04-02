@@ -3,6 +3,7 @@
   import SEO from "$lib/components/SEO.svelte";
   import { metadata } from "$lib/content/pages/work.md";
   import type { WorkSample } from "../../lib/types";
+  import { page } from "$app/state";
 
   interface Data {
     work: WorkSample[];
@@ -13,9 +14,11 @@
   }
 
   let { data }: Props = $props();
+
+  const { title, description } = metadata;
 </script>
 
-<SEO {...metadata} />
+<SEO {title} {description} url={page.url.pathname} />
 
 <article>
   <hgroup>

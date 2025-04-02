@@ -2,9 +2,12 @@
   import content, { metadata } from "$lib/content/pages/home.md";
   import Clouds from "$lib/components/Clouds.svelte";
   import SEO from "$lib/components/SEO.svelte";
+  import { page } from "$app/state";
+
+  const { title, description } = metadata;
 </script>
 
-<SEO {...metadata} />
+<SEO {title} {description} url={page.url.pathname} />
 
 <article>
   <Clouds />

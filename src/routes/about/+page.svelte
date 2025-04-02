@@ -1,11 +1,14 @@
 <script lang="ts">
   import content, { metadata } from "$lib/content/pages/about.md";
+  import SEO from "$lib/components/SEO.svelte";
+  import { page } from "$app/state";
 </script>
 
-<svelte:head>
-  <title>{metadata.title} | Justin Smith</title>
-  <meta name="description" content={metadata.description} />
-</svelte:head>
+<SEO
+  title={metadata.title}
+  description={metadata.description}
+  url={page.url.pathname}
+/>
 
 <article>
   <svelte:component this={content} />

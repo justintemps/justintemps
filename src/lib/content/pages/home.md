@@ -1,5 +1,5 @@
 ---
-title: Justin Smith
+title: Homepage
 subtitle: Digital Communications
 description: The website of Justin Smith, Web Developer, AI practitioner and Digital Communication Officer at the International Labour Organization.
 ---

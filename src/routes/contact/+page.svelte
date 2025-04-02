@@ -5,11 +5,15 @@
   import type { PageProps } from "./$types";
   import { enhance } from "$app/forms";
   import Altcha from "$lib/components/Altcha.svelte";
-
+  import { page } from "$app/state";
   let { form }: PageProps = $props();
 </script>
 
-<SEO {...metadata} />
+<SEO
+  title={metadata.title}
+  description={metadata.description}
+  url={page.url.pathname}
+/>
 
 <article>
   {#if form?.success}

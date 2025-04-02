@@ -1,6 +1,8 @@
 <script lang="ts">
   import LastUpdate from "$lib/components/LastUpdate.svelte";
   import Categories from "../../../lib/components/Categories.svelte";
+  import SEO from "$lib/components/SEO.svelte";
+  import { page } from "$app/state";
 
   let { data } = $props();
   const { title, description, date, categories } = data.meta;
@@ -9,6 +11,7 @@
 </script>
 
 <article>
+  <SEO {title} {description} url={page.url.pathname} />
   <hgroup>
     <h1>{title}</h1>
     <p>{description}</p>
