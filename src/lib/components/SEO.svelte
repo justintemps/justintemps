@@ -15,11 +15,19 @@
     return `${VITE_DOMAIN}${url}`;
   }
 
+  function formatTitle(title: string, subtitle?: string) {
+    if (subtitle && title) {
+      return `${title} | ${subtitle}`;
+    }
+    return title;
+  }
+
+  const formattedTitle = formatTitle(title, subtitle);
   const canonical = formatUrl(url);
 </script>
 
 <svelte:head>
-  <title>{title} | {subtitle}</title>
+  <title>{formattedTitle}</title>
   <meta name="description" content={description} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />

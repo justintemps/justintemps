@@ -38,12 +38,6 @@
   @use "$styles/mixins" as *;
   @use "$styles/functions" as *;
 
-  article.post {
-    display: flex;
-    flex-flow: column;
-    gap: px-to-rem(16px);
-  }
-
   ul {
     list-style: none;
     padding: 0;

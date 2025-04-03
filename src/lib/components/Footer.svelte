@@ -47,9 +47,5 @@
       width: 100%;
       max-width: px-to-rem(400px);
     }
-
-    .footer-social {
-      display: flex;
-    }
   }
 </style>

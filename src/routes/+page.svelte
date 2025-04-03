@@ -4,10 +4,10 @@
   import SEO from "$lib/components/SEO.svelte";
   import { page } from "$app/state";
 
-  const { title, description } = metadata;
+  const { title, subtitle, description } = metadata;
 </script>
 
-<SEO {title} {description} url={page.url.pathname} />
+<SEO {title} {subtitle} {description} url={page.url.pathname} />
 
 <article>
   <Clouds />
