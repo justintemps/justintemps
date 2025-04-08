@@ -1,5 +1,5 @@
 import { mdsvex, escapeSvelte } from "mdsvex";
-import adapter from "@sveltejs/adapter-auto";
+import adapter from "@sveltejs/adapter-vercel";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { createHighlighter } from "shiki";
 import { theme } from "./src/syntax-highlight.js";
@@ -14,9 +14,7 @@ const mdsvexOptions = {
         langs: ["javascript", "typescript", "python", "bash"]
       });
       await highlighter.loadLanguage("javascript", "typescript");
-      const html = escapeSvelte(
-        highlighter.codeToHtml(code, { lang, theme })
-      );
+      const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme }));
       return `{@html \`${html}\` }`;
     }
   }
