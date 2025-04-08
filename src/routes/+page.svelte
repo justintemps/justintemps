@@ -23,8 +23,8 @@
   h1 {
     filter: drop-shadow(14px 13px 11px rgba(0, 0, 0, 0.5));
     font-weight: bold;
-    font-size: px-to-rem(72px);
-    line-height: px-to-rem(84px);
+    font-size: px-to-rem(68px);
+    line-height: px-to-rem(72px);
   }
 
   article {
@@ -39,7 +39,7 @@
     :global(.hp--intro--img) {
       width: px-to-rem(200px);
       position: absolute;
-      top: px-to-rem(-128px);
+      top: px-to-rem(-96px);
     }
 
     :global(.hp--intro) {
@@ -51,7 +51,7 @@
       border: px-to-rem(4px) solid var(--color--brand);
       border-top: none;
       padding: px-to-rem(128px) px-to-rem(20px) px-to-rem(44px);
-      margin-top: px-to-rem(80px);
+      margin-top: px-to-rem(96px);
 
       &:before,
       &:after {

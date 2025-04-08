@@ -148,22 +148,36 @@
     align-items: center;
     background: var(--color--bg--accent);
     transition: all ease-in-out var(--transition--duration--slow);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 
     &--contents {
-      --gap: clamp(#{px-to-rem(40px)}, 10vb, #{px-to-rem(118px)});
+      --gap: clamp(#{px-to-rem(16px)}, 6vb, #{px-to-rem(80px)});
       display: flex;
       flex-flow: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       padding-top: var(--gap);
       gap: var(--gap);
       padding-inline: var(--size--edge--padding);
+      min-height: min-content;
+      width: 100%;
+      max-width: var(--size--content--max);
+
+      :global(.connect) {
+        margin-top: calc(var(--gap) / 2);
+      }
     }
   }
 
   .mobile-menu-open {
     overflow: hidden;
     height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
     .mobile-menu {
       opacity: 1;
