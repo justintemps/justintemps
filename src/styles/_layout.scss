@@ -17,14 +17,15 @@ section,
 hgroup {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   width: 100%;
   max-width: 100vw;
   @include edge-padding;
 }
 
 @include breakpoint(md) {
-  section {
+  section,
+  hgroup {
     gap: 2rem;
   }
 }
