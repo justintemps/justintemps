@@ -77,6 +77,7 @@
     padding: px-to-rem(12px) px-to-rem(8px);
     margin: px-to-rem(12px) 0 0 0;
     font-family: var(--font--type);
+    font-weight: 600;
     font-size: px-to-rem(24px);
     line-height: 1.5;
   }
