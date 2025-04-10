@@ -124,6 +124,7 @@
 
       :global(.hp--intro--img) {
         width: px-to-rem(300px);
+        top: px-to-rem(-132px);
       }
 
       :global(.hp--intro) {
