@@ -1,16 +1,16 @@
 <script lang="ts">
   import Button from "$lib/components/Button.svelte";
-  const { categories } = $props();
+  const { tags } = $props();
 </script>
 
-{#snippet category(category: string)}
-  <Button size="small" label={category} type="button" name={category} />
+{#snippet tag(tag: string)}
+  <Button size="small" label={tag} type="button" name={tag} />
 {/snippet}
 
-{#if categories.length > 0}
+{#if tags.length > 0}
   <div>
-    {#each categories as cat}
-      {@render category(cat)}
+    {#each tags as t}
+      {@render tag(t)}
     {/each}
   </div>
 {/if}

@@ -1,4 +1,4 @@
-export type Categories = string;
+export type Tags = string;
 
 export type Post = {
   title: string;
@@ -8,7 +8,7 @@ export type Post = {
   summary: string;
   content: string;
   body: string;
-  categories: Categories[];
+  tags: Tags[];
 };
 
 export type WorkSample = {

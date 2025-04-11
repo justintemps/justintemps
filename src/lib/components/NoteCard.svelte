@@ -1,16 +1,16 @@
 <script lang="ts">
   import LastUpdate from "$lib/components/LastUpdate.svelte";
-  import Categories from "$lib/components/Categories.svelte";
+  import Tags from "$lib/components/Tags.svelte";
   import type { Post } from "../types";
 
-  const { title, slug, categories, date }: Post = $props();
+  const { title, slug, tags, date }: Post = $props();
 </script>
 
 <article>
   <a href={`/note/${slug}`}>
     <h2>{title}</h2>
     <LastUpdate {date} />
-    <Categories {categories} />
+    <Tags {tags} />
   </a>
 </article>
 

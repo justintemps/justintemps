@@ -1,11 +1,11 @@
 <script lang="ts">
   import LastUpdate from "$lib/components/LastUpdate.svelte";
-  import Categories from "../../../lib/components/Categories.svelte";
+  import Tags from "../../../lib/components/Tags.svelte";
   import SEO from "$lib/components/SEO.svelte";
   import { page } from "$app/state";
 
   let { data } = $props();
-  const { title, description, date, categories } = data.meta;
+  const { title, description, date, tags } = data.meta;
 
   let Component = data.content;
 </script>
@@ -16,7 +16,7 @@
     <h1>{title}</h1>
     <p>{description}</p>
     <LastUpdate {date} />
-    <Categories {categories} />
+    <Tags {tags} />
   </hgroup>
   <section>
     <Component />
