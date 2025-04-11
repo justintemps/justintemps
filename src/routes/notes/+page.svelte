@@ -13,9 +13,9 @@
     data: Data;
   }
 
-  let { data }: Props = $props();
-
   const { title, description } = metadata;
+
+  let { data }: Props = $props();
 </script>
 
 <SEO {title} {description} url={page.url.pathname} />

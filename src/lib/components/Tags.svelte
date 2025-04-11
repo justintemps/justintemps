@@ -1,16 +1,17 @@
 <script lang="ts">
-  import Button from "$lib/components/Button.svelte";
-  const { tags } = $props();
-</script>
+  import Tag from "$lib/components/Tag.svelte";
 
-{#snippet tag(tag: string)}
-  <Button size="small" label={tag} type="button" name={tag} />
-{/snippet}
+  interface Props {
+    tags: string[];
+  }
+
+  const { tags }: Props = $props();
+</script>
 
 {#if tags.length > 0}
   <div>
-    {#each tags as t}
-      {@render tag(t)}
+    {#each tags as tag}
+      <Tag label={tag} />
     {/each}
   </div>
 {/if}

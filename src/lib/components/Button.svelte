@@ -2,17 +2,48 @@
   interface Props {
     label: string;
     type: "submit" | "reset" | "button";
+    href?: string;
     name: string;
     size: "small" | "large";
+    active?: boolean;
+    onclick?: (e: MouseEvent) => void;
   }
 
-  const { type, label, name, size = "small" }: Props = $props();
+  const {
+    type,
+    label,
+    name,
+    size = "small",
+    href,
+    active = false,
+    onclick
+  }: Props = $props();
 </script>
 
-<button {type} {name} class="button--size__{size}">{label}</button>
+{#if href}
+  <a {href}>
+    <button
+      {type}
+      {name}
+      class="button--size__{size} {active && 'button--active'}">{label}</button
+    >
+  </a>
+{:else}
+  <button
+    {type}
+    {name}
+    {onclick}
+    class="button--size__{size} {active && 'button--active'}">{label}</button
+  >
+{/if}
 
 <style lang="scss">
   @use "$styles/functions" as *;
+
+  a {
+    text-decoration: none;
+  }
+
   button {
     background-color: transparent;
     color: var(--color--accent);
@@ -20,6 +51,12 @@
     cursor: pointer;
     transition: all ease-in-out 150ms;
     width: fit-content;
+
+    &:hover,
+    &.button--active {
+      background-color: var(--color--brand);
+      color: var(--color--bg--accent);
+    }
   }
 
   .button {
@@ -34,10 +71,5 @@
         padding: px-to-rem(12px) px-to-rem(16px);
       }
     }
-  }
-
-  button:hover {
-    background-color: var(--color--brand);
-    color: var(--color--bg--accent);
   }
 </style>
