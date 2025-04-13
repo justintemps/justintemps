@@ -1,5 +1,5 @@
 import { json } from "@sveltejs/kit";
-import { createChallenge, verifySolution } from "altcha-lib";
+import { createChallenge } from "altcha-lib";
 import { ALTCHA_HMAC_KEY } from "$env/static/private";
 
 const hmacKey = ALTCHA_HMAC_KEY;

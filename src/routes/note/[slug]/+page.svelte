@@ -42,12 +42,6 @@
     letter-spacing: -1%;
   }
 
-  p {
-    font-family: var(--font--display);
-    font-size: px-to-rem(20px);
-    line-height: 1.5;
-  }
-
   @include breakpoint(md) {
     h1 {
       font-size: px-to-rem(60px);
@@ -58,11 +52,6 @@
       :global(h2) {
         font-size: px-to-rem(24px);
       }
-    }
-
-    p {
-      font-size: px-to-rem(24px);
-      line-height: 1.5;
     }
   }
 </style>

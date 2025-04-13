@@ -22,10 +22,3 @@ hgroup {
   max-width: 100vw;
   @include edge-padding;
 }
-
-@include breakpoint(md) {
-  section,
-  hgroup {
-    gap: 2rem;
-  }
-}

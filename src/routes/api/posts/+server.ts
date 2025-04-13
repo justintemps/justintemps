@@ -39,6 +39,11 @@ async function getPosts({ tags }: GetPostsOptions) {
     });
   }
 
+  // sort the posts by date
+  posts.sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
+
   return posts;
 }
 
