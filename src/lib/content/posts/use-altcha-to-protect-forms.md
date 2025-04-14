@@ -22,7 +22,7 @@ Instead of challenging users with puzzles or exposing their data to machine lear
 
 To illustrate, we're going to create a simple API endpoint that generates a cryptographic challenge for our ALTCHA widget to solve. Then we're going to add the widget to the front end, where it will appear to the user as a checkbox input in a form. Finally, we're going to update the form handler to check whether the ALTCHA widget’s solution is correct before processing the rest of the form data.
 
-If you're interested in understanding why this works, I’ve provided a brief explanation after the example below.
+If you're interested in understanding why this works, I’ve provided a brief explanation at the end of this blog post.
 
 ## A simple example using Svelte
 
@@ -192,7 +192,7 @@ That’s it! Your form is now safe from bots, and your users don’t have to sol
 
 ## Wait, why does this work?
 
-You might wonder how this works, given that we’re not trying to determine whether the user is human. Think like a spam bot. The simplest way to abuse a form is to scrape the page and POST spammy data directly to the handler.
+You might wonder how this works, given that we’re not trying to determine whether the user is human. To understand, put yourself in the position of a busy little spam bot. The simplest way to abuse a form is to scrape the page and POST spammy data directly to the handler.
 
 But ALTCHA makes that difficult. It adds a required field that can’t be completed without JavaScript. So instead of just scraping and submitting, the bot has to execute the JavaScript as if it were a browser — which takes time and resources.
 
