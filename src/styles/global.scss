@@ -54,6 +54,10 @@ code {
   flex-flow: column;
   gap: px-to-rem(6px);
   font-size: px-to-rem(12px);
+
+  p > & {
+    display: inline-block;
+  }
 }
 
 @include breakpoint(md) {
