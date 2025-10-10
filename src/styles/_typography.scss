@@ -29,12 +29,96 @@ h2,
   font-family: var(--font--display);
 }
 
-p {
+p,
+li {
   font-family: var(--font--type);
   font-size: px-to-rem(22px);
   color: var(--color--type);
   font-weight: 400;
   // letter-spacing: var(--font--type--letter-spacing);
+}
+
+ol {
+  list-style: none;
+  counter-reset: list-counter;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+
+  @include breakpoint(md) {
+    gap: 0.75rem;
+  }
+
+  li {
+    counter-increment: list-counter;
+    position: relative;
+    padding-left: 1.5em;
+
+    &::before {
+      content: counter(list-counter) ".";
+      position: absolute;
+      left: 0;
+      color: var(--color--brand);
+      font-weight: bold;
+    }
+  }
+}
+
+blockquote {
+  background-color: var(--color--brand);
+  color: var(--color--bg--main) !important;
+  padding: 1.5rem;
+  // margin: 1.5rem 0;
+  position: relative;
+  border-radius: 8px;
+  // font-style: italic;
+  font-family: var(--font--display);
+  font-size: px-to-rem(20px);
+  line-height: 1.6;
+  font-weight: 800;
+
+  p {
+    color: var(--color--bg--main) !important;
+  }
+
+  &::before {
+    content: "\201C";
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    font-size: px-to-rem(80px);
+    color: var(--color--bg--main);
+    font-family: var(--font--display);
+    line-height: 1;
+  }
+
+  &::after {
+    content: "\201D";
+    position: absolute;
+    bottom: -1.5rem;
+    right: 1rem;
+    font-size: px-to-rem(80px);
+    color: var(--color--bg--main);
+    font-family: var(--font--display);
+    line-height: 1;
+  }
+
+  @include breakpoint(md) {
+    padding: 3rem 2rem 3rem;
+    font-size: px-to-rem(24px);
+
+    &::before {
+      font-size: px-to-rem(120px);
+      top: -1rem;
+      left: 1.5rem;
+    }
+
+    &::after {
+      font-size: px-to-rem(120px);
+      bottom: -2rem;
+      right: 1.5rem;
+    }
+  }
 }
 
 input,
@@ -84,7 +168,8 @@ a {
     letter-spacing: var(--font--type--letter-spacing);
   }
 
-  p {
+  p,
+  li {
     font-size: px-to-rem(24px);
     line-height: 1.5;
   }
