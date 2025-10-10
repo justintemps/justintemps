@@ -1,33 +1,35 @@
 ---
-title: Forget about automation, let's focus on collaboration
-description:
+title: Automation panic misses the real opportunity for AI products
+description: The real opportunity in AI is to make our jobs suck less, not to automate them away
 date: 2025-10-09
 tags:
   - AI
-  - Automation
+  - Opinions
 published: true
 ---
 
-Rather late, I came across ths really [nice piece in the Atlantic](https://www.theatlantic.com/technology/archive/2025/08/ai-job-loss-human-enhancement-google/683963/) by Google's James Manyika and economist David Autor about the industry's fixation on the potential of AI to automate whole jobs.
+Rather late, I came across this really [nice piece in The Atlantic](https://www.theatlantic.com/technology/archive/2025/08/ai-job-loss-human-enhancement-google/683963/) by Google's James Manyika and economist David Autor about the industry's fixation on the potential of AI to automate whole jobs.
 
 Here's the crux of it:
 
-"We should insist on AI that can collaborate with doctors, teachers, lawyers, building contractors, and others—instead of AI that aims to automate them out of a job."
+> "We should insist on AI that can collaborate with doctors, teachers, lawyers, building contractors, and others—instead of AI that aims to automate them out of a job."
 
-I won't try any harder to summarize the article, you can go and read it yourself for free. The point is that claims about AI replacing whole professions 1) overestimate the present capabilities of AI to perform complex, real-world tasks and 2) underestimate the complexity of human interactions and contextual awareness that most jobs require.
+I won't try any harder to summarize the article—you can go and read it yourself for free. The point is that claims about AI replacing whole professions 1) overestimate the present capabilities of AI to perform complex, real-world tasks; 2) underestimate the complexity of human interactions and contextual awareness that most jobs require; and 3) discount the importance of accountability in decision-making processes.
 
-Not to say that radical automation isn't on the horizon. But between now and then, the most useful application of AI will be in simply helping people do their jobs better.
+Not to say that radical automation isn't on the horizon. But between now and then, they argue that the most useful application of AI will be in simply helping people do their jobs better.
 
-Because let's face it: every job, no matter how creative or intellectually demanding, involves at least some tasks that are boring and repetitive. By automating many (perhaps even most) of these, AI should allows people to focus on higher-value, more rewarding work. I’ve certainly seen this in my own experience and I know I'm not alone.
+Manyika and Autor's article resonated with me for two reasons. First, I'm really psyched about the potential of AI to improve people's working lives. All jobs, no matter how creative or intellectually demanding, involve performing at least some tasks that are boring and repetitive. The more AI can automate those away, the more we can all focus on more rewarding, higher-value work.
 
-This is great news! We should all be excited about the prospect of our jobs sucking less. And yet, so much of the narrative around AI is riddled with the anxiety of people who are practically counting down the days until they get replaced by ChatGPT.
+Great news, right? We should all be excited about the prospect of our jobs sucking less. But we're not. We're worried about being made obsolete—about our value as workers and as human beings(!) getting zeroed out by technology.
 
-Much of that anxiety is the by-product of hubris from Silicon Valley fundraisers, who have every incentive to be as absolutist as possible. Their AI-powered app is going to whipe out software engineering, replace your lawyer, do all of your accounting and even sing your kids to sleep. In the meantime, your job now is mainly to write prompts, unless you have an actual skill like woodworking or plumbing, which will be a nice career until robots figure that out too.
+I don't want to make broad prognostications about the impact of AI on the future of work, a subject of extensive and ongoing research by people smarter than me. But I would like to point out that this anxiety-driven narrative is largely fueled by the hubris of Silicon Valley fundraisers, who have every incentive to be as loud and absolutist about the future of AI as possible.
 
-Obviously, the only jobs that will be around after that will belong to VCs, startup founders and thought leaders.
+Their AI-powered app (meaning it makes API calls to ChatGPT) is absolutely going to wipe out software engineering and replace lawyers, accountants, designers, artists, and writers—pretty much everybody except VCs, startup founders, and consultants—with personalized AI assistants.
 
-This dystopian scenario might even sound plausible, but only if you assume that everything else about life and work stays the same. And there's no reason to expect that to happen. Why would it? A world in which lawyers are ten times as productive might just end up being a world in which there's ten times more work for lawyers to do.
+In the meantime, your new job is to write prompts, unless you have an actual skill like woodworking or plumbing, which will be a nice career until robots figure that out too.
 
-[Research shows](https://documents1.worldbank.org/curated/en/834231623049152769/pdf/Global-Productivity-Trends-Drivers-and-Policies.pdf?utm_source=chatgpt.com) that rising productivity tends to increase demand. For what, exactly? Who knows? But to claim that AI will eliminate intellectually demanding jobs betrays a startling lack of imagination about what people can create when they have more time and freedom.
+This dystopian scenario might even sound plausible for a moment, but only if you assume that everything else about your life and work is going to stay the same. But why would it? Why should we expect a world in which professionals are suddenly much more productive, with much more time to spend on creative, higher-value work, to look so much like this one that bots can simply automate everything they do away?
+
+The problem with this techno-fatalistic "AI is coming for your white-collar job" venture-capital fundraising fantasy isn't just that it overestimates what AI can do in the short term. It's that it lacks the imagination to consider how professions can evolve and what people can create when they have more time and freedom.
 
 All of this is to say: instead of preaching doom for entire professions, the real opportunity lies in applying AI—with humility and deliberation—to the specific frictions within each field, so that all of us can spend more time doing what we love.
