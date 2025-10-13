@@ -1,6 +1,6 @@
 ---
-title: AI probably isn't going to steal your job
-description: The real opportunity in AI is to make our jobs suck less, not to automate them away.
+title: By the time AI is good enough to do your job, your job will have changed
+description: The scare hype about AI assumes that jobs will stay the same even as incremental adoption drives up productivity. That's not a safe assumption.
 date: 2025-10-09
 tags:
   - AI
@@ -14,19 +14,23 @@ Here's the crux of it:
 
 > We should insist on AI that can collaborate with doctors, teachers, lawyers, building contractors, and others—instead of AI that aims to automate them out of a job.
 
-I won't try any harder to summarize the article—you can go and read it yourself for free. The point is that claims about AI replacing whole professions:
+Their argument is that building systems designed for end-to-end job automation:
 
-1. Overestimate the present capabilities of AI to perform complex, real-world tasks
-2. Underestimate the complexity of human interactions and contextual awareness that most jobs require
-3. Discount the importance of accountability in the decision-making process
+1. Understates the complexity of the interactions and contextual awareness that high-skilled jobs require
+2. Discounts the importance of accountability in decision-making processes
+3. Incorrectly assumes that imperfect automation can pave the way to more perfect automation down the line
 
-Not to say that radical automation isn't on the horizon. But between now and then, they argue that the most useful application of AI will be in simply helping people do their jobs better.
+Just to give an example, you probably wouldn't want to fly in a plane that can, more or less, fly by itself without a pilot. On this note, Manyika and Autor give some concrete examples of how attempting to over-automate processes can lead to tragic results.
 
-Manyika and Autor's article resonated with me for two reasons. First, I'm really psyched about the potential of AI to improve people's working lives. All jobs, no matter how creative or intellectually demanding, involve performing at least some tasks that are boring and repetitive. The more AI can automate those away, the more we can all focus on more rewarding, higher-value work.
+Not to say that radical automation isn't on the horizon. It probably is and we should be prepared for that. However, that doesn't we should try to leap-frog the intermediate stages of incremental adoption. In the near-term, the most successful AI systems will be ones that focus on _collaboration_ instead of automation.
 
 ## We should be psyched
 
-Great news, right? We should all be excited about the prospect of our jobs sucking less. But we're not. We're worried about being made obsolete—about our value as workers and as human beings(!) getting zeroed out by technology.
+Manyika and Autor's article resonated with me for two reasons. The first is because I'm really pscyhed about the potential of AI to improve people's working lives. All jobs, no matter how creative or intellectually demanding, involve performing at least some tasks that are boring and repetitive. The more AI can automate those away, the more we can all focus on more rewarding, higher-value work.
+
+We should all be excited about the prospect of our jobs sucking less. But we're not. Instead, we're worried about being made obselete. And with good reason! The news is full of scare hype about
+
+YOU ARE HERE
 
 I don't want to make broad prognostications about the impact of AI on the future of work, a subject of [extensive and ongoing research](https://www.ilo.org/topics-and-sectors/artificial-intelligence) by people smarter than me.
 
