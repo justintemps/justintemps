@@ -110,6 +110,10 @@
 
   nav {
     height: 100%;
+
+    :global(a) {
+      font-family: var(--font--display);
+    }
   }
 
   .top-menu {
@@ -193,7 +197,6 @@
   li {
     color: var(--color--accent);
     padding-inline-start: 0;
-    // font-size: px-to-rem(32px);
     font-size: clamp(#{px-to-rem(20px)}, 8vi, #{px-to-rem(32px)});
 
     &.selected {
@@ -205,6 +208,7 @@
   a {
     color: inherit;
     text-decoration: none;
+    line-height: 2rem;
   }
 
   .desktop-menu {

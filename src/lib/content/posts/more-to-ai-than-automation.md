@@ -1,6 +1,6 @@
 ---
-title: By the time AI is good enough to do your job, your job will have changed
-description: The scare hype about AI assumes that jobs will stay the same even as incremental adoption drives up productivity. That's not a safe assumption.
+title: AI applications should focus on collaboration over automation
+description: A job is more than just the sum of its tasks. The goal of modern AI isn’t to automate work away, but to help people concentrate on what truly adds value.
 date: 2025-10-09
 tags:
   - AI
@@ -8,7 +8,7 @@ tags:
 published: true
 ---
 
-Rather late, I came across this really nice piece in [The Atlantic](https://www.theatlantic.com/technology/archive/2025/08/ai-job-loss-human-enhancement-google/683963/) by Google's James Manyika and economist David Autor about the tech industry's fixation on automating whole classes of jobs.
+Rather late, I came across this really nice piece in [The Atlantic](https://www.theatlantic.com/technology/archive/2025/08/ai-job-loss-human-enhancement-google/683963/) by Google's James Manyika and economist David Autor about the tech industry's fixation with replacing people with AI.
 
 Here's the crux of it:
 
@@ -16,21 +16,19 @@ Here's the crux of it:
 
 Their argument is that building systems designed for end-to-end job automation:
 
-1. Understates the complexity of the interactions and contextual awareness that high-skilled jobs require
-2. Discounts the importance of accountability in decision-making processes
-3. Incorrectly assumes that imperfect automation can pave the way to more perfect automation down the line
+1. Understates the complexity of the interactions and contextual awareness that most jobs require
+2. Discounts the importance of intrinsically human qualities like ethics and accountability in decision-making processes
+3. Assumes that incomplete automation now will pave the way for complete automation down the line
 
-Just to give an example, you probably wouldn't want to fly in a plane that can, more or less, fly by itself without a pilot. On this note, Manyika and Autor give some concrete examples of how attempting to over-automate processes can lead to tragic results.
+I won't try any harder to summarize their argument, which
 
-Not to say that radical automation isn't on the horizon. It probably is and we should be prepared for that. However, that doesn't we should try to leap-frog the intermediate stages of incremental adoption. In the near-term, the most successful AI systems will be ones that focus on _collaboration_ instead of automation.
+Not to say that radical automation isn't on the horizon. It probably is and we should be prepared for that. But the best opportunity in the near term isn't so much automation as _collaboration_: systems that automate tasks which AI can perform reliably so that people can focus on higher value work.
 
 ## We should be psyched
 
 Manyika and Autor's article resonated with me for two reasons. The first is because I'm really pscyhed about the potential of AI to improve people's working lives. All jobs, no matter how creative or intellectually demanding, involve performing at least some tasks that are boring and repetitive. The more AI can automate those away, the more we can all focus on more rewarding, higher-value work.
 
 We should all be excited about the prospect of our jobs sucking less. But we're not. Instead, we're worried about being made obselete. And with good reason! The news is full of scare hype about
-
-YOU ARE HERE
 
 I don't want to make broad prognostications about the impact of AI on the future of work, a subject of [extensive and ongoing research](https://www.ilo.org/topics-and-sectors/artificial-intelligence) by people smarter than me.
 

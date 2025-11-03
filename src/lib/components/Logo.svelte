@@ -66,6 +66,9 @@
     color: inherit;
     text-decoration: none;
     font-weight: 600;
+    font-family: var(--font--display);
+    font-size: px-to-rem(20px);
+    line-height: px-to-rem(20px);
   }
 
   @include breakpoint(lg) {
