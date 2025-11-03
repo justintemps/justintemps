@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { dev } from "$app/environment";
+  import { injectAnalytics } from "@vercel/analytics/sveltekit";
   import "@fontsource/montserrat/400.css";
   import "@fontsource/montserrat/500.css";
   import "@fontsource/montserrat/600.css";
@@ -7,6 +9,8 @@
   import "$styles/global.scss";
   import Nav from "$lib/components/Nav.svelte";
   import Footer from "$lib/components/Footer.svelte";
+
+  injectAnalytics({ mode: dev ? "development" : "production" });
 </script>
 
 <Nav>
