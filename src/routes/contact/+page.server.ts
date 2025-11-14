@@ -38,10 +38,11 @@ export const actions = {
 
     // Send the email
     const { data, error } = await resend.emails.send({
-      from: `${name} <site@justintemps.dev>`,
+      from: `${name} <contact@justintemps.dev>`,
       to: [RESEND_TO_EMAIL],
-      subject: `Message from ${name}`,
-      html: `<p>${message}</p><p>Email: ${email}</p>`
+      replyTo: email as string,
+      subject: `${name} wants to get in touch`,
+      html: `<p>${message}</p>`
     });
 
     // If the email fails to send, return an error
