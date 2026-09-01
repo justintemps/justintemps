@@ -34,8 +34,14 @@
     gap: var(--space--page);
     @include edge-padding;
 
+    // The portrait is an illustration exported at 3x (858x870) with the same
+    // 286:290 proportions as the photo it replaced. The intrinsic size comes
+    // from the width/height attributes; pinning the ratio here as well means
+    // the box is reserved before the file arrives, so nothing shifts on load.
     :global(.hp--intro--img) {
       width: px-to-rem(200px);
+      height: auto;
+      aspect-ratio: 286 / 290;
       position: absolute;
       top: px-to-rem(-96px);
     }

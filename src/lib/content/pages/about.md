@@ -6,7 +6,7 @@ description: Everything you never asked to know about the guy who built this web
 <script>
   import { onDestroy } from 'svelte';
   import { timeStore } from "$lib/stores/ageStore.ts";
-  import selfie from "$lib/assets/images/selfie.jpg?enhanced";
+  import selfie from "$lib/assets/images/selfie-illustration.jpg?enhanced";
 
   let timeAtILO;
 
@@ -29,7 +29,7 @@ description: Everything you never asked to know about the guy who built this web
 </hgroup>
 
 <figure>
-  <enhanced:img alt="Me holding a gavel in front of an ILO logo banner" src={selfie} />
+  <enhanced:img alt="A hand-drawn illustration of me at a conference desk, raising a gavel in front of ILO logo banners" src={selfie} />
   <figcaption>Bringing down the hammer of social justice.</figcaption>
 </figure>
 

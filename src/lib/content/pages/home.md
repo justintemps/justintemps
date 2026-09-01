@@ -5,13 +5,20 @@ description: The website of Justin Smith, Web Developer, AI practitioner and Dig
 ---
 
 <script>
-  import profile from "$lib/assets/images/profile.png";
+  import profile from "$lib/assets/images/profile-illustration.webp";
   import { reveal } from "$lib/actions/reveal";
 </script>
 
 <section class="hp--intro reveal" use:reveal>
 
-<img class="hp--intro--img" src={profile} alt="Me wearing a blue baseball cap sipping an espresso" />
+<img
+  class="hp--intro--img"
+  src={profile}
+  width="858"
+  height="870"
+  alt="A hand-drawn illustration of me wearing a blue baseball cap, sipping an espresso on a sunny Venetian terrace"
+  fetchpriority="high"
+/>
 
 My name is Justin Smith.
 I’m a Digital Communication Officer at the International Labour Organization, a
