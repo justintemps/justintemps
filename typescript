@@ -1,38 +1,0 @@
-Script started on Tue Sep  1 14:30:24 2026
-[1m[7m%[27m[1m[0m                                                                                ]2;justintemps@Mac:~/Dev/justintemps]1;..v/justintemps]7;file://Mac/Users/justintemps/Dev/justintemps\[0m[27m[24m[J[39m[0m[49m[40m[39m justintemps [44m[30m[30m ~/Dev/justintemps [43m[34m[30m  main [49m[33m[39m [K[?1h=[?2004hsscripts[?1l>[?2004l
-]2;scripts]1;scriptsScripts in /Users/justintemps/scripts:
-
-  convert_p7m       [directory]
-  download_images   <url>
-  heic_to_jpg       <directory>
-  kaltura-preview   <entry_id>
-  portrait_crop     [-o output_dir] [-m model] [-s WxH] [directory]
-  resize_jpgs       [directory_path]
-  summarize_nuvole  START_DATE END_DATE   (dates as YYYY-MM-DD)
-[1m[7m%[27m[1m[0m                                                                                ]2;justintemps@Mac:~/Dev/justintemps]1;..v/justintemps]7;file://Mac/Users/justintemps/Dev/justintemps\[0m[27m[24m[J[39m[0m[49m[40m[39m justintemps [44m[30m[30m ~/Dev/justintemps [43m[34m[30m  main [49m[33m[39m [K[?1h=[?2004hppnpm  p  ppnpm dev[?1l>[?2004l
-]2;pnpm dev]1;pnpm
-> justintemps@0.0.1 dev /Users/justintemps/Dev/justintemps
-> vite dev
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[1;1H[0J
-  [32m[1mVITE[22m v8.2.2[39m  [2mready in [0m[1m767[22m[2m[0m ms[22m
-
-  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
-[2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
-[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m

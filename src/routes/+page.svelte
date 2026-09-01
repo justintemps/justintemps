@@ -1,6 +1,7 @@
 <script lang="ts">
   import content, { metadata } from "$lib/content/pages/home.md";
   import Clouds from "$lib/components/Clouds.svelte";
+  import ScrollHint from "$lib/components/ScrollHint.svelte";
   import SEO from "$lib/components/SEO.svelte";
   import { page } from "$app/state";
 
@@ -14,6 +15,7 @@
   <h1>Justin time to blow your mind</h1>
 
   <svelte:component this={content} />
+  <ScrollHint />
 </article>
 
 <style lang="scss">
@@ -124,7 +126,7 @@
 
       :global(.hp--intro) {
         padding: px-to-rem(200px) 13% px-to-rem(76px);
-        margin-top: px-to-rem(130px);
+        margin-top: px-to-rem(90px);
 
         &:before {
           left: 0;
@@ -135,6 +137,49 @@
           right: 0;
           width: calc(50% - (#{px-to-rem(150px)} + 5%));
         }
+      }
+    }
+  }
+
+  // Scroll reveal for the intro. At rest it sits half-sunk in the cloud bank:
+  // dim, blurred and a little lower, still visible enough to show there's more
+  // below the fold. As it scrolls into view it rises and sharpens. The box
+  // leads, the portrait follows, the words arrive last. Only the class
+  // toggling is JS (see $lib/actions/reveal); the resting state is gated on
+  // html.js (set in app.html) so nothing is dimmed without JavaScript, and
+  // skipped entirely for reduced-motion visitors.
+  @media (prefers-reduced-motion: no-preference) {
+    $ease-emerge: cubic-bezier(0.33, 1, 0.68, 1);
+
+    :global(.hp--intro.reveal) {
+      transition:
+        opacity 0.7s $ease-emerge,
+        transform 0.7s $ease-emerge,
+        filter 0.7s $ease-emerge;
+
+      :global(.hp--intro--img) {
+        transition: transform 0.6s $ease-emerge 0.1s;
+      }
+
+      :global(p) {
+        transition:
+          opacity 0.6s $ease-emerge 0.2s,
+          transform 0.6s $ease-emerge 0.2s;
+      }
+    }
+
+    :global(html.js .hp--intro.reveal:not(.is-revealed)) {
+      opacity: 0.45;
+      transform: translateY(#{px-to-rem(40px)}) scale(0.98);
+      filter: blur(8px);
+
+      :global(.hp--intro--img) {
+        transform: translateY(#{px-to-rem(24px)});
+      }
+
+      :global(p) {
+        opacity: 0.6;
+        transform: translateY(#{px-to-rem(16px)});
       }
     }
   }

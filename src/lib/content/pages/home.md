@@ -6,9 +6,10 @@ description: The website of Justin Smith, Web Developer, AI practitioner and Dig
 
 <script>
   import profile from "$lib/assets/images/profile.png";
+  import { reveal } from "$lib/actions/reveal";
 </script>
 
-<section class="hp--intro">
+<section class="hp--intro reveal" use:reveal>
 
 <img class="hp--intro--img" src={profile} alt="Me wearing a blue baseball cap sipping an espresso" />
 

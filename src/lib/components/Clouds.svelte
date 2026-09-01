@@ -261,5 +261,10 @@
     width: 100vw;
     height: 100vh;
     z-index: -1;
+    // The canvas ends at 100vh; without this the clouds stop at a hard line.
+    // Fade the lower part out so the bank thins into the sky instead.
+    $fade: linear-gradient(to bottom, #000 55%, transparent 100%);
+    -webkit-mask-image: $fade;
+    mask-image: $fade;
   }
 </style>

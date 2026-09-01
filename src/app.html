@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%sveltekit.assets%/images/favicon-dark.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Lets CSS hide scroll-reveal content before hydration, but only when JS runs. -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="hover">
