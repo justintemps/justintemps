@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [enhancedImages(), sveltekit()],
   resolve: {
     alias: {
-      $styles: path.resolve(__dirname, "src/styles")
+      $styles: path.resolve(import.meta.dirname, "src/styles")
     }
   }
 });
