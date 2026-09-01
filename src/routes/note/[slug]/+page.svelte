@@ -29,7 +29,6 @@
   }
 
   article :global(h2) {
-    font-size: var(--text--lg);
     color: var(--color--brand);
   }
 </style>

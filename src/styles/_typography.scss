@@ -11,8 +11,7 @@ h5,
 h6,
 button,
 label,
-figcaption,
-.subtitle {
+figcaption {
   font-family: var(--font--display);
 }
 
@@ -26,7 +25,9 @@ li {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   font-weight: 600;
   line-height: var(--leading--heading);
   color: var(--color--type);
@@ -39,8 +40,7 @@ h1 {
   color: var(--color--brand);
 }
 
-h2,
-.subtitle {
+h2 {
   font-size: var(--text--xl);
   letter-spacing: var(--tracking--snug);
 }
@@ -51,6 +51,21 @@ h3 {
 
 h4 {
   font-size: var(--text--md);
+}
+
+h5 {
+  font-size: var(--text--sm);
+}
+
+h6 {
+  font-size: var(--text--xs);
+}
+
+// Body-sized and smaller headings wrap like text, not display copy.
+h4,
+h5,
+h6 {
+  line-height: var(--leading--snug);
 }
 
 /* -- Running text -- */

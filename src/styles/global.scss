@@ -15,9 +15,9 @@
   --text--xs: #{fluid(14px, 16px)}; /* captions, meta, code */
   --text--sm: #{fluid(16px, 18px)}; /* nav, labels, buttons, card copy */
   --text--md: #{fluid(20px, 24px)}; /* body */
-  --text--lg: #{fluid(24px, 30px)}; /* ledes, blockquotes, card titles, post h2 */
-  --text--xl: #{fluid(30px, 40px)}; /* h2 */
-  --text--2xl: #{fluid(36px, 60px)}; /* post h1 */
+  --text--lg: #{fluid(24px, 30px)}; /* ledes, blockquotes, card titles, h3 */
+  --text--xl: #{fluid(30px, 40px)}; /* h2, post h2 */
+  --text--2xl: #{fluid(40px, 60px)}; /* post h1 */
   --text--3xl: #{fluid(48px, 80px)}; /* page h1 */
   --text--4xl: #{fluid(68px, 136px)}; /* home hero */
 
