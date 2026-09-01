@@ -19,7 +19,7 @@ specialised agency of the United Nations.
 
 </section>
 
-<section class="hp--list">
+<section class="hp--list reveal" use:reveal>
 
 ## This is my website
 
@@ -28,7 +28,7 @@ specialised agency of the United Nations.
 - 🤙 [Get in touch](./contact)
 - 🔌 [Or read this shameless plug](./about)
 
-<div>
+<div class="hp--joke reveal" use:reveal={{ threshold: 0.6 }}>
 <p>And that's it.</p>
 <p>That's all there is to do here.</p>
 </div>

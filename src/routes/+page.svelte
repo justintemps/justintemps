@@ -182,5 +182,52 @@
         transform: translateY(#{px-to-rem(16px)});
       }
     }
+
+    // The list below follows the same idea without the fog: the heading fades
+    // up first and the links follow one after another. The sign-off has its
+    // own trigger so it plays when it arrives, with a beat between its lines.
+    :global(.hp--list.reveal) {
+      :global(h2),
+      :global(li) {
+        transition:
+          opacity 0.6s $ease-emerge,
+          transform 0.6s $ease-emerge;
+      }
+
+      @for $i from 1 through 4 {
+        :global(li:nth-child(#{$i})) {
+          transition-delay: 0.15s + ($i - 1) * 0.1s;
+        }
+      }
+    }
+
+    :global(html.js .hp--list.reveal:not(.is-revealed)) {
+      :global(h2),
+      :global(li) {
+        opacity: 0;
+        transform: translateY(#{px-to-rem(24px)});
+      }
+    }
+
+    :global(.hp--joke.reveal) {
+      // Delays are set so that even when the list and the sign-off come into
+      // view together, the last link has landed before the joke begins.
+      :global(p) {
+        transition:
+          opacity 0.5s $ease-emerge 0.3s,
+          transform 0.5s $ease-emerge 0.3s;
+      }
+
+      :global(p:last-child) {
+        transition-delay: 1.1s;
+      }
+    }
+
+    :global(html.js .hp--joke.reveal:not(.is-revealed)) {
+      :global(p) {
+        opacity: 0;
+        transform: translateY(#{px-to-rem(16px)});
+      }
+    }
   }
 </style>
