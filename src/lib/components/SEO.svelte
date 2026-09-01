@@ -22,8 +22,8 @@
     return title;
   }
 
-  const formattedTitle = formatTitle(title, subtitle);
-  const canonical = formatUrl(url);
+  const formattedTitle = $derived(formatTitle(title, subtitle));
+  const canonical = $derived(formatUrl(url));
 </script>
 
 <svelte:head>

@@ -13,7 +13,7 @@ async function getWork() {
     const slug = path.split("/").at(-1)?.replace(".md", "");
 
     if (file && typeof file === "object" && "metadata" in file && slug) {
-      const metadata = file.metadata as Omit;
+      const metadata = file.metadata as WorkSample;
       const sample = { ...metadata } satisfies WorkSample;
       work.push(sample);
     }

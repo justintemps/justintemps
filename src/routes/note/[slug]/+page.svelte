@@ -5,9 +5,9 @@
   import { page } from "$app/state";
 
   let { data } = $props();
-  const { title, description, date, tags } = data.meta;
+  const { title, description, date, tags } = $derived(data.meta);
 
-  let Component = data.content;
+  const Component = $derived(data.content);
 </script>
 
 <article>
