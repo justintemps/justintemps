@@ -22,19 +22,15 @@
 
   h1 {
     filter: drop-shadow(14px 13px 11px rgba(0, 0, 0, 0.5));
-    font-weight: bold;
-    font-size: px-to-rem(68px);
-    line-height: px-to-rem(72px);
+    font-weight: 700;
+    font-size: var(--text--4xl);
+    line-height: 1.05;
   }
 
   article {
     max-width: 100%;
-    gap: px-to-rem(60px);
+    gap: var(--space--page);
     @include edge-padding;
-
-    @include breakpoint("md") {
-      gap: px-to-rem(84px);
-    }
 
     :global(.hp--intro--img) {
       width: px-to-rem(200px);
@@ -52,6 +48,11 @@
       border-top: none;
       padding: px-to-rem(128px) px-to-rem(20px) px-to-rem(44px);
       margin-top: px-to-rem(96px);
+
+      // The intro is a centred box, not running text: no flow spacing inside it.
+      > :global(* + *) {
+        margin-block-start: 0;
+      }
 
       &:before,
       &:after {
@@ -75,51 +76,45 @@
 
     :global(h2) {
       filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
-      font-weight: bold;
-      font-size: px-to-rem(48px);
-      line-height: px-to-rem(48px);
+      font-weight: 700;
+      font-size: var(--text--3xl);
+      line-height: 1;
       text-align: center;
     }
 
+    // Display copy for the home page only: same endpoints as before, now fluid.
     :global(p),
     :global(li) {
-      font-size: px-to-rem(24px);
-      line-height: px-to-rem(36px);
+      font-size: #{fluid(24px, 40px)};
+      line-height: var(--leading--snug);
       text-align: center;
       font-family: var(--font--type);
     }
 
     :global(ul) {
-      margin: px-to-rem(40px) 0;
+      margin-block: var(--space--block);
     }
 
     :global(li) {
       list-style: none;
-      padding: px-to-rem(4px) 0;
+      padding: var(--space--1) 0;
+    }
+
+    :global(.hp--list) :global(p) {
+      font-size: var(--text--lg);
+      line-height: var(--leading--body);
+      padding: 0;
     }
   }
 
   @include breakpoint("md") {
     h1 {
-      font-size: px-to-rem(136px);
-      line-height: px-to-rem(148px);
       max-width: calc(var(--size--content--max) - 200px);
     }
 
     article {
-      :global(h2) {
-        font-size: px-to-rem(80px);
-        line-height: px-to-rem(80px);
-      }
-
-      :global(li),
-      :global(p) {
-        font-size: px-to-rem(40px);
-        line-height: px-to-rem(52px);
-      }
-
       :global(li) {
-        padding: px-to-rem(20px);
+        padding: var(--space--3);
       }
 
       :global(.hp--intro--img) {
@@ -140,17 +135,6 @@
           right: 0;
           width: calc(50% - (#{px-to-rem(150px)} + 5%));
         }
-      }
-
-      :global(ul) {
-        margin: px-to-rem(56px) 0;
-      }
-
-      :global(.hp--list) :global(p) {
-        font-size: px-to-rem(28px);
-        line-height: px-to-rem(40px);
-        padding: 0;
-        letter-spacing: var(--font--type--letter-spacing);
       }
     }
   }

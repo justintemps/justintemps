@@ -30,9 +30,9 @@ importers:
         specifier: ^0.185.1
         version: 0.185.1
     devDependencies:
-      '@fontsource/crimson-text':
-        specifier: ^5.0.13
-        version: 5.2.7
+      '@fontsource-variable/source-serif-4':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource/montserrat':
         specifier: ^5.0.18
         version: 5.2.8
@@ -291,8 +291,8 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@fontsource/crimson-text@5.2.7':
-    resolution: {integrity: sha512-hlUb/1GdXB2xc0usGMPp6qEI7Z4kQU1FEOYvozsN+cUC/Nh4kvEVVc0kHpj8B5G0hjZzfP+UmrLYHOaNAfMK5w==}
+  '@fontsource-variable/source-serif-4@5.3.0':
+    resolution: {integrity: sha512-9vch9WqxjaaA+1o9Ur8pOgIGbCYLjRReOUel23A6lOpD1syptgjtkORevvNmldJ5kGXQL29onQUqI5Ltz0s3bQ==}
 
   '@fontsource/montserrat@5.2.8':
     resolution: {integrity: sha512-xTjLxSbSfCycDB0pwmNsfNvdfWPaDaRQ2LC6yt/ZI7SdvXG52zHnzNYC/09mzuAuWNJyShkteutfCoDgym56hQ==}
@@ -2391,7 +2391,7 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
-  '@fontsource/crimson-text@5.2.7': {}
+  '@fontsource-variable/source-serif-4@5.3.0': {}
 
   '@fontsource/montserrat@5.2.8': {}
 

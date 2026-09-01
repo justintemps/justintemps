@@ -64,7 +64,7 @@
 <style lang="scss">
   @use "$styles/functions" as *;
   form {
-    gap: 40px;
+    gap: var(--space--5);
   }
   form,
   label {
@@ -79,8 +79,8 @@
     font-family: var(--font--type);
     color: var(--color--bg--accent);
     font-weight: 600;
-    font-size: px-to-rem(24px);
-    line-height: 1.5;
+    font-size: var(--text--md);
+    line-height: var(--leading--body);
   }
 
   textarea {

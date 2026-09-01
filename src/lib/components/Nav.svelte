@@ -123,7 +123,7 @@
     align-items: center;
     background-color: var(--color--bg--accent);
     border-bottom: px-to-rem(4px) solid var(--color--brand);
-    font-size: px-to-rem(20px);
+    font-size: var(--text--sm);
     height: 100%;
   }
 
@@ -251,7 +251,7 @@
     }
 
     li {
-      font-size: px-to-rem(20px);
+      font-size: var(--text--sm);
 
       &:hover {
         color: var(--color--brand);

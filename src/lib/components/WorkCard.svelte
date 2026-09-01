@@ -54,15 +54,14 @@
 
   h2 {
     position: relative;
-    font-size: px-to-rem(28px);
+    font-size: var(--text--lg);
     color: var(--color--brand);
-    margin-bottom: px-to-rem(24px);
+    margin-bottom: var(--space--3);
   }
 
   p {
-    font-family: var(--font-display);
-    font-size: px-to-rem(18px);
-    line-height: px-to-rem(28px);
-    letter-spacing: initial;
+    font-family: var(--font--display);
+    font-size: var(--text--sm);
+    line-height: var(--leading--meta);
   }
 </style>

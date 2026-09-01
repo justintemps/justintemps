@@ -43,6 +43,6 @@
     padding: 0;
     display: flex;
     flex-flow: column;
-    gap: px-to-rem(52px);
+    gap: var(--space--block);
   }
 </style>

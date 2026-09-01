@@ -42,6 +42,6 @@
 
   h2 {
     position: relative;
-    font-size: px-to-rem(28px);
+    font-size: var(--text--lg);
   }
 </style>

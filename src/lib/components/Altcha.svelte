@@ -57,7 +57,7 @@
     :global(.altcha-label) {
       flex-grow: 0 !important;
       font-family: var(--font--display);
-      font-size: #{px-to-rem(20px)};
+      font-size: var(--text--sm);
       color: var(--color--brand);
     }
 

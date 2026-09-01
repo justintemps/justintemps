@@ -29,7 +29,7 @@
       padding-bottom: px-to-rem(20px);
       margin-bottom: px-to-rem(20px);
       border-bottom: px-to-rem(4px) solid var(--color--brand);
-      font-size: px-to-rem(24px);
+      font-size: var(--text--lg);
       font-family: var(--font--display);
       color: var(--color--brand);
     }
@@ -37,7 +37,7 @@
 
   @include breakpoint(lg) {
     .connect--heading {
-      font-size: px-to-rem(20px);
+      font-size: var(--text--sm);
     }
   }
 </style>

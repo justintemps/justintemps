@@ -4,8 +4,9 @@
   import "@fontsource/montserrat/400.css";
   import "@fontsource/montserrat/500.css";
   import "@fontsource/montserrat/600.css";
-  import "@fontsource/crimson-text/400.css";
-  import "@fontsource/crimson-text/600.css";
+  import "@fontsource/montserrat/700.css";
+  import "@fontsource-variable/source-serif-4/wght.css";
+  import "@fontsource-variable/source-serif-4/wght-italic.css";
   import "$styles/global.scss";
   import Nav from "$lib/components/Nav.svelte";
   import Footer from "$lib/components/Footer.svelte";
@@ -40,7 +41,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-block: px-to-rem(36px);
+    padding-block: var(--space--page);
   }
 
   .wrapper {
@@ -49,11 +50,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  @include breakpoint(md) {
-    main {
-      padding-block: px-to-rem(84px);
-    }
   }
 </style>

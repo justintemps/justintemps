@@ -33,7 +33,8 @@
   p {
     color: var(--color--brand);
     font-family: var(--font--display);
-    font-size: px-to-rem(16px);
+    font-size: var(--text--xs);
+    line-height: var(--leading--meta);
   }
 
   @include breakpoint(lg) {

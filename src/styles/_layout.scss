@@ -6,26 +6,36 @@ article {
   max-width: var(--size--column--lg);
   display: flex;
   flex-flow: column;
-  gap: 2rem;
-
-  @include breakpoint(md) {
-    gap: 4rem;
-  }
+  gap: var(--space--block);
 }
 
 section,
 hgroup {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
   width: 100%;
   max-width: 100vw;
   @include edge-padding;
 }
 
-@include breakpoint(md) {
-  section,
-  hgroup {
-    gap: 1.5rem;
+// Flow spacing: every block gets a consistent gap above it. Headings get
+// extra room above and sit close to the text that follows them, which is
+// what gives running text its rhythm.
+section {
+  > * + * {
+    margin-block-start: var(--space--flow);
   }
+
+  > * + :is(h2, h3, h4) {
+    margin-block-start: var(--space--5);
+  }
+
+  > :is(h2, h3, h4) + * {
+    margin-block-start: var(--space--2);
+  }
+}
+
+// Page headers are a tight cluster: title, lede, meta.
+hgroup > * + * {
+  margin-block-start: var(--space--2);
 }

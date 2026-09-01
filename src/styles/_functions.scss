@@ -4,3 +4,17 @@
   $remValue: math.div($value, 16px) + rem;
   @return $remValue;
 }
+
+// Fluid value that scales linearly from $min (at $vw-min) to $max (at $vw-max)
+// and is clamped at both ends. Powers the type and spacing scales so sizes no
+// longer need a mobile block and a desktop block.
+@function fluid($min, $max, $vw-min: 360px, $vw-max: 1200px) {
+  $slope: math.div($max - $min, $vw-max - $vw-min);
+  $intercept: $min - $slope * $vw-min;
+  $slope-vw: math.div(math.round($slope * 10000), 100);
+  @return clamp(
+    #{px-to-rem($min)},
+    #{px-to-rem($intercept)} + #{$slope-vw}vw,
+    #{px-to-rem($max)}
+  );
+}

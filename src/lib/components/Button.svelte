@@ -62,12 +62,12 @@
   .button {
     &--size {
       &__small {
-        font-size: px-to-rem(14px);
+        font-size: var(--text--xs);
         padding: px-to-rem(8px) px-to-rem(10px);
       }
 
       &__large {
-        font-size: px-to-rem(20px);
+        font-size: var(--text--sm);
         padding: px-to-rem(12px) px-to-rem(16px);
       }
     }
