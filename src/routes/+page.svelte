@@ -31,7 +31,14 @@
 
   article {
     max-width: 100%;
-    gap: var(--space--page);
+    // The home page breathes more than a standard page: the intro sits a
+    // little further below the fold so the scroll hint has something to point
+    // at, and the list keeps that same distance below the intro. The portrait
+    // pokes up out of the intro box by --hp--overhang; the box makes room for
+    // it below, so the visible gap heading -> portrait -> box -> list is even.
+    --hp--gap: #{fluid(56px, 120px)};
+    --hp--overhang: #{px-to-rem(96px)};
+    gap: var(--hp--gap);
     @include edge-padding;
 
     // The portrait is an illustration exported at 3x (858x870) with the same
@@ -43,7 +50,7 @@
       height: auto;
       aspect-ratio: 286 / 290;
       position: absolute;
-      top: px-to-rem(-96px);
+      top: calc(-1 * var(--hp--overhang));
     }
 
     :global(.hp--intro) {
@@ -55,7 +62,7 @@
       border: px-to-rem(4px) solid var(--color--brand);
       border-top: none;
       padding: px-to-rem(128px) px-to-rem(20px) px-to-rem(44px);
-      margin-top: px-to-rem(96px);
+      margin-top: var(--hp--overhang);
 
       // The intro is a centred box, not running text: no flow spacing inside it.
       > :global(* + *) {
@@ -121,18 +128,18 @@
     }
 
     article {
+      --hp--overhang: #{px-to-rem(132px)};
+
       :global(li) {
         padding: var(--space--3);
       }
 
       :global(.hp--intro--img) {
         width: px-to-rem(300px);
-        top: px-to-rem(-132px);
       }
 
       :global(.hp--intro) {
         padding: px-to-rem(200px) 13% px-to-rem(76px);
-        margin-top: px-to-rem(90px);
 
         &:before {
           left: 0;
