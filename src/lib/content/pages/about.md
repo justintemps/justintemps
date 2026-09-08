@@ -1,5 +1,5 @@
 ---
-title: A bit about me
+title: About me
 description: Everything you never asked to know about the guy who built this website.
 ---
 
