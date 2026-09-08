@@ -121,7 +121,10 @@
 
     :global(li) {
       list-style: none;
-      padding: var(--space--1) 0;
+      // Most links wrap to two lines on a phone, so the gap between items has
+      // to beat the line height inside one (about 31px) or the list reads as
+      // a single run of text.
+      padding: var(--space--2) 0;
     }
 
     :global(.hp--list) :global(p) {
