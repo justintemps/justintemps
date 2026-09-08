@@ -46,15 +46,6 @@
     };
 
     href = getHref();
-
-    console.log({
-      label,
-      encodedLabel,
-      queryTagsArray,
-      href,
-      isActive,
-      searchParams
-    });
   });
 </script>
 

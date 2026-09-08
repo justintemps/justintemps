@@ -28,6 +28,16 @@
     font-size: var(--text--2xl);
   }
 
+  // A post's lede is a paragraph, not a one-line page tagline, so it steps
+  // down from the site-wide hgroup size to the body size and takes a reading
+  // measure. It stays in the display face, which is what still marks it out
+  // from the serif body copy that follows.
+  hgroup p {
+    max-width: 62ch;
+    font-size: var(--text--md);
+    line-height: var(--leading--body);
+  }
+
   article :global(h2) {
     color: var(--color--brand);
   }
