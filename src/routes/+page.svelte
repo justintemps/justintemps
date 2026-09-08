@@ -25,7 +25,10 @@
   h1 {
     filter: drop-shadow(14px 13px 11px rgba(0, 0, 0, 0.5));
     font-weight: 700;
-    font-size: var(--text--4xl);
+    // The fluid scale tops out by width, so on a wide, short laptop screen the
+    // heading alone would fill the fold. Capping by height keeps all three
+    // lines and the top of the portrait in view.
+    font-size: min(var(--text--4xl), 15vh);
     line-height: 1.05;
   }
 
@@ -124,7 +127,10 @@
 
   @include breakpoint("md") {
     h1 {
-      max-width: calc(var(--size--content--max) - 200px);
+      // Measured in the heading's own em so the three-line break survives any
+      // font size. Anything from ~5.7em ("Justin time") to ~7.9em ("blow your
+      // mind") forces three lines; text-wrap: balance then evens them out.
+      max-width: 6.8em;
     }
 
     article {
@@ -151,6 +157,14 @@
           width: calc(50% - (#{px-to-rem(150px)} + 5%));
         }
       }
+    }
+  }
+
+  // Short viewports: the heading is already height-capped above; the gap
+  // below it shrinks too so the portrait still peeks up from the fold.
+  @include breakpoint(short) {
+    article {
+      --hp--gap: #{px-to-rem(64px)};
     }
   }
 

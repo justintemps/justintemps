@@ -18,8 +18,14 @@
     @media (min-width: $breakpoint-xl) {
       @content;
     }
+  } @else if $size == short {
+    // The one height query: a wide but short viewport (a 13" laptop) is
+    // already above every width breakpoint, so width alone can't reach it.
+    @media (max-height: $breakpoint-short) {
+      @content;
+    }
   } @else {
-    @warn "Unknown size '#{$size}'. Please use 'sm', 'md', or 'lg'.";
+    @warn "Unknown size '#{$size}'. Use 'sm', 'md', 'lg', 'xl' or 'short'.";
   }
 }
 
