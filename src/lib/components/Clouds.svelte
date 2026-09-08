@@ -12,6 +12,7 @@
     THREE.MeshLambertMaterial
   >[] = [];
   let flash: THREE.PointLight;
+  let glow: THREE.PointLight;
   let scene: THREE.Scene;
   let cloudsElement: HTMLDivElement;
   let frameId = 0;
@@ -25,7 +26,7 @@
   // these numbers are much larger than the r140 originals. Tweak to taste.
   const AMBIENT_INTENSITY = 16;
   const SUN_INTENSITY = 7;
-  const FOG_DENSITY = 0.002;
+  const FOG_DENSITY = 0.0015;
   const SKY_COLOR = 0x193549; // matches --color--bg--main
   const CLOUD_COLOR = 0xd8dde4; // cool grey tint keeps the clouds broody
   const CLOUD_OPACITY = 0.6;
@@ -33,12 +34,25 @@
   // fraction of the width so the rectangle outlines never show.
   const CLOUD_EDGE_FADE = 0.3;
   const CLOUD_ROTATION_SPEED = 0.06; // rad/s
+  // The bank must cover the whole viewport. Unprojecting the screen corners
+  // onto the y=500 cloud plane at a 16:10 aspect gives roughly x in -550..600
+  // and z in -450..100 (the camera is yawed and rolled, so it isn't centred).
+  const CLOUD_COUNT = 85;
+  const CLOUD_X_RANGE: [number, number] = [-550, 600];
+  const CLOUD_Z_RANGE: [number, number] = [-450, 100];
 
   // Lightning. The point light uses 1/distance falloff with no cutoff, so
   // its intensity is roughly irradiance x distance, and the clouds sit
   // 400-800 units away.
   const FLASH_COLOR = 0xffc600; // matches --color--brand (the heading yellow)
-  const FLASH_IDLE = 4000; // faint warm glow between strikes
+  // A separate, fixed light gives the faint warm glow between strikes. It
+  // never moves; the strike light below is dark until a strike fires.
+  const GLOW_INTENSITY = 4000;
+  const GLOW_POSITION = new THREE.Vector3(200, 300, 100);
+  // Strike positions: right side of the bank, at least ~50 units below it.
+  const STRIKE_X: [number, number] = [0, 400];
+  const STRIKE_Y: [number, number] = [300, 450];
+  const STRIKE_Z = 100;
   const FLASH_PEAK_MIN = 20000; // each strike's peak is randomised in this range
   const FLASH_PEAK_MAX = 50000;
   const FLASH_DECAY_SECONDS = 0.15; // how quickly a pulse fades
@@ -100,8 +114,10 @@
     // Add lightning: a point light sitting among the clouds. distance=0
     // (no cutoff) and decay=1 give a broad 1/d glow rather than the default
     // inverse-square hot spot.
-    flash = new THREE.PointLight(FLASH_COLOR, FLASH_IDLE, 0, 1);
-    flash.position.set(200, 300, 100);
+    glow = new THREE.PointLight(FLASH_COLOR, GLOW_INTENSITY, 0, 1);
+    glow.position.copy(GLOW_POSITION);
+    scene.add(glow);
+    flash = new THREE.PointLight(FLASH_COLOR, 0, 0, 1);
     scene.add(flash);
 
     // Add the renderer with fog
@@ -130,12 +146,12 @@
         // Overlapping translucent planes must not occlude each other.
         depthWrite: false
       });
-      for (let p = 0; p < 35; p++) {
+      for (let p = 0; p < CLOUD_COUNT; p++) {
         const cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
         cloud.position.set(
-          Math.random() * 800 - 400,
+          rand(CLOUD_X_RANGE[0], CLOUD_X_RANGE[1]),
           500,
-          Math.random() * 500 - 450
+          rand(CLOUD_Z_RANGE[0], CLOUD_Z_RANGE[1])
         );
         cloud.rotation.x = 1.18;
         cloud.rotation.y = -0.12;
@@ -206,15 +222,15 @@
     return new THREE.CanvasTexture(canvas);
   }
 
-  // Sets the lightning for a strike level between 0 (idle) and 1 (peak).
+  // Sets the strike light for a level between 0 (off) and 1 (peak).
   function setFlashLevel(t: number) {
-    flash.intensity = FLASH_IDLE + t * (peakIntensity - FLASH_IDLE);
+    flash.intensity = t * peakIntensity;
   }
 
   // A strike is a burst of pulses (the main flash plus a few re-strikes)
   // from a fresh position, each of which fades out exponentially.
   function startStrike(now: number) {
-    flash.position.set(Math.random() * 400, 300 + Math.random() * 200, 100);
+    flash.position.set(randBetween(STRIKE_X), randBetween(STRIKE_Y), STRIKE_Z);
     peakIntensity = rand(FLASH_PEAK_MIN, FLASH_PEAK_MAX);
     const count = Math.floor(randBetween(PULSES_PER_STRIKE) + 1);
     let at = now;
