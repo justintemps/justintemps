@@ -22,9 +22,16 @@
   const strings = JSON.stringify(altchaStrings);
 </script>
 
+<!--
+  auto="onfocus" fetches and solves the challenge as soon as any field in the
+  form gets focus. The server rejects solutions posted within a few seconds of
+  the challenge being issued, so starting the clock when the visitor starts
+  typing (rather than when they tick the box) keeps humans clear of that limit.
+-->
 <altcha-widget
   {strings}
   challengeurl="/api/altcha"
+  auto="onfocus"
   onstatechange={(ev) => {
     const { payload, state } = ev.detail;
     if (state === "verified" && payload) {

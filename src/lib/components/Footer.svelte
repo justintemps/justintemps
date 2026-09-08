@@ -46,7 +46,7 @@
     .footer--connect {
       display: flex;
       width: 100%;
-      max-width: px-to-rem(400px);
+      max-width: px-to-rem(320px);
     }
   }
 </style>

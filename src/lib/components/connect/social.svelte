@@ -2,7 +2,6 @@
   import type { SvelteComponent } from "svelte";
   import Mail from "$lib/components/connect/mail.svelte";
   import LinkedIn from "$lib/components/connect/linkedin.svelte";
-  import Mastadon from "$lib/components/connect/mastadon.svelte";
   import Github from "$lib/components/connect/github.svelte";
   import Bluesky from "$lib/components/connect/bluesky.svelte";
 
@@ -20,12 +19,6 @@
       target: "__blank",
 
       Icon: Bluesky
-    },
-    {
-      name: "Mastadon",
-      url: "https://fosstodon.org/@justintemps",
-      Icon: Mastadon,
-      target: "__blank"
     },
     {
       name: "Github",

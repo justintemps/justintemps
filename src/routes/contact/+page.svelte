@@ -44,15 +44,38 @@
       <form method="POST" action="/contact" use:enhance>
         <label class="half">
           Name
-          <input type="text" name="name" autocomplete="name" required />
+          <input
+            type="text"
+            name="name"
+            autocomplete="name"
+            maxlength="100"
+            required
+          />
         </label>
         <label class="half">
           Email
-          <input type="email" name="email" autocomplete="email" required />
+          <input
+            type="email"
+            name="email"
+            autocomplete="email"
+            maxlength="254"
+            required
+          />
         </label>
         <label>
           Message
-          <textarea name="message" rows="4" required></textarea>
+          <textarea name="message" rows="4" maxlength="3000" required
+          ></textarea>
+        </label>
+        <!--
+          Honeypot. Humans never see or tab to this field; bots that fill in
+          every input do, and the server drops any submission where it's set.
+          It's moved off-screen rather than display:none because some bots
+          skip hidden inputs.
+        -->
+        <label class="trap" aria-hidden="true">
+          Website
+          <input type="text" name="website" tabindex="-1" autocomplete="off" />
         </label>
         <Altcha />
         <Button
@@ -116,5 +139,13 @@
   textarea {
     min-height: px-to-rem(160px);
     resize: vertical;
+  }
+
+  .trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
   }
 </style>
