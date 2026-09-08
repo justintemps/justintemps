@@ -38,38 +38,28 @@
 {/if}
 
 <style lang="scss">
-  @use "$styles/functions" as *;
+  @use "$styles/mixins" as *;
 
   a {
     text-decoration: none;
   }
 
   button {
-    background-color: transparent;
-    color: var(--color--accent);
-    border: var(--color--accent) 1px solid;
+    @include pill;
     cursor: pointer;
-    transition: all ease-in-out 150ms;
     width: fit-content;
 
-    &:hover,
     &.button--active {
       background-color: var(--color--brand);
       color: var(--color--bg--accent);
     }
   }
 
-  .button {
-    &--size {
-      &__small {
-        font-size: var(--text--xs);
-        padding: px-to-rem(8px) px-to-rem(10px);
-      }
+  .button--size__small {
+    @include pill-size(small);
+  }
 
-      &__large {
-        font-size: var(--text--sm);
-        padding: px-to-rem(12px) px-to-rem(16px);
-      }
-    }
+  .button--size__large {
+    @include pill-size(large);
   }
 </style>

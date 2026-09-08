@@ -29,6 +29,37 @@
   text-decoration-thickness: px-to-rem(4px);
 }
 
+// The small outlined pill shared by buttons, tags and the work-card domain
+// links: display face, accent outline, brand fill on hover. Line-height is
+// pinned so a <button> and an <a> come out the same height.
+@mixin pill {
+  background-color: transparent;
+  border: px-to-rem(1px) solid var(--color--accent);
+  color: var(--color--accent);
+  font-family: var(--font--display);
+  line-height: var(--leading--meta);
+  text-decoration: none;
+  transition: all ease-in-out 150ms;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--color--brand);
+    color: var(--color--bg--accent);
+  }
+}
+
+@mixin pill-size($size) {
+  @if $size == small {
+    font-size: var(--text--xs);
+    padding: px-to-rem(8px) px-to-rem(10px);
+  } @else if $size == large {
+    font-size: var(--text--sm);
+    padding: px-to-rem(12px) px-to-rem(16px);
+  } @else {
+    @warn "Unknown pill size '#{$size}'. Use 'small' or 'large'.";
+  }
+}
+
 @mixin edge-padding {
   padding-inline: var(--size--edge--padding);
 
