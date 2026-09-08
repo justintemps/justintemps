@@ -171,11 +171,13 @@ blockquote {
 
 input,
 textarea {
-  color: var(--color--bg--main);
+  color: var(--color--type);
   font-size: var(--text--md);
   line-height: var(--leading--body);
-  &:focus {
-    outline: var(--color--brand) 4px dotted;
+
+  &:focus-visible {
+    outline: px-to-rem(2px) solid var(--color--brand);
+    outline-offset: px-to-rem(2px);
   }
 }
 

@@ -18,7 +18,7 @@
 <article>
   {#if form?.success}
     <hgroup>
-      <h1>Success!</h1>
+      <h1>Message sent</h1>
       <p>
         Your message has been sent. I'll get back to you as soon as possible.
       </p>
@@ -42,20 +42,25 @@
     </hgroup>
     <section>
       <form method="POST" action="/contact" use:enhance>
-        <label>
-          Your name
-          <input type="text" name="name" required />
+        <label class="half">
+          Name
+          <input type="text" name="name" autocomplete="name" required />
+        </label>
+        <label class="half">
+          Email
+          <input type="email" name="email" autocomplete="email" required />
         </label>
         <label>
-          Your email address
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          Your message
-          <textarea name="message" required></textarea>
+          Message
+          <textarea name="message" rows="4" required></textarea>
         </label>
         <Altcha />
-        <Button size="large" type="submit" label="Submit" name="submit" />
+        <Button
+          size="large"
+          type="submit"
+          label="Send message"
+          name="submit"
+        />
       </form>
     </section>
   {/if}
@@ -63,27 +68,53 @@
 
 <style lang="scss">
   @use "$styles/functions" as *;
+  @use "$styles/mixins" as *;
+
+  // A single column on phones. From tablet up, name and email share a row so
+  // the form is one row shorter and neither short answer gets a 768px box.
+  // Everything else (message, captcha, button) spans the full width.
   form {
-    gap: var(--space--5);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space--4) var(--space--3);
+
+    > :global(*) {
+      grid-column: 1 / -1;
+    }
+
+    @include breakpoint(md) {
+      grid-template-columns: 1fr 1fr;
+
+      > .half {
+        grid-column: span 1;
+      }
+    }
   }
-  form,
+
+  // Label sits tight against its field so the pair reads as one unit; the
+  // grid gap does the separating between fields.
   label {
     display: flex;
     flex-flow: column;
+    gap: var(--space--1);
   }
 
+  // Fields use the same outlined-on-navy treatment as the button, tags and
+  // the captcha checkbox, so the whole form reads as one piece. Typed text
+  // is set like body copy, not bold.
   input,
   textarea {
-    padding: px-to-rem(12px) px-to-rem(8px);
-    margin: px-to-rem(12px) 0 0 0;
+    width: 100%;
+    padding: px-to-rem(12px) px-to-rem(16px);
+    background-color: transparent;
+    border: px-to-rem(1px) solid var(--color--accent);
+    border-radius: 0;
     font-family: var(--font--type);
-    color: var(--color--bg--accent);
-    font-weight: 600;
-    font-size: var(--text--md);
-    line-height: var(--leading--body);
+    font-weight: 400;
   }
 
   textarea {
-    min-height: px-to-rem(248px);
+    min-height: px-to-rem(160px);
+    resize: vertical;
   }
 </style>

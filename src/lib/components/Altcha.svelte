@@ -24,7 +24,6 @@
 
 <altcha-widget
   {strings}
-  debug
   challengeurl="/api/altcha"
   onstatechange={(ev) => {
     const { payload, state } = ev.detail;
