@@ -37,7 +37,7 @@
   // The bank must cover the whole viewport. Unprojecting the screen corners
   // onto the y=500 cloud plane at a 16:10 aspect gives roughly x in -550..600
   // and z in -450..100 (the camera is yawed and rolled, so it isn't centred).
-  const CLOUD_COUNT = 85;
+  const CLOUD_COUNT = 90;
   const CLOUD_X_RANGE: [number, number] = [-550, 600];
   const CLOUD_Z_RANGE: [number, number] = [-450, 100];
 
