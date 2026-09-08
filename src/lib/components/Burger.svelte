@@ -1,6 +1,4 @@
 <script lang="ts">
-  import classnames from "classnames";
-
   interface BurgerProps {
     open: boolean;
     onclick: () => void;
@@ -18,92 +16,21 @@
   class={className}
   {onclick}
 >
-  <svg
-    class={classnames({ open, closed: !open })}
-    viewBox="0 0 100 80"
-    xmlns="http://www.w3.org/2000/svg"
-    style="width: 100%; height: 100%;"
-  >
+  <svg class:open viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
     <g stroke="#FFC600" stroke-width="12" stroke-linecap="square">
-      <path d="M 0,8 H 100" />
-      <path d="M 0,40 H 100" />
-      <path d="M 0,72 H 100" />
+      <g class="line top"><path d="M 0,8 H 100" /></g>
+      <path class="line middle" d="M 0,40 H 100" />
+      <g class="line bottom"><path d="M 0,72 H 100" /></g>
     </g>
   </svg>
 </button>
 
 <style lang="scss">
-  @keyframes top-line-open {
-    0% {
-      transform: translate(0, 0) rotate(0);
-    }
-    50% {
-      transform: translate(0, 32px) rotate(0);
-    }
-    100% {
-      transform: translate(0, 32px) rotate(45deg);
-    }
-  }
-
-  @keyframes top-line-close {
-    0% {
-      transform: translate(0, 32px) rotate(45deg);
-    }
-    50% {
-      transform: translate(0, 32px) rotate(0);
-    }
-    100% {
-      transform: translate(0, 0) rotate(0);
-    }
-  }
-
-  @keyframes bottom-line-open {
-    0% {
-      transform: translate(0, 0) rotate(0);
-    }
-    50% {
-      transform: translate(0, -32px) rotate(0);
-    }
-    100% {
-      transform: translate(0, -32px) rotate(-45deg);
-    }
-  }
-
-  @keyframes bottom-line-close {
-    0% {
-      transform: translate(0, -32px) rotate(-45deg);
-    }
-    50% {
-      transform: translate(0, -32px) rotate(0);
-    }
-    100% {
-      transform: translate(0, 0) rotate(0);
-    }
-  }
-
-  @keyframes middle-line-open {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-  @keyframes middle-line-close {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+  // Each stage gets half the menu's duration: opening slides the outer lines
+  // to the middle, then rotates them into an X; closing runs that in reverse.
+  // These are transitions rather than keyframe animations so nothing plays
+  // when the button first renders.
+  $stage: calc(var(--transition--duration--slow) / 2);
 
   button {
     width: 27px;
@@ -112,52 +39,71 @@
     border: none;
     padding: 0;
     outline-offset: 5px;
-    z-index: 5;
     cursor: pointer;
   }
 
-  g {
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .line,
+  .line path {
+    transform-box: view-box;
+    transition-duration: $stage;
+    transition-timing-function: ease;
+  }
+
+  // The outer lines rotate around the centre of the X...
+  .top,
+  .bottom {
+    transform-origin: 50px 40px;
+    transition-property: transform;
+    transition-delay: 0s;
+
+    // ...and slide as a separate step on the path inside.
     path {
-      animation-duration: var(--transition--duration--slow);
-      animation-timing-function: ease;
-      animation-fill-mode: forwards;
-      transform-box: view-box;
-
-      &:first-child {
-        transform-origin: center 8px;
-      }
-
-      &:last-child {
-        transform-origin: center 72px;
-      }
+      transition-property: transform;
+      transition-delay: $stage;
     }
+  }
+
+  .middle {
+    transition-property: opacity;
+    transition-delay: $stage;
   }
 
   .open {
-    path {
-      &:first-child {
-        animation-name: top-line-open;
-      }
-      &:nth-child(2) {
-        animation-name: middle-line-open;
-      }
-      &:last-child {
-        animation-name: bottom-line-open;
+    .top,
+    .bottom {
+      transition-delay: $stage;
+
+      path {
+        transition-delay: 0s;
       }
     }
-  }
 
-  .closed {
-    path {
-      &:first-child {
-        animation-name: top-line-close;
+    .top {
+      transform: rotate(45deg);
+
+      path {
+        transform: translateY(32px);
       }
-      &:nth-child(2) {
-        animation-name: middle-line-close;
+    }
+
+    .bottom {
+      transform: rotate(-45deg);
+
+      path {
+        transform: translateY(-32px);
       }
-      &:last-child {
-        animation-name: bottom-line-close;
-      }
+    }
+
+    .middle {
+      opacity: 0;
+      transition-delay: 0s;
     }
   }
 </style>

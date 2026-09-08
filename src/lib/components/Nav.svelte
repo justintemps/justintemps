@@ -32,14 +32,39 @@
     }
   });
 
-  function handleMobItemClick() {
+  // Lock page scrolling while the menu is open. The class goes on <html>, so
+  // nothing in the page itself changes position or repaints: the menu is an
+  // overlay that fades in over an untouched page.
+  $effect(() => {
+    document.documentElement.classList.toggle(
+      "mobile-menu-open",
+      mobileMenuOpen
+    );
+    return () => document.documentElement.classList.remove("mobile-menu-open");
+  });
+
+  function closeMobileMenu() {
     mobileMenuOpen = false;
   }
 
   function toggleMobileMenu() {
     mobileMenuOpen = !mobileMenuOpen;
+    // The burger is only reachable while the header is at least partly on
+    // screen, so this is at most a small nudge that brings the whole header,
+    // and with it the close button, fully into view.
+    if (mobileMenuOpen && window.scrollY > 0) {
+      window.scrollTo({ top: 0 });
+    }
+  }
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === "Escape" && mobileMenuOpen) {
+      closeMobileMenu();
+    }
   }
 </script>
+
+<svelte:window onkeydown={handleKeydown} />
 
 {#snippet navItem(item: NavItem)}
   <li class={classnames({ selected: page.url.pathname === item.href })}>
@@ -55,20 +80,20 @@
       {@render navItem({
         href: `/${item}`,
         name: item,
-        onclick: handleMobItemClick
+        onclick: closeMobileMenu
       })}
     {/each}
   </ul>
 {/snippet}
 
-<div class={classnames("container", { ["mobile-menu-open"]: mobileMenuOpen })}>
+<div class="container">
   <header>
     <nav>
       <div class="top-menu">
         <ul>
           <Logo
             selected={page.url.pathname === "/"}
-            onclick={handleMobItemClick}
+            onclick={closeMobileMenu}
           />
           <li class="desktop-menu">
             {@render menuItems(navItems)}
@@ -81,7 +106,10 @@
           controlsId={mobileMenuId}
         />
       </div>
-      <div class="mobile-menu" id={mobileMenuId}>
+      <div
+        class={classnames("mobile-menu", { open: mobileMenuOpen })}
+        id={mobileMenuId}
+      >
         <div class="mobile-menu--contents">
           {@render menuItems(navItems)}
           <Connect heading="Let's connect" />
@@ -89,7 +117,7 @@
       </div>
     </nav>
   </header>
-  <div class={classnames("content", { hidden: mobileMenuOpen })}>
+  <div class="content" inert={mobileMenuOpen}>
     {#if children}
       {@render children()}
     {/if}
@@ -108,6 +136,17 @@
     min-height: 100vh;
   }
 
+  :global(html.mobile-menu-open) {
+    overflow: hidden;
+  }
+
+  // The header sits above the page (and above the menu overlay, which lives
+  // inside it) so the logo and the burger stay usable while the menu is open.
+  header {
+    position: relative;
+    z-index: 10;
+  }
+
   nav {
     height: 100%;
 
@@ -117,6 +156,8 @@
   }
 
   .top-menu {
+    position: relative;
+    z-index: 2;
     padding-inline: var(--size--edge--padding);
     display: flex;
     justify-content: center;
@@ -141,88 +182,87 @@
     display: block;
   }
 
+  // A full-viewport overlay that starts under the header. It covers the page
+  // completely, so only this one small layer needs to fade: the page behind
+  // it is never animated or moved, which is what made the header flash.
   .mobile-menu {
     position: fixed;
-    height: calc(100% - var(--header-height));
-    width: 100%;
-    visibility: hidden;
-    opacity: 0;
+    inset: 0;
+    z-index: 1;
+    padding-top: var(--header-height);
     display: flex;
     flex-flow: column;
     align-items: center;
     background: var(--color--bg--accent);
-    transition: all ease-in-out var(--transition--duration--slow);
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      opacity var(--transition--duration--slow) ease-in-out,
+      visibility 0s linear var(--transition--duration--slow);
 
+    &.open {
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 0s;
+    }
+
+    // Links at the top, the connect block pinned to the bottom.
     &--contents {
-      --gap: clamp(#{px-to-rem(16px)}, 6vb, #{px-to-rem(80px)});
       display: flex;
       flex-flow: column;
       align-items: center;
-      justify-content: flex-start;
-      padding-top: var(--gap);
-      gap: var(--gap);
-      padding-inline: var(--size--edge--padding);
-      min-height: min-content;
+      gap: var(--space--6);
       width: 100%;
       max-width: var(--size--content--max);
+      min-height: 100%;
+      padding-block: var(--space--5)
+        calc(var(--space--5) + env(safe-area-inset-bottom, 0px));
+      padding-inline: var(--size--edge--padding);
 
       :global(.connect) {
-        margin-top: calc(var(--gap) / 2);
+        margin-top: auto;
       }
     }
-  }
 
-  .mobile-menu-open {
-    overflow: hidden;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    .mobile-menu {
-      opacity: 1;
-      visibility: visible;
+    .nav-items {
+      flex-flow: column;
+      gap: var(--space--3);
     }
-  }
 
-  .nav-items {
-    flex-flow: column;
-    gap: px-to-rem(56px);
+    li {
+      font-size: var(--text--2xl);
+      line-height: var(--leading--heading);
+    }
+
+    a {
+      display: inline-block;
+      padding-block: var(--space--1);
+      font-weight: 500;
+    }
   }
 
   li {
     color: var(--color--accent);
     padding-inline-start: 0;
-    font-size: clamp(#{px-to-rem(20px)}, 8vi, #{px-to-rem(32px)});
 
     &.selected {
       color: var(--color--brand);
-      @include nav-item-selected-decoration;
     }
   }
 
   a {
     color: inherit;
     text-decoration: none;
-    line-height: 2rem;
+  }
+
+  .selected a {
+    @include nav-item-selected-decoration;
   }
 
   .desktop-menu {
     display: none;
-  }
-
-  .content {
-    transition: all ease-in-out var(--transition--duration--slow);
-    opacity: 1;
-    visibility: visible;
-    &.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
   }
 
   @include breakpoint(lg) {
@@ -231,17 +271,12 @@
     }
 
     :global(.hamburger),
-    .mobile-menu,
-    .mobile-menu.open {
+    .mobile-menu {
       display: none;
     }
 
     .desktop-menu {
       display: block;
-    }
-
-    .mobile-menu {
-      display: none !important;
     }
 
     .nav-items {
