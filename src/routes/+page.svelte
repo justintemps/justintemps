@@ -25,10 +25,16 @@
   h1 {
     filter: drop-shadow(14px 13px 11px rgba(0, 0, 0, 0.5));
     font-weight: 700;
-    // The fluid scale tops out by width, so on a wide, short laptop screen the
-    // heading alone would fill the fold. Capping by height keeps all three
-    // lines and the top of the portrait in view.
-    font-size: min(var(--text--4xl), 15vh);
+    // Three caps on the fluid size. By height: on a wide, short laptop screen
+    // the heading alone would otherwise fill the fold. By the column width: on
+    // a phone the widest four-line split ("blow your") is 5.03em, so the
+    // heading is never more than four lines; this only bites below ~430px,
+    // where it meets the fluid scale.
+    font-size: min(
+      var(--text--4xl),
+      15vh,
+      calc((100vw - 2 * var(--size--edge--padding)) / 5.3)
+    );
     line-height: 1.05;
   }
 
@@ -178,35 +184,41 @@
   @media (prefers-reduced-motion: no-preference) {
     $ease-emerge: cubic-bezier(0.33, 1, 0.68, 1);
 
-    :global(.hp--intro.reveal) {
-      transition:
-        opacity 0.7s $ease-emerge,
-        transform 0.7s $ease-emerge,
-        filter 0.7s $ease-emerge;
-
-      :global(.hp--intro--img) {
-        transition: transform 0.6s $ease-emerge 0.1s;
-      }
-
-      :global(p) {
+    // On a phone the intro fills the screen the moment it is scrolled to, so
+    // the half-sunk resting state and the rise never read as an effect. It
+    // only plays from the md breakpoint up; below that the intro simply
+    // renders in its final state (the class toggling is harmless).
+    @include breakpoint(md) {
+      :global(.hp--intro.reveal) {
         transition:
-          opacity 0.6s $ease-emerge 0.2s,
-          transform 0.6s $ease-emerge 0.2s;
+          opacity 0.7s $ease-emerge,
+          transform 0.7s $ease-emerge,
+          filter 0.7s $ease-emerge;
+
+        :global(.hp--intro--img) {
+          transition: transform 0.6s $ease-emerge 0.1s;
+        }
+
+        :global(p) {
+          transition:
+            opacity 0.6s $ease-emerge 0.2s,
+            transform 0.6s $ease-emerge 0.2s;
+        }
       }
-    }
 
-    :global(html.js .hp--intro.reveal:not(.is-revealed)) {
-      opacity: 0.45;
-      transform: translateY(#{px-to-rem(40px)}) scale(0.98);
-      filter: blur(8px);
+      :global(html.js .hp--intro.reveal:not(.is-revealed)) {
+        opacity: 0.45;
+        transform: translateY(#{px-to-rem(40px)}) scale(0.98);
+        filter: blur(8px);
 
-      :global(.hp--intro--img) {
-        transform: translateY(#{px-to-rem(24px)});
-      }
+        :global(.hp--intro--img) {
+          transform: translateY(#{px-to-rem(24px)});
+        }
 
-      :global(p) {
-        opacity: 0.6;
-        transform: translateY(#{px-to-rem(16px)});
+        :global(p) {
+          opacity: 0.6;
+          transform: translateY(#{px-to-rem(16px)});
+        }
       }
     }
 

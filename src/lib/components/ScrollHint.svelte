@@ -1,7 +1,8 @@
 <script lang="ts">
-  // A "there's more below" cue for the home page. Sits at the bottom of the
-  // viewport until the visitor scrolls, then gets out of the way. Clicking it
-  // scrolls the intro into view, which also kicks off its reveal animation.
+  // A "there's more below" cue for the home page, md and up. Sits at the
+  // bottom of the viewport until the visitor scrolls, then gets out of the
+  // way. Clicking it scrolls the intro into view, which also kicks off its
+  // reveal animation.
   let scrollY = $state(0);
   const hidden = $derived(scrollY > 40);
 
@@ -39,12 +40,16 @@
 </button>
 
 <style lang="scss">
+  @use "$styles/mixins" as *;
+
   .scroll-hint {
+    // Phones get the intro in its final state with no reveal to point at, so
+    // the hint only shows from the md breakpoint up, matching the reveal.
+    display: none;
     position: fixed;
     bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
     left: 50%;
     translate: -50% 0;
-    display: grid;
     place-items: center;
     width: 3.25rem;
     height: 3.25rem;
@@ -77,6 +82,12 @@
 
     svg {
       animation: bob 1.8s ease-in-out infinite;
+    }
+  }
+
+  @include breakpoint(md) {
+    .scroll-hint {
+      display: grid;
     }
   }
 
