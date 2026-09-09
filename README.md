@@ -1,11 +1,16 @@
-# Hi, my name's Justin Smith
+# Hi, I'm Justin Smith 👋
 
-I'm a Digital Communication Officer at the International Labour Organization, a specialised labour organization.
-Welcome to my Github Profile!
+I manage digital projects for the Department of Communications at the [International Labour Organization](https://www.ilo.org), a specialised agency of the United Nations in Geneva. I write code, manage developers, and occasionally write about what I learn along the way.
 
-This is also the repo of my personal website, which is a WIP. I'll update this section with links and stuff once it's ready.
+I love JavaScript (Node.js, React, and Svelte) and I'm pretty handy with Python too, which I use for AI projects.
 
-In the meantime, feel free to reach out in any of the places where I hang out:
+🌐 **[justintemps.dev](https://justintemps.dev)** — my personal website, built with SvelteKit. This repo is its source code.
 
+✍️ [Notes](https://justintemps.dev/notes) · 🛠️ [Work](https://justintemps.dev/work) · 📩 [Contact](https://justintemps.dev/contact)
+
+Find me elsewhere:
+
+- [Bluesky](https://bsky.app/profile/justintemps.dev)
 - [LinkedIn](https://www.linkedin.com/in/justintemps/)
-- [Mastadon](https://fosstodon.org/@justintemps)
+
+Forza Roma, sempre.
