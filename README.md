@@ -1,4 +1,4 @@
-# Hi, I'm Justin Smith 👋
+# Hi, I'm Justin Smith
 
 I manage digital projects for the Department of Communications at the [International Labour Organization](https://www.ilo.org), a specialised agency of the United Nations in Geneva. I write code, manage developers, and occasionally write about what I learn along the way.
 
