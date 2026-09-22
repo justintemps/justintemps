@@ -14,6 +14,7 @@ const MIN_SOLVE_TIME_MS = 3 * 1000;
 
 const MAX_NAME_LENGTH = 100;
 const MAX_EMAIL_LENGTH = 254;
+const MAX_SUBJECT_LENGTH = 150;
 const MAX_MESSAGE_LENGTH = 3000;
 const MAX_LINKS = 1;
 
@@ -53,6 +54,14 @@ function sanitizeName(name: string): string {
     .trim();
 }
 
+/**
+ * The subject is also a header, but quotes and brackets are fine there, so
+ * only line breaks need to go.
+ */
+function sanitizeSubject(subject: string): string {
+  return subject.replace(/[\r\n]/g, " ").replace(/\s+/g, " ").trim();
+}
+
 function asString(value: FormDataEntryValue | null): string {
   return typeof value === "string" ? value : "";
 }
@@ -65,6 +74,7 @@ export const actions = {
     const honeypot = asString(formData.get("website"));
     const name = sanitizeName(asString(formData.get("name")));
     const email = asString(formData.get("email")).trim();
+    const subject = sanitizeSubject(asString(formData.get("subject")));
     const message = asString(formData.get("message")).trim();
 
     // Honeypot: humans never see this field, so anything in it is a bot.
@@ -94,7 +104,7 @@ export const actions = {
     }
 
     // If the required fields are missing, return an error
-    if (!name || !email || !message) {
+    if (!name || !email || !subject || !message) {
       return fail(400, { error: FORM_ERROR });
     }
 
@@ -102,6 +112,7 @@ export const actions = {
     if (
       name.length > MAX_NAME_LENGTH ||
       email.length > MAX_EMAIL_LENGTH ||
+      subject.length > MAX_SUBJECT_LENGTH ||
       message.length > MAX_MESSAGE_LENGTH ||
       !EMAIL_PATTERN.test(email)
     ) {
@@ -115,13 +126,14 @@ export const actions = {
     }
 
     // Send the email as plain text so nothing in the message is rendered as
-    // markup in the inbox.
+    // markup in the inbox. The sender's address goes in the body as well as
+    // Reply-To, since most mail clients don't show the Reply-To header.
     const { data, error } = await resend.emails.send({
       from: `${name} <contact@justintemps.dev>`,
       to: [RESEND_TO_EMAIL],
       replyTo: email,
-      subject: `${name} wants to get in touch`,
-      text: message
+      subject,
+      text: `From: ${name} <${email}>\n\n${message}`
     });
 
     // If the email fails to send, return an error

@@ -63,6 +63,10 @@
           />
         </label>
         <label>
+          Subject
+          <input type="text" name="subject" maxlength="150" required />
+        </label>
+        <label>
           Message
           <textarea name="message" rows="4" maxlength="3000" required
           ></textarea>
