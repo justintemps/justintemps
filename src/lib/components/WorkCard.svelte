@@ -31,7 +31,9 @@
   </figure>
   <div class="caption">
     <h2>{title}</h2>
-    <p>{description}</p>
+    <!-- Descriptions come from the site's own markdown frontmatter and may
+         carry an inline link, so they render as HTML. -->
+    <p>{@html description}</p>
     <a href={url} target="_blank" rel="noopener noreferrer">{host}</a>
   </div>
 </article>
