@@ -1,6 +1,6 @@
 ---
-title: I recorded a podcast about disruption and uncertainty
-description: I recently recorded a podcast interview with my friend Rafael Peels, an economist at the ILO, who has some interesting ideas about shocks and disruption.
+title: I recorded a podcast about uncertainty and disruption
+description: I recently recorded a podcast interview with my friend Rafael Peels, an economist at the ILO, who has some interesting ideas about how to expect the unexpected.
 date: 2026-05-26
 tags:
   - Podcasts
